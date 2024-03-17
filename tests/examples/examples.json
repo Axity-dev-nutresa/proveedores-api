@@ -1,0 +1,120 @@
+{
+  "Supplier": {
+    "list": [
+      {
+        "uuid": "96382cc6-a473-4485-a3b8-1fb4eb377c46",
+        "name": "Supplier name",
+        "description": "Supplier description",
+        "nit": 996,
+        "isActive": true,
+        "creatorUser": "Supplier creator user",
+        "editorUser": "Supplier editor user"
+      },
+      {
+        "uuid": "b389d73c-1b49-4a26-8f94-7b3641d72c81",
+        "name": "Supplier name",
+        "description": "Supplier description",
+        "nit": 507,
+        "isActive": true,
+        "creatorUser": "Supplier creator user",
+        "editorUser": "Supplier editor user"
+      },
+      {
+        "uuid": "2c88eb77-7730-4fbd-830a-48d06454fe20",
+        "name": "Supplier name",
+        "description": "Supplier description",
+        "nit": 501,
+        "isActive": true,
+        "creatorUser": "Supplier creator user",
+        "editorUser": "Supplier editor user"
+      }
+    ],
+    "new": {
+      "uuid": "629f9f80-d4f7-40bc-a0b1-99100a8268c8",
+      "name": "Supplier name",
+      "description": "Supplier description",
+      "nit": 503,
+      "isActive": true,
+      "creatorUser": "Supplier creator user",
+      "editorUser": "Supplier editor user"
+    },
+    "edit": {
+      "uuid": "96382cc6-a473-4485-a3b8-1fb4eb377c46",
+      "name": "Supplier name",
+      "description": "Supplier description",
+      "nit": 73,
+      "isActive": true,
+      "creatorUser": "Supplier creator user",
+      "editorUser": "Supplier editor user"
+    }
+  },
+  "Employee": {
+    "list": [
+      {
+        "uuid": "a7894342-5f08-4531-975c-862cba7eaf2f",
+        "firstName": "Employee first name",
+        "middleName": "Employee middle name",
+        "surname": "Employee surname",
+        "middleSurname": "Employee middle surname",
+        "documentType": "Emp",
+        "documentNumber": 515,
+        "birthdate": "2024-03-17",
+        "isActive": true,
+        "creatorUser": "Employee creator user",
+        "editorUser": "Employee editor user"
+      },
+      {
+        "uuid": "a4b59786-beea-43a4-8c1a-500b5978ab49",
+        "firstName": "Employee first name",
+        "middleName": "Employee middle name",
+        "surname": "Employee surname",
+        "middleSurname": "Employee middle surname",
+        "documentType": "Emp",
+        "documentNumber": 665,
+        "birthdate": "2024-03-17",
+        "isActive": true,
+        "creatorUser": "Employee creator user",
+        "editorUser": "Employee editor user"
+      },
+      {
+        "uuid": "0af28551-5030-4894-9870-5bdf085dcdda",
+        "firstName": "Employee first name",
+        "middleName": "Employee middle name",
+        "surname": "Employee surname",
+        "middleSurname": "Employee middle surname",
+        "documentType": "Emp",
+        "documentNumber": 269,
+        "birthdate": "2024-03-17",
+        "isActive": true,
+        "creatorUser": "Employee creator user",
+        "editorUser": "Employee editor user"
+      }
+    ],
+    "new": {
+      "uuid": "2f6b7f19-e387-47f0-ac86-baf4ca1dc3c4",
+      "firstName": "Employee first name",
+      "middleName": "Employee middle name",
+      "surname": "Employee surname",
+      "middleSurname": "Employee middle surname",
+      "documentType": "Emp",
+      "documentNumber": 724,
+      "birthdate": "2024-03-17",
+      "isActive": true,
+      "creatorUser": "Employee creator user",
+      "editorUser": "Employee editor user"
+    },
+    "edit": {
+      "uuid": "a7894342-5f08-4531-975c-862cba7eaf2f",
+      "firstName": "Employee first name",
+      "middleName": "Employee middle name",
+      "surname": "Employee surname",
+      "middleSurname": "Employee middle surname",
+      "documentType": "Emp",
+      "documentNumber": 73,
+      "birthdate": "2024-03-17",
+      "isActive": true,
+      "creatorUser": "Employee creator user",
+      "editorUser": "Employee editor user"
+    }
+  }
+}
