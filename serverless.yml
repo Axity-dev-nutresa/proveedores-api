@@ -1,4 +1,4 @@
-service: lambda-express-sequelize
+service: proveedores-api
 frameworkVersion: '3'
 provider:
   name: aws
