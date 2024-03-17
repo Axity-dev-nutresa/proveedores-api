@@ -1,7 +1,7 @@
 openapi: 3.0.0
 info:
-  title: lambda-express-sequelize
-  description: documentación lambda-express-sequelize
+  title: proveedores-api
+  description: Backend Proveedores
   version: 1.0.0
   servers:
     - http://localhost:4000
