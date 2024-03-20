@@ -3,10 +3,10 @@ import {DataTypes} from 'sequelize'
 export default {
   uuid: {
     type: DataTypes.UUID,
+    defaultValue: DataTypes.UUIDV4,
     allowNull: false,
     unique: true,
     primaryKey: true,
-    defaultValue: DataTypes.UUIDV4,
     comment: 'Identificador universal unico para la tabal proveedor.'
   },
   name: {
@@ -22,6 +22,7 @@ export default {
   nit: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    inique: true,
     comment: 'NIT del proveedor.'
   },
   isActive: {

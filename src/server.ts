@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser'
 import swaggerUi from 'swagger-ui-express'
 import morgan from 'morgan'
 import helmet from 'helmet'
+import cors from 'cors'
 import api from './api'
 import envVars from '@config/envVars'
 import statusCodes from '@config/statusCodes'
@@ -25,9 +26,9 @@ if (envVars.nodeEnv === NodeEnvs.prd) {
   server.use(helmet())
 }
 
-server.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerJson))
-
+server.use(cors())
 server.use('/api', api)
+server.use('/swagger', swaggerUi.serve, swaggerUi.setup(swaggerJson))
 
 server.use((error: Error, _req: Request, res: Response, _next: NextFunction) => {
   console.log(error)
