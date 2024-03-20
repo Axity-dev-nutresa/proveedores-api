@@ -34,11 +34,11 @@ export default {
   creatorUser: {
     type: DataTypes.STRING(36),
     allowNull: false,
-    comment: 'SUP del usuario que creo el proveedor.'
+    comment: 'Nombre de usuario que creo el proveedor.'
   },
   editorUser: {
     type: DataTypes.STRING(36),
-    allowNull: true,
-    comment: 'SUB del ultimo usuario que edito el proveedor.'
+    allowNull: false,
+    comment: 'Nombre de usuario que edito el proveedor.'
   }
 }
