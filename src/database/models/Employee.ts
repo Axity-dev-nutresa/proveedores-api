@@ -1,6 +1,6 @@
 import {DataTypes} from 'sequelize'
 
-export default {
+export default <any>{
   uuid: {
     type: DataTypes.UUID,
     allowNull: false,
@@ -29,22 +29,21 @@ export default {
     allowNull: true,
     comment: 'Segundo nombre del empleado.'
   },
-  documentType: {
+  dniType: {
     type: DataTypes.STRING(3),
     allowNull: false,
     comment: 'Tipo de documento del empleado.'
   },
-  documentNumber: {
+  dni: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    example: () => 23,
     comment: 'Numero de documento del empleado.'
   },
-  birthdate: {
-    type: DataTypes.DATEONLY,
-    allowNull: false,
-    comment: 'Fecha de nacimiento del empleado.'
-  },
+  // birthdate: {
+  //   type: DataTypes.DATEONLY,
+  //   allowNull: false,
+  //   comment: 'Fecha de nacimiento del empleado.'
+  // },
   isActive: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
@@ -54,11 +53,11 @@ export default {
   creatorUser: {
     type: DataTypes.STRING(36),
     allowNull: false,
-    comment: 'SUP del usuario que creo al empleado.'
+    comment: 'Nombre de usuario que creo el empleado.'
   },
   editorUser: {
     type: DataTypes.STRING(36),
-    allowNull: true,
-    comment: 'SUB del ultimo usuario que edito al empleado.'
+    allowNull: false,
+    comment: 'Nombre de usuario que edito el empleado.'
   }
 }
