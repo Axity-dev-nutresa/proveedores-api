@@ -1,13 +1,13 @@
 import {DataTypes} from 'sequelize'
 
-export default <any>{
+export default {
   uuid: {
     type: DataTypes.UUID,
     allowNull: false,
     unique: true,
     primaryKey: true,
     defaultValue: DataTypes.UUIDV4,
-    comment: 'Identificador universal unico para la tabal empleado.'
+    comment: 'Identificador universal unico para el empleado.'
   },
   firstName: {
     type: DataTypes.STRING(24),
@@ -39,11 +39,6 @@ export default <any>{
     allowNull: false,
     comment: 'Numero de documento del empleado.'
   },
-  // birthdate: {
-  //   type: DataTypes.DATEONLY,
-  //   allowNull: false,
-  //   comment: 'Fecha de nacimiento del empleado.'
-  // },
   isActive: {
     type: DataTypes.BOOLEAN,
     allowNull: false,

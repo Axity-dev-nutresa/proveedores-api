@@ -2,7 +2,7 @@ service: proveedores-api
 frameworkVersion: '3'
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs20.x
   iam:
     role: arn:aws:iam::664349461262:role/lambdaExecution
 functions:
