@@ -4,10 +4,12 @@ import type {Sequelize} from 'sequelize'
 
 export const relations = ({models}: Sequelize) => {
   if (envVars.nodeEnv !== NodeEnvs.test) {
-    const {Supplier, Employee, PersonalData} = models
+    const {Supplier, Employee, PersonalData, ContactInfo} = models
     Employee.belongsTo(Supplier, {foreignKey: 'supplierUuid'})
     Supplier.hasMany(Employee, {foreignKey: 'supplierUuid'})
     PersonalData.belongsTo(Employee, {foreignKey: 'uuid'})
     Employee.hasOne(PersonalData, {foreignKey: 'uuid'})
+    ContactInfo.belongsTo(Employee, {foreignKey: 'uuid'})
+    Employee.hasOne(ContactInfo, {foreignKey: 'uuid'})
   }
 }

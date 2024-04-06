@@ -13,7 +13,7 @@ export default {
     allowNull: false,
     comment: 'Fecha de nacimiento del empleado.'
   },
-  profilePicture: {
+  picture: {
     type: DataTypes.STRING(300),
     allowNull: false,
     comment: 'Foto de perfil del empleado.'
@@ -42,8 +42,18 @@ export default {
   eps: {
     type: DataTypes.STRING(24),
     allowNull: false,
-    comment: 'EPS del empleado.'
+    comment: 'Empresa prestadora de salud del empleado.'
   },
+  // afp: {
+  //   type: DataTypes.STRING(24),
+  //   allowNull: false,
+  //   comment: 'Administradoras de fondos de pensiones del empleado.'
+  // },
+  // ccf: {
+  //   type: DataTypes.STRING(24),
+  //   allowNull: false,
+  //   comment: 'Caja de compensacion familiar del empleado.'
+  // },
   academicLevel: {
     type: DataTypes.STRING(24),
     allowNull: false,
