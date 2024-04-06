@@ -1,15 +1,13 @@
-import envVars from '@config/envVars'
-import {NodeEnvs} from '@src/declarations/enums'
 import type {Sequelize} from 'sequelize'
 
 export const relations = ({models}: Sequelize) => {
-  if (envVars.nodeEnv !== NodeEnvs.test) {
-    const {Supplier, Employee, PersonalData, ContactInfo} = models
-    Employee.belongsTo(Supplier, {foreignKey: 'supplierUuid'})
-    Supplier.hasMany(Employee, {foreignKey: 'supplierUuid'})
-    PersonalData.belongsTo(Employee, {foreignKey: 'uuid'})
-    Employee.hasOne(PersonalData, {foreignKey: 'uuid'})
-    ContactInfo.belongsTo(Employee, {foreignKey: 'uuid'})
-    Employee.hasOne(ContactInfo, {foreignKey: 'uuid'})
-  }
+  const {Supplier, Employee, PersonalData, ContactData, EnterpriseData} = models
+  Employee.belongsTo(Supplier, {foreignKey: 'supplier'})
+  Supplier.hasMany(Employee, {foreignKey: 'supplier'})
+  PersonalData.belongsTo(Employee, {foreignKey: 'uuid'})
+  Employee.hasOne(PersonalData, {foreignKey: 'uuid'})
+  ContactData.belongsTo(Employee, {foreignKey: 'uuid'})
+  Employee.hasOne(ContactData, {foreignKey: 'uuid'})
+  EnterpriseData.belongsTo(Employee, {foreignKey: 'uuid'})
+  Employee.hasOne(EnterpriseData, {foreignKey: 'uuid'})
 }

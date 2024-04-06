@@ -1,12 +1,15 @@
-import type {Sequelize} from 'sequelize'
-import supplier from './models/Supplier'
-import employee from './models/Employee'
-import personalData from './models/PersonalData'
-import contactInfo from './models/ContactInfo'
+import fs from 'fs'
+import path from 'path'
+import type {Sequelize, Model} from 'sequelize'
 
-export const defineModels = (sequelize: Sequelize) => {
-  sequelize.define('Supplier', supplier)
-  sequelize.define('Employee', employee)
-  sequelize.define('PersonalData', personalData, {tableName: 'personal_data'})
-  sequelize.define('ContactInfo', contactInfo, {tableName: 'contact_info'})
+export const defineModels = async (sequelize: Sequelize) => {
+  const folders = fs.readdirSync(path.join('./src/database/models'))
+  const promiseDefine = folders.map(async (fileName) => {
+    const route = `./models/${fileName.replace('.ts', '')}`
+    const defineModel = <(sequelize: Sequelize) => Model<any>>(
+      (await import(route)).default
+    )
+    defineModel(sequelize)
+  })
+  await Promise.all(promiseDefine)
 }
