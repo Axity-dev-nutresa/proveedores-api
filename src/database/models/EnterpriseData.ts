@@ -22,7 +22,7 @@ export default (sequelize: Sequelize) => {
         comment: 'Correo electronico corporativo del empleado.'
       },
       carnet: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING(32),
         allowNull: false,
         comment: 'Numero de carnet del empleado.'
       },
@@ -40,16 +40,6 @@ export default (sequelize: Sequelize) => {
         type: DataTypes.INTEGER,
         allowNull: false,
         comment: 'Caja de compensacion familiar del empleado.'
-      },
-      academicLevel: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        comment: 'Nivel académico del empleado.'
-      },
-      academicTitle: {
-        type: DataTypes.STRING(99),
-        allowNull: false,
-        comment: 'Titulo académico obtenido por el empleado.'
       },
       role: {
         type: DataTypes.INTEGER,

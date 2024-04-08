@@ -6,7 +6,7 @@ import {NodeEnvs} from '@src/declarations/enums'
 
 let sequelize: Sequelize | null = null
 
-const purgeSequelize = (sequelize: any) => {
+const purgeSequelize = (sequelize: any): Sequelize => {
   // sequelize es de tipo any para poder eliminar getConnection
   sequelize.connectionManager.initPools()
   if (sequelize.connectionManager.hasOwnProperty('getConnection')) {
@@ -39,15 +39,11 @@ export const open = async (): Promise<Sequelize> => {
       }
     })
 
-    await defineModels(sequelize)
+    defineModels(sequelize)
 
     if (envVars.nodeEnv !== NodeEnvs.test) {
       relations(sequelize)
-      if (envVars.nodeEnv === NodeEnvs.prd) {
-        await sequelize.authenticate()
-      } else {
-        await sequelize.sync({force: false})
-      }
+      await sequelize.sync({force: false, alter: true})
     } else {
       await sequelize.sync({force: true})
     }
@@ -68,8 +64,6 @@ export const close = async () => {
 
 export const getModels = () => {
   if (!sequelize) throw new Error('NO se ha creado Sequelize')
-  if (!(sequelize instanceof Sequelize))
-    throw new Error('sequelize NO es de tipo Sequelize')
   return sequelize.models
 }
 

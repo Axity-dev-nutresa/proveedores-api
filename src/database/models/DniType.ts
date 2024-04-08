@@ -14,7 +14,7 @@ export default (sequelize: Sequelize) => {
       name: {
         type: DataTypes.STRING(32),
         allowNull: false,
-        comment: 'Numero de celular del empleado.'
+        comment: 'Nombre del tipo de documento.'
       }
     },
     {tableName: 'dni_type'}
