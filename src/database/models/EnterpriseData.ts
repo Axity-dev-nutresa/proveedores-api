@@ -17,7 +17,7 @@ export default (sequelize: Sequelize) => {
         comment: 'Usuario de red del empleado.'
       },
       email: {
-        type: DataTypes.STRING(99),
+        type: DataTypes.STRING(128),
         allowNull: false,
         comment: 'Correo electronico corporativo del empleado.'
       },

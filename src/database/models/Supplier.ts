@@ -13,7 +13,7 @@ export default (sequelize: Sequelize) => {
         comment: 'Identificador universal unico para la tabal proveedor.'
       },
       name: {
-        type: DataTypes.STRING(99),
+        type: DataTypes.STRING(64),
         allowNull: false,
         comment: 'Nombre del proveedor.'
       },

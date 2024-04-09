@@ -27,7 +27,7 @@ export default (sequelize: Sequelize) => {
         allowNull: false,
         comment: 'Primer nombre del empleado.'
       },
-      middleSurname: {
+      secondSurname: {
         type: DataTypes.STRING(32),
         allowNull: true,
         comment: 'Segundo nombre del empleado.'

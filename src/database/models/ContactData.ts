@@ -12,27 +12,27 @@ export default (sequelize: Sequelize) => {
         comment: 'Identificador universal unico para el empleado.'
       },
       cellPhone: {
-        type: DataTypes.STRING(32),
+        type: DataTypes.STRING(16),
         allowNull: false,
         comment: 'Numero de celular del empleado.'
       },
       email: {
-        type: DataTypes.STRING(99),
+        type: DataTypes.STRING(128),
         allowNull: false,
         comment: 'Correo electronico personal del empleado.'
       },
       province: {
-        type: DataTypes.STRING(99),
+        type: DataTypes.STRING(32),
         allowNull: false,
         comment: 'Departamento de residencia del empleado.'
       },
       city: {
-        type: DataTypes.STRING(99),
+        type: DataTypes.STRING(32),
         allowNull: false,
         comment: 'Ciudad de residencia del empleado.'
       },
       address: {
-        type: DataTypes.STRING(99),
+        type: DataTypes.STRING(128),
         allowNull: false,
         comment: 'Direccion de residencia del empleado.'
       },

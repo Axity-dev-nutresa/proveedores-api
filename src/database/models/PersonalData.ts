@@ -27,20 +27,30 @@ export default (sequelize: Sequelize) => {
         comment: 'Grupo sanguíneo del empleado.'
       },
       gender: {
-        type: DataTypes.STRING(32),
+        type: DataTypes.STRING(1),
         allowNull: false,
         comment: 'Genero del empleado.'
       },
       civilStatus: {
-        type: DataTypes.STRING(32),
+        type: DataTypes.INTEGER,
         allowNull: false,
         comment: 'Estado sivil del empleado.'
       },
       numberChildren: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         defaultValue: 0,
         comment: 'Número de hijos del empleado.'
+      },
+      academicLevel: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        comment: 'Nivel academico del empleado'
+      },
+      academicTitle: {
+        type: DataTypes.STRING(64),
+        allowNull: false,
+        comment: 'Titulo academico optenido por el empleado.'
       }
     },
     {tableName: 'personal_data'}
