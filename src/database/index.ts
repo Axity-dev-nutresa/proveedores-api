@@ -43,10 +43,8 @@ export const open = async (): Promise<Sequelize> => {
 
     if (envVars.nodeEnv !== NodeEnvs.test) {
       relations(sequelize)
-      await sequelize.sync({force: true, alter: true})
-    } else {
-      await sequelize.sync({force: true})
     }
+    await sequelize.sync({force: false, alter: false})
 
     return sequelize
   }
