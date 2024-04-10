@@ -25,9 +25,8 @@ export const mekeAtribut = (colum: ModelAttributeColumnOptions, tableName: strin
 
   if (/(INTEGER)|(NUMBER)/i.test(strType)) return crypto.randomInt(1024)
 
-  if (strType.includes('DATE')) return new Date(Date.now()).toJSON().split('T')[0]
-  // if (strType.includes('TIME')) return ['string', 8]
-  // if (strType.includes('DATETIME')) return ['string', 25]
+  if (/(DATE)|(DATEONLY)/i.test(strType))
+    return new Date(Date.now()).toJSON().split('T')[0]
   console.log(colum.field, strType)
   throw new Error(`Type "${strType}" not supported`)
 }

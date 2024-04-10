@@ -8,7 +8,6 @@ import db from '@db'
 const PATH_MODELS = './src/database/models'
 const lambda = agent(handler)
 let exp: any = {}
-const filesModel = fs.readdirSync(PATH_MODELS)
 
 const testModel = (modelName: string) => {
   describe(`Routes for model ${modelName}`, () => {
@@ -102,6 +101,8 @@ describe('Tests for CRUD', () => {
     await seq.sync({force: true})
     await db.close()
   })
+
+  const filesModel = fs.readdirSync(PATH_MODELS)
 
   filesModel.forEach((file) => {
     const path = PATH_MODELS + '/' + file

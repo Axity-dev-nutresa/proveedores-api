@@ -22,12 +22,12 @@ export default (sequelize: Sequelize) => {
         comment: 'Correo electronico personal del empleado.'
       },
       province: {
-        type: DataTypes.STRING(32),
+        type: DataTypes.STRING(2),
         allowNull: false,
         comment: 'Departamento de residencia del empleado.'
       },
       city: {
-        type: DataTypes.STRING(32),
+        type: DataTypes.STRING(5),
         allowNull: false,
         comment: 'Ciudad de residencia del empleado.'
       },

@@ -29,22 +29,27 @@ export default (sequelize: Sequelize) => {
       eps: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        comment: 'Empresa prestadora de salud del empleado.'
+        comment: 'Id de la empresa prestadora de salud del empleado.'
       },
       afp: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        comment: 'Administradoras de fondos de pensiones del empleado.'
+        comment: 'Id de la administradoras de fondos de pensiones del empleado.'
       },
       ccf: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        comment: 'Caja de compensacion familiar del empleado.'
+        comment: 'Id de la caja de compensación familiar del empleado.'
       },
       role: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        comment: 'Role del empleado en la compañia.'
+        comment: 'Id del rol del empleado.'
+      },
+      position: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        comment: 'Id del cargo que desempeña el empleado.'
       },
       salary: {
         type: DataTypes.INTEGER,

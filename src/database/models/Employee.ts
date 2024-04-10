@@ -57,6 +57,12 @@ export default (sequelize: Sequelize) => {
         type: DataTypes.STRING(32),
         allowNull: false,
         comment: 'Nombre de usuario que edito el empleado.'
+      },
+      supplier: {
+        type: DataTypes.UUID,
+        allowNull: false,
+        unique: true,
+        comment: 'Uuid del proveedor.'
       }
     },
     {tableName: 'employee'}

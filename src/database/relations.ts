@@ -2,6 +2,8 @@ import type {Sequelize} from 'sequelize'
 
 export const relations = ({models}: Sequelize) => {
   const {Supplier, Employee, PersonalData, ContactData, EnterpriseData} = models
+  const {DniType, BloodGroup, Gender, CivilStatus, AcademicLevel} = models
+  const {Role, Position, Eps, Afp, Ccf, Province, City} = models
   Employee.belongsTo(Supplier, {foreignKey: 'supplier'})
   Supplier.hasMany(Employee, {foreignKey: 'supplier'})
   PersonalData.belongsTo(Employee, {foreignKey: 'uuid'})
@@ -10,4 +12,30 @@ export const relations = ({models}: Sequelize) => {
   Employee.hasOne(ContactData, {foreignKey: 'uuid'})
   EnterpriseData.belongsTo(Employee, {foreignKey: 'uuid'})
   Employee.hasOne(EnterpriseData, {foreignKey: 'uuid'})
+  DniType.hasMany(Employee, {foreignKey: 'dniType'})
+  Employee.belongsTo(DniType, {foreignKey: 'dniType'})
+  BloodGroup.hasMany(PersonalData, {foreignKey: 'bloodGroup'})
+  PersonalData.belongsTo(BloodGroup, {foreignKey: 'bloodGroup'})
+  Gender.hasMany(PersonalData, {foreignKey: 'gender'})
+  PersonalData.belongsTo(Gender, {foreignKey: 'gender'})
+  CivilStatus.hasMany(PersonalData, {foreignKey: 'civil_status'})
+  PersonalData.belongsTo(CivilStatus, {foreignKey: 'civil_status'})
+  AcademicLevel.hasMany(PersonalData, {foreignKey: 'academic_level'})
+  PersonalData.belongsTo(AcademicLevel, {foreignKey: 'academic_level'})
+  Eps.hasMany(EnterpriseData, {foreignKey: 'eps'})
+  EnterpriseData.belongsTo(Eps, {foreignKey: 'eps'})
+  Afp.hasMany(EnterpriseData, {foreignKey: 'afp'})
+  EnterpriseData.belongsTo(Afp, {foreignKey: 'afp'})
+  Ccf.hasMany(EnterpriseData, {foreignKey: 'ccf'})
+  EnterpriseData.belongsTo(Ccf, {foreignKey: 'ccf'})
+  Role.hasMany(EnterpriseData, {foreignKey: 'role'})
+  EnterpriseData.belongsTo(Role, {foreignKey: 'role'})
+  Position.hasMany(EnterpriseData, {foreignKey: 'position'})
+  EnterpriseData.belongsTo(Position, {foreignKey: 'position'})
+  Province.hasMany(ContactData, {foreignKey: 'province'})
+  ContactData.belongsTo(Province, {foreignKey: 'province'})
+  City.hasMany(ContactData, {foreignKey: 'city'})
+  ContactData.belongsTo(City, {foreignKey: 'city'})
+  Province.hasMany(City, {foreignKey: 'province'})
+  City.belongsTo(Province, {foreignKey: 'province'})
 }
