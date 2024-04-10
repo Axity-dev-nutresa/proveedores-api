@@ -6,8 +6,9 @@ export default (sequelize: Sequelize) => {
     {
       id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
         primaryKey: true,
+        allowNull: false,
+        unique: true,
         autoIncrement: true,
         comment: 'Identificador único para el rol.'
       },

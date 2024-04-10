@@ -4,12 +4,13 @@ export default (sequelize: Sequelize) => {
   sequelize.define(
     'BloodGroup',
     {
-      code: {
-        type: DataTypes.STRING(4),
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
         allowNull: false,
         unique: true,
-        primaryKey: true,
-        comment: 'Código único para el grupo sanguíneo.'
+        autoIncrement: true,
+        comment: 'Identificador único para el grupo sanguíneo.'
       },
       bloodType: {
         type: DataTypes.STRING(2),

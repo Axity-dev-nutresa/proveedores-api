@@ -6,9 +6,10 @@ export default (sequelize: Sequelize) => {
     {
       id: {
         type: DataTypes.INTEGER,
-        allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
+        allowNull: false,
+        unique: true,
+        autoIncrement: true,
         comment: 'Identificador único para el estado civil.'
       },
       description: {

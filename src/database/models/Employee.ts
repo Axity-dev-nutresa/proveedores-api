@@ -6,9 +6,9 @@ export default (sequelize: Sequelize) => {
     {
       uuid: {
         type: DataTypes.UUID,
+        primaryKey: true,
         allowNull: false,
         unique: true,
-        primaryKey: true,
         defaultValue: DataTypes.UUIDV4,
         comment: 'Identificador universal unico para el empleado.'
       },

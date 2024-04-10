@@ -22,7 +22,7 @@ export default (sequelize: Sequelize) => {
         comment: 'Foto de perfil del empleado.'
       },
       bloodGroup: {
-        type: DataTypes.STRING(4),
+        type: DataTypes.INTEGER,
         allowNull: false,
         comment: 'Grupo sanguíneo del empleado.'
       },
