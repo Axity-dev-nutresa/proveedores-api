@@ -11,7 +11,7 @@ export default (sequelize: Sequelize) => {
         primaryKey: true,
         comment: 'Identificador único para el nivel académico.'
       },
-      description: {
+      name: {
         type: DataTypes.STRING(64),
         allowNull: false,
         comment: 'Descripción del nivel académico.'

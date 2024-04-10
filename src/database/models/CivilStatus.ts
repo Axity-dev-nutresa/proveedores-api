@@ -12,7 +12,7 @@ export default (sequelize: Sequelize) => {
         autoIncrement: true,
         comment: 'Identificador único para el estado civil.'
       },
-      description: {
+      name: {
         type: DataTypes.STRING(32),
         allowNull: false,
         comment: 'Descripción del estado civil.'

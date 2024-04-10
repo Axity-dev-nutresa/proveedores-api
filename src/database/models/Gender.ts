@@ -11,7 +11,7 @@ export default (sequelize: Sequelize) => {
         primaryKey: true,
         comment: 'Código único para el género.'
       },
-      description: {
+      name: {
         type: DataTypes.STRING(32),
         allowNull: false,
         comment: 'Descripción del género.'

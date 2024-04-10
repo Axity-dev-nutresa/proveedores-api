@@ -11,10 +11,10 @@ export default (sequelize: Sequelize) => {
         primaryKey: true,
         comment: 'Identificador unico para el tipo de documento.'
       },
-      description: {
+      name: {
         type: DataTypes.STRING(64),
         allowNull: false,
-        comment: 'Descripción del tipo de documento.'
+        comment: 'Nombre del tipo de documento.'
       },
       minLength: {
         type: DataTypes.INTEGER,
