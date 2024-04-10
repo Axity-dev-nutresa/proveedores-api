@@ -63,6 +63,24 @@ export default (sequelize: Sequelize) => {
         allowNull: false,
         unique: true,
         comment: 'Uuid del proveedor.'
+      },
+      name: {
+        type: DataTypes.VIRTUAL,
+        get() {
+          return `${this.getDataValue('firstName')} ${this.getDataValue('middleName')}`
+        }
+      },
+      lastName: {
+        type: DataTypes.VIRTUAL,
+        get() {
+          return `${this.getDataValue('surname')} ${this.getDataValue('secondSurname')}`
+        }
+      },
+      fullName: {
+        type: DataTypes.VIRTUAL,
+        get() {
+          return `${this.getDataValue('firstName')} ${this.getDataValue('middleName')} ${this.getDataValue('surname')} ${this.getDataValue('secondSurname')}`
+        }
       }
     },
     {tableName: 'employee'}
