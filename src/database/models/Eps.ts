@@ -16,6 +16,16 @@ export default (sequelize: Sequelize) => {
         type: DataTypes.STRING(64),
         allowNull: false,
         comment: 'Nombre de la empresa prestadora de salud.'
+      },
+      nit: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        comment: 'NIT de la empresa prestadora de salud.'
+      },
+      regimen: {
+        type: DataTypes.STRING(32),
+        allowNull: false,
+        comment: 'Nombre de la empresa prestadora de salud.'
       }
     },
     {tableName: 'eps'}

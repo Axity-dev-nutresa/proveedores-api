@@ -13,7 +13,12 @@ export default (sequelize: Sequelize) => {
         comment: 'Identificador único para cada cargo.'
       },
       name: {
-        type: DataTypes.STRING(64),
+        type: DataTypes.STRING(36),
+        allowNull: false,
+        comment: 'Nombre del cargo.'
+      },
+      description: {
+        type: DataTypes.STRING(256),
         allowNull: false,
         comment: 'Nombre del cargo.'
       }

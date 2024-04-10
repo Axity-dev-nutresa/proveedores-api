@@ -38,4 +38,6 @@ export const relations = ({models}: Sequelize) => {
   ContactData.belongsTo(City, {foreignKey: 'city'})
   Province.hasMany(City, {foreignKey: 'province'})
   City.belongsTo(Province, {foreignKey: 'province'})
+  Province.hasMany(Ccf, {foreignKey: 'province'})
+  Ccf.belongsTo(Province, {foreignKey: 'province'})
 }

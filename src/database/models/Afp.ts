@@ -16,6 +16,11 @@ export default (sequelize: Sequelize) => {
         type: DataTypes.STRING(64),
         allowNull: false,
         comment: 'Nombre de la Administradoras de fondos de pensiones.'
+      },
+      nit: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        comment: 'NIT de caja de compensacion familiar.'
       }
     },
     {tableName: 'afp'}
