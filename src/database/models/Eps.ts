@@ -20,6 +20,7 @@ export default (sequelize: Sequelize) => {
       nit: {
         type: DataTypes.INTEGER,
         allowNull: false,
+        unique: true,
         comment: 'NIT de la empresa prestadora de salud.'
       },
       regimen: {

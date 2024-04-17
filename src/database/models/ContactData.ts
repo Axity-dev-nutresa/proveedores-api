@@ -14,11 +14,13 @@ export default (sequelize: Sequelize) => {
       cellPhone: {
         type: DataTypes.STRING(16),
         allowNull: false,
+        unique: true,
         comment: 'Numero de celular del empleado.'
       },
       email: {
         type: DataTypes.STRING(128),
         allowNull: false,
+        unique: true,
         comment: 'Correo electronico personal del empleado.'
       },
       province: {
@@ -34,11 +36,13 @@ export default (sequelize: Sequelize) => {
       address: {
         type: DataTypes.STRING(128),
         allowNull: false,
+        unique: true,
         comment: 'Direccion de residencia del empleado.'
       },
       phone: {
         type: DataTypes.STRING(16),
         allowNull: true,
+        unique: true,
         comment: 'Numero de telefono fijo del empleado.'
       }
     },

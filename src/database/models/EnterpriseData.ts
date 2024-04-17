@@ -14,16 +14,19 @@ export default (sequelize: Sequelize) => {
       networkUser: {
         type: DataTypes.STRING(32),
         allowNull: false,
+        unique: true,
         comment: 'Usuario de red del empleado.'
       },
       email: {
         type: DataTypes.STRING(128),
         allowNull: false,
+        unique: true,
         comment: 'Correo electronico corporativo del empleado.'
       },
       carnet: {
         type: DataTypes.STRING(32),
         allowNull: false,
+        unique: true,
         comment: 'Numero de carnet del empleado.'
       },
       eps: {

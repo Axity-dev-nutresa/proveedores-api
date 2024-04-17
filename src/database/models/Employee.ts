@@ -61,7 +61,6 @@ export default (sequelize: Sequelize) => {
       supplier: {
         type: DataTypes.UUID,
         allowNull: false,
-        unique: true,
         comment: 'Uuid del proveedor.'
       },
       name: {

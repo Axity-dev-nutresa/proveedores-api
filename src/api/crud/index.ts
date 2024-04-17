@@ -10,7 +10,15 @@ export const router = Router()
 router.get('/:modelName/', async (req: Request, res: Response): Promise<any> => {
   const {modelName} = req.params
   const Model = getModels()[modelName]
-  const result = await Model.findAll()
+  const colums = Object.keys(Model.getAttributes())
+  const cuerys = colums.reduce((acc, key) => {
+    const value = req.query[key]
+    if (value) acc.push({[key]: value})
+    return acc
+  }, [] as any)
+  const result = await Model.findAll({
+    where: cuerys.length > 0 ? {[Op.and]: cuerys} : {}
+  })
   return res.status(statusCodes.OK).json(result)
 })
 
@@ -19,9 +27,10 @@ router.get('/:modelName/filter', async (req: Request, res: Response) => {
   const Model = getModels()[modelName]
   const colums = Object.keys(Model.getAttributes())
   const cuerys = colums.reduce((acc, key) => {
-    if (req.query[key]) {
-      if (key === 'uuid') acc.push({[key]: req.query[key]})
-      else acc.push({[key]: {[Op.like]: `%${req.query[key]}%`}})
+    const value = req.query[key]
+    if (value) {
+      if (key === 'uuid') acc.push({[key]: value})
+      else acc.push({[key]: {[Op.like]: `%${value}%`}})
     }
     return acc
   }, [] as any)

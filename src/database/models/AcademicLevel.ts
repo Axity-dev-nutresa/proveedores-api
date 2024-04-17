@@ -9,6 +9,7 @@ export default (sequelize: Sequelize) => {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
+        unique: true,
         comment: 'Identificador único para el nivel académico.'
       },
       name: {
