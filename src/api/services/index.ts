@@ -13,7 +13,7 @@ router.post('/fileS3', async (req: Request, res: Response) => {
   if (!filePath)
     return res.status(400).json({error: 'No se encontro path para el archivo.'})
 
-  const urlS3 = await saveFileS3(file, `supplier-api/${filePath}`)
+  const urlS3 = await saveFileS3(file, filePath)
 
   return res.status(statusCodes.OK).json({urlS3})
 })

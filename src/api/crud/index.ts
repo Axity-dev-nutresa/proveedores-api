@@ -28,6 +28,7 @@ router.get('/:modelName/filter', async (req: Request, res: Response) => {
   const colums = Object.keys(Model.getAttributes())
   const cuerys = colums.reduce((acc, key) => {
     const value = req.query[key]
+    if (typeof value !== 'string') return acc
     if (value) {
       if (key === 'uuid') acc.push({[key]: value})
       else acc.push({[key]: {[Op.like]: `%${value}%`}})
