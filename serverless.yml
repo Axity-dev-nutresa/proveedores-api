@@ -1,4 +1,4 @@
-service: proveedores-api
+service: proveedores
 frameworkVersion: '3'
 provider:
   name: aws
@@ -8,6 +8,7 @@ provider:
 functions:
   api:
     handler: src/lambda.handler
+    timeout: 30
     events:
       - httpApi: '*'
 custom:

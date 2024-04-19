@@ -1,8 +1,6 @@
+import envVars from '@config/envVars'
 import {Sequelize} from 'sequelize'
 import {defineModels} from './defineModels'
-import envVars from '@config/envVars'
-import {relations} from './relations'
-import {NodeEnvs} from '@src/declarations/enums'
 
 let sequelize: Sequelize | null = null
 
@@ -40,12 +38,7 @@ export const open = async (): Promise<Sequelize> => {
     })
 
     defineModels(sequelize)
-
-    if (envVars.nodeEnv !== NodeEnvs.test) {
-      relations(sequelize)
-    }
     await sequelize.sync({force: false, alter: false})
-
     return sequelize
   }
   return purgeSequelize(sequelize)
