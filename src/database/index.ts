@@ -1,16 +1,17 @@
 import envVars from '@config/envVars'
+import mysql2 from 'mysql2'
 import {Sequelize} from 'sequelize'
 import {defineModels} from './defineModels'
 
 let sequelize: Sequelize | null = null
 
-const purgeSequelize = (sequelize: any): Sequelize => {
-  // sequelize es de tipo any para poder eliminar getConnection
-  sequelize.connectionManager.initPools()
-  if (sequelize.connectionManager.hasOwnProperty('getConnection')) {
-    delete sequelize.connectionManager['getConnection']
+const purgeSequelize = (sqz: any): Sequelize => {
+  // sqz is of type any so that getConnection can be removed
+  sqz.connectionManager.initPools()
+  if (sqz.connectionManager.hasOwnProperty('getConnection')) {
+    delete sqz.connectionManager['getConnection']
   }
-  return sequelize
+  return sqz
 }
 
 export const open = async (): Promise<Sequelize> => {
@@ -18,6 +19,7 @@ export const open = async (): Promise<Sequelize> => {
     sequelize = new Sequelize(envVars.dbName, envVars.dbUser, envVars.dbPass, {
       host: envVars.dbHost,
       dialect: 'mysql',
+      dialectModule: mysql2,
       dialectOptions: {
         ssl: envVars.dbSsl
       },
@@ -54,7 +56,7 @@ export const close = async () => {
 }
 
 export const getModels = () => {
-  if (!sequelize) throw new Error('NO se ha creado Sequelize')
+  if (!sequelize) throw new Error('Sequelize has NOT been created')
   return sequelize.models
 }
 

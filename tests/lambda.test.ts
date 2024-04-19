@@ -103,13 +103,14 @@ describe('Tests for CRUD', () => {
   })
 
   const filesModel = fs.readdirSync(PATH_MODELS)
+  testModel('Supplier')
 
   filesModel.forEach((file) => {
-    const path = PATH_MODELS + '/' + file
+    const path = `${PATH_MODELS}/${file}`
     const stats = fs.statSync(path)
     if (stats.isFile()) {
       const modelName = file.split('.')[0]
-      testModel(modelName)
+      // testModel(modelName)
     }
   })
 

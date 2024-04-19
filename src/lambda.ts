@@ -15,7 +15,7 @@ export const handler: APIGatewayProxyHandler = async (
   try {
     await db.open()
     if (!event) throw Error('event no tiene un valor valido')
-    return <APIGatewayProxyResult>await serverless(server)(event, context)
+    return (await serverless(server)(event, context)) as APIGatewayProxyResult
   } catch (error) {
     console.error(error)
     return {

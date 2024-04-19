@@ -1,3 +1,7 @@
+/*
+ * file
+ */
+
 import {NodeEnvs} from '@src/declarations/enums'
 import env from 'dotenv'
 import path from 'path'
