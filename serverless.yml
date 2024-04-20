@@ -10,7 +10,16 @@ functions:
     handler: src/lambda.handler
     timeout: 30
     events:
-      - httpApi: '*'
+      - httpApi:
+          method: ANY
+          path: '/api/{proxy+}'
+  seveFileS3:
+    handler: src/lambda.seveFileS3
+    timeout: 30
+    events:
+      - httpApi:
+          method: post
+          path: '/service/{proxy+}'
 custom:
   esbuild:
     bundle: true

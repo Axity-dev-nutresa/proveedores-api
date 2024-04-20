@@ -1,9 +1,9 @@
-import yaml from 'js-yaml'
 import fs from 'fs'
-import {name, version, description} from 'package.json'
-import {mekeSchema} from './mekeSchema'
-import type {ModelStatic, Model} from 'sequelize'
+import yaml from 'js-yaml'
+import {description, name, version} from 'package.json'
+import type {Model, ModelStatic} from 'sequelize'
 import type {LambdaConfog, LambdaResult} from '../types'
+import {mekeSchema} from './mekeSchema'
 
 export type Models = {[key: string]: ModelStatic<Model<any, any>>}
 
@@ -14,7 +14,7 @@ export interface Parameters {
   required: boolean
 }
 
-let swaggerObject: any = {
+const swaggerObject: any = {
   openapi: '3.0.0',
   info: {
     title: name,
@@ -32,8 +32,8 @@ let swaggerObject: any = {
 }
 
 export const saveSwagger = () => {
-  fs.writeFileSync('./swagger.json', JSON.stringify(swaggerObject), 'utf8')
-  fs.writeFileSync('./swagger.yml', yaml.dump(swaggerObject), 'utf8')
+  fs.writeFileSync('./src/swagger.json', JSON.stringify(swaggerObject), 'utf8')
+  fs.writeFileSync('./src/swagger.yml', yaml.dump(swaggerObject), 'utf8')
 }
 
 export const addModels = (models: ModelStatic<Model<any, any>>[], examples: any) => {
@@ -80,29 +80,29 @@ const mekeContent = (data: any) => {
 
 const getParameters = (action: LambdaConfog) => {
   const [baseUrl, params] = Object.entries(action.params).reduce(
-    ([path, parameters], [key, value]) => {
+    ([path, parameter], [key, value]) => {
       path = path.replace(`:${key}`, `{${key}}`)
-      parameters.push({
+      parameter.push({
         name: key,
         in: 'path',
         type: typeof value,
         required: true
       })
-      return [path, parameters]
+      return [path, parameter]
     },
     [action.path, [] as Parameters[]]
   )
 
   const [url, parameters] = Object.entries(action.querys).reduce(
-    ([path, parameters], [key, value]) => {
+    ([path, parameter], [key, value]) => {
       path += `${!path.includes('?') ? '?' : '&'}${key}={${key}}`
-      parameters.push({
+      parameter.push({
         name: key,
         in: 'path',
         type: typeof value,
         required: false
       })
-      return [path, parameters]
+      return [path, parameter]
     },
     [baseUrl, params]
   )

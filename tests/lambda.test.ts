@@ -4,8 +4,11 @@ import {getExamples} from './examples'
 import agent from './agent'
 import {addModels, saveSwagger} from './swagger'
 import db from '@db'
+import statusCodes from '@config/statusCodes'
 
 const PATH_MODELS = './src/database/models'
+const CONTENT_TYPE = 'content-type'
+const filesModel = fs.readdirSync(PATH_MODELS)
 const lambda = agent(handler)
 let exp: any = {}
 
@@ -30,8 +33,8 @@ const testModel = (modelName: string) => {
         body: null
       }
       const {statusCode, headers, data} = await lambda(config)
-      expect(statusCode).toBe(200)
-      expect(headers?.['content-type']).toMatch(/application\/json/)
+      expect(statusCode).toBe(statusCodes.OK)
+      expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
       expect(Array.isArray(data)).toBe(true)
       expect(data.length).toBe(exp[modelName].list.length)
     })
@@ -44,12 +47,12 @@ const testModel = (modelName: string) => {
         modelName,
         params: {},
         querys: {},
-        headers: {'Content-Type': 'application/json; charset=utf-8'},
+        headers: {[CONTENT_TYPE]: 'application/json; charset=utf-8'},
         body: newElement
       }
       const {statusCode, headers, data} = await lambda(config)
-      expect(statusCode).toBe(200)
-      expect(headers?.['content-type']).toMatch(/application\/json/)
+      expect(statusCode).toBe(statusCodes.OK)
+      expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
       expect(data).toEqual(newElement)
     })
 
@@ -61,12 +64,12 @@ const testModel = (modelName: string) => {
         modelName,
         params: {uuid: editElement.uuid},
         querys: {},
-        headers: {'Content-Type': 'application/json; charset=utf-8'},
+        headers: {[CONTENT_TYPE]: 'application/json; charset=utf-8'},
         body: editElement
       }
       const {statusCode, headers, data} = await lambda(config)
-      expect(statusCode).toBe(200)
-      expect(headers?.['content-type']).toMatch(/application\/json/)
+      expect(statusCode).toBe(statusCodes.OK)
+      expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
       expect(data).toEqual(editElement)
     })
 
@@ -82,8 +85,8 @@ const testModel = (modelName: string) => {
         body: null
       }
       const {statusCode, headers, data} = await lambda(config)
-      expect(statusCode).toBe(200)
-      expect(headers?.['content-type']).toMatch(/application\/json/)
+      expect(statusCode).toBe(statusCodes.OK)
+      expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
       expect(Array.isArray(data)).toBe(true)
 
       expect(data[0]).toBeDefined()
@@ -102,15 +105,12 @@ describe('Tests for CRUD', () => {
     await db.close()
   })
 
-  const filesModel = fs.readdirSync(PATH_MODELS)
-  testModel('Supplier')
-
   filesModel.forEach((file) => {
     const path = `${PATH_MODELS}/${file}`
     const stats = fs.statSync(path)
     if (stats.isFile()) {
       const modelName = file.split('.')[0]
-      // testModel(modelName)
+      testModel(modelName)
     }
   })
 
