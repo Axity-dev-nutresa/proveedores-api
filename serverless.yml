@@ -1,4 +1,4 @@
-service: proveedores
+service: proveedores-api
 frameworkVersion: '3'
 provider:
   name: aws
@@ -7,20 +7,22 @@ provider:
     role: arn:aws:iam::664349461262:role/lambdaExecution
 functions:
   api:
-    handler: src/lambda.handler
+    handler: src/api/index.handler
     timeout: 30
     events:
       - httpApi:
           method: ANY
           path: '/api/{proxy+}'
-  seveFileS3:
-    handler: src/lambda.seveFileS3
+  services:
+    handler: src/services/index.handler
     timeout: 30
     events:
       - httpApi:
           method: post
           path: '/service/{proxy+}'
 custom:
+  dotenv:
+    path: .env
   esbuild:
     bundle: true
     minify: true
@@ -29,3 +31,4 @@ custom:
 plugins:
   - serverless-esbuild
   - serverless-offline
+  - serverless-dotenv-plugin
