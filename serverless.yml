@@ -8,14 +8,12 @@ provider:
 functions:
   api:
     handler: src/api/index.handler
-    timeout: 30
     events:
       - httpApi:
           method: ANY
           path: '/api/{proxy+}'
   services:
     handler: src/services/index.handler
-    timeout: 30
     events:
       - httpApi:
           method: post
