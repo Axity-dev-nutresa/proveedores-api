@@ -1,5 +1,5 @@
 import statusCodes from '@config/statusCodes'
-import {saveFileS3} from '@src/utils/seveFileS3'
+import {saveFileS3} from '@src/utils/saveFileS3'
 import type {Request, Response} from 'express'
 import {Router} from 'express'
 
