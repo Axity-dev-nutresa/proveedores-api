@@ -7,6 +7,7 @@ import defineCcf from './models/Ccf'
 import defineCity from './models/City'
 import defineCivilStatus from './models/CivilStatus'
 import defineCompany from './models/Company'
+import defineCompanyType from './models/CompanyType'
 import defineContactData from './models/ContactData'
 import defineDniType from './models/DniType'
 import defineEmployee from './models/Employee'
@@ -21,7 +22,6 @@ import defineRegional from './models/Regional'
 import defineRole from './models/Role'
 import defineService from './models/Service'
 import defineSupplier from './models/Supplier'
-import defineType from './models/Type'
 
 export const defineModels = (sequelize: Sequelize) => {
   defineAcademicLevel(sequelize)
@@ -32,6 +32,7 @@ export const defineModels = (sequelize: Sequelize) => {
   defineCity(sequelize)
   defineCivilStatus(sequelize)
   defineCompany(sequelize)
+  defineCompanyType(sequelize)
   defineContactData(sequelize)
   defineDniType(sequelize)
   defineEmployee(sequelize)
@@ -46,5 +47,4 @@ export const defineModels = (sequelize: Sequelize) => {
   defineRole(sequelize)
   defineService(sequelize)
   defineSupplier(sequelize)
-  defineType(sequelize)
 }

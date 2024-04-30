@@ -2,7 +2,7 @@ import {DataTypes, Sequelize} from 'sequelize'
 
 export default (sequelize: Sequelize) => {
   sequelize.define(
-    'Type',
+    'CompanyType',
     {
       id: {
         type: DataTypes.INTEGER,
@@ -18,6 +18,6 @@ export default (sequelize: Sequelize) => {
         comment: 'Nombre del tipo de empresa.'
       }
     },
-    {tableName: 'type'}
+    {tableName: 'company_type'}
   )
 }

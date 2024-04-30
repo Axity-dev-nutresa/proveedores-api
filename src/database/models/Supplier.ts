@@ -54,7 +54,7 @@ export default (sequelize: Sequelize) => {
         allowNull: false,
         comment: 'Localidad.'
       },
-      type: {
+      companyType: {
         type: DataTypes.INTEGER,
         allowNull: false,
         comment: 'Tipo de empresa.'
