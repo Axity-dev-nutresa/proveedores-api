@@ -4,8 +4,21 @@ export const relations = ({models}: Sequelize) => {
   const {Supplier, Employee, PersonalData, ContactData, EnterpriseData} = models
   const {DniType, BloodGroup, Gender, CivilStatus, AcademicLevel} = models
   const {Role, Position, Eps, Afp, Ccf, Province, City} = models
+  const {Business, Company, Regional, Location, Type, Service} = models
   Employee.belongsTo(Supplier, {foreignKey: 'supplier'})
   Supplier.hasMany(Employee, {foreignKey: 'supplier'})
+  Business.hasMany(Supplier, {foreignKey: 'business'})
+  Supplier.belongsTo(Business, {foreignKey: 'business'})
+  Company.hasMany(Supplier, {foreignKey: 'company'})
+  Supplier.belongsTo(Company, {foreignKey: 'company'})
+  Regional.hasMany(Supplier, {foreignKey: 'regional'})
+  Supplier.belongsTo(Regional, {foreignKey: 'regional'})
+  Location.hasMany(Supplier, {foreignKey: 'location'})
+  Supplier.belongsTo(Location, {foreignKey: 'location'})
+  Type.hasMany(Supplier, {foreignKey: 'type'})
+  Supplier.belongsTo(Type, {foreignKey: 'type'})
+  Service.hasMany(Supplier, {foreignKey: 'service'})
+  Supplier.belongsTo(Service, {foreignKey: 'service'})
   PersonalData.belongsTo(Employee, {foreignKey: 'uuid'})
   Employee.hasOne(PersonalData, {foreignKey: 'uuid'})
   ContactData.belongsTo(Employee, {foreignKey: 'uuid'})

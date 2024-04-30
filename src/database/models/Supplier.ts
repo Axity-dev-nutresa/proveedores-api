@@ -26,7 +26,43 @@ export default (sequelize: Sequelize) => {
         type: DataTypes.STRING(32),
         allowNull: false,
         unique: true,
-        comment: 'NIT del proveedor.'
+        comment: 'número de NIT del proveedor.'
+      },
+      sapCode: {
+        type: DataTypes.STRING(32),
+        allowNull: false,
+        unique: true,
+        comment: 'Codigo SAP del proveedor.'
+      },
+      business: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        comment: 'Negocio.'
+      },
+      company: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        comment: 'Empresa.'
+      },
+      regional: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        comment: 'Regional.'
+      },
+      location: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        comment: 'Localidad.'
+      },
+      type: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        comment: 'Tipo de empresa.'
+      },
+      service: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        comment: 'Servicio prestado.'
       },
       isActive: {
         type: DataTypes.BOOLEAN,

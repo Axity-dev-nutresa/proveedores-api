@@ -5,7 +5,7 @@
   "scripts": {
     "deploy": "serverless deploy",
     "start": "ts-node --files -r tsconfig-paths/register ./src",
-    "migrate": "ts-node --files -r tsconfig-paths/register ./src/database/migrate",
+    "migrate": "cross-env NODE_ENV=dev ts-node --files -r tsconfig-paths/register ./src/database/migrate",
     "dev": "nodemon",
     "test": "jest --coverage && npm run format",
     "test-w": "jest --watch -o",

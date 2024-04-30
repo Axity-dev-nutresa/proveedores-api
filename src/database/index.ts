@@ -30,7 +30,7 @@ export const open = async (): Promise<Sequelize> => {
         acquire: 9000,
         evict: 9000
       },
-      port: envVars.dbport,
+      port: envVars.dbPort,
       logging: false,
       define: {
         freezeTableName: true,
@@ -40,7 +40,7 @@ export const open = async (): Promise<Sequelize> => {
     })
 
     defineModels(sequelize)
-    await sequelize.sync({force: false, alter: false})
+    await sequelize.sync({force: false})
     return sequelize
   }
   return purgeSequelize(sequelize)

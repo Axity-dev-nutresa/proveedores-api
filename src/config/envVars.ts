@@ -21,7 +21,7 @@ export default {
   dbHost: process.env.DB_HOST ?? '',
   dbPass: process.env.DB_PASSWORD ?? '',
   dbSsl: process.env.DB_SSL ?? null,
-  dbport: Number(process.env.DB_PORT ?? 0),
+  dbPort: Number(process.env.DB_PORT ?? 0),
   awsS3: {
     accessKeyId: process.env.AWS_S3_ACCESS_KEY_ID ?? '',
     secretAccessKey: process.env.AWS_S3_SECRET_ACCESS_KEY ?? '',
