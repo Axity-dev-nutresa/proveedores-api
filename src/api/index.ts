@@ -10,7 +10,6 @@ import type {
 import serverless from 'serverless-http'
 
 const getResponseError = (error: any) => {
-  console.error(error)
   return {
     isBase64Encoded: false,
     statusCode: 500,
@@ -29,6 +28,7 @@ export const handler: APIGatewayProxyHandler = async (
     if (!event) throw Error('"event" does not have a valid value')
     return (await serverless(server)(event, context)) as APIGatewayProxyResult
   } catch (error) {
+    console.error(error)
     return getResponseError(error)
   } finally {
     await db.close()
