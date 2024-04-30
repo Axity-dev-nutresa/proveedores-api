@@ -1,10 +1,12 @@
-import type {Sequelize} from 'sequelize'
+import {getModels} from '@db'
 
-export const relations = ({models}: Sequelize) => {
+export const relations = () => {
+  const models = getModels()
   const {Supplier, Employee, PersonalData, ContactData, EnterpriseData} = models
-  const {DniType, BloodGroup, Gender, CivilStatus, AcademicLevel} = models
-  const {Role, Position, Eps, Afp, Ccf, Province, City} = models
+  const {DniType, BloodGroup, Gender, CivilStatus, AcademicLevel, City} = models
+  const {Role, Position, Eps, Afp, Ccf, Arl, RiskLevel, RiskClass, Province} = models
   const {Business, Company, Regional, Location, CompanyType, Service} = models
+
   Employee.belongsTo(Supplier, {foreignKey: 'supplier'})
   Supplier.hasMany(Employee, {foreignKey: 'supplier'})
   Business.hasMany(Supplier, {foreignKey: 'business'})
@@ -19,7 +21,24 @@ export const relations = ({models}: Sequelize) => {
   Supplier.belongsTo(CompanyType, {foreignKey: 'company_type'})
   Service.hasMany(Supplier, {foreignKey: 'service'})
   Supplier.belongsTo(Service, {foreignKey: 'service'})
-  PersonalData.belongsTo(Employee, {foreignKey: 'uuid'})
+
+  Gender.hasMany(Employee, {foreignKey: 'gender'})
+  Employee.belongsTo(Gender, {foreignKey: 'gender'})
+  AcademicLevel.hasMany(Employee, {foreignKey: 'academic_level'})
+  Employee.belongsTo(AcademicLevel, {foreignKey: 'academic_level'})
+  Position.hasMany(Employee, {foreignKey: 'position'})
+  Employee.belongsTo(AcademicLevel, {foreignKey: 'position'})
+  Province.hasMany(Employee, {foreignKey: 'province'})
+  Employee.belongsTo(Province, {foreignKey: 'province'})
+  City.hasMany(Employee, {foreignKey: 'city'})
+  Employee.belongsTo(City, {foreignKey: 'city'})
+  Arl.hasMany(Employee, {foreignKey: 'arl'})
+  Employee.belongsTo(Arl, {foreignKey: 'arl'})
+  RiskLevel.hasMany(Employee, {foreignKey: RiskLevel.tableName})
+  Employee.belongsTo(RiskLevel, {foreignKey: RiskLevel.tableName})
+  RiskClass.hasMany(Employee, {foreignKey: RiskClass.tableName})
+  Employee.belongsTo(RiskClass, {foreignKey: RiskClass.tableName})
+
   Employee.hasOne(PersonalData, {foreignKey: 'uuid'})
   ContactData.belongsTo(Employee, {foreignKey: 'uuid'})
   Employee.hasOne(ContactData, {foreignKey: 'uuid'})

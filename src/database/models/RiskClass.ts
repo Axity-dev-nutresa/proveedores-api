@@ -2,7 +2,7 @@ import {DataTypes, Sequelize} from 'sequelize'
 
 export default (sequelize: Sequelize) => {
   sequelize.define(
-    'Afp',
+    'RiskClass',
     {
       id: {
         type: DataTypes.INTEGER,
@@ -10,19 +10,14 @@ export default (sequelize: Sequelize) => {
         allowNull: false,
         unique: true,
         autoIncrement: true,
-        comment: 'Identificador único para la administradoras de fondos de pensiones.'
+        comment: 'Identificador único para la administradoras de riesgos laborales.'
       },
       name: {
         type: DataTypes.STRING(64),
         allowNull: false,
-        comment: 'Nombre de la administradoras de fondos de pensiones.'
-      },
-      nit: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        comment: 'NIT de la administradoras de fondos de pensiones.'
+        comment: 'Nombre de la administradoras de riesgos laborales.'
       }
     },
-    {tableName: 'afp'}
+    {tableName: 'risk_class'}
   )
 }

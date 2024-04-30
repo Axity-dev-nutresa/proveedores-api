@@ -5,7 +5,7 @@ export default (sequelize: Sequelize) => {
     'City',
     {
       id: {
-        type: DataTypes.STRING(5),
+        type: DataTypes.STRING(8),
         allowNull: false,
         unique: true,
         primaryKey: true,

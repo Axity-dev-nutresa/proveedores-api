@@ -10,3 +10,12 @@ export class RouteError extends Error {
     this.status = status
   }
 }
+
+/**
+ * Error with status code and message
+ */
+export class PkNotMach extends RouteError {
+  constructor(id: string) {
+    super(statusCodes.BAD_REQUEST, `No se encontro registro para la pk: ${id}`)
+  }
+}

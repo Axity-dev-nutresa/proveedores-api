@@ -29,7 +29,7 @@ export default (sequelize: Sequelize) => {
         comment: 'Departamento de residencia del empleado.'
       },
       city: {
-        type: DataTypes.STRING(5),
+        type: DataTypes.STRING(8),
         allowNull: false,
         comment: 'Ciudad de residencia del empleado.'
       },

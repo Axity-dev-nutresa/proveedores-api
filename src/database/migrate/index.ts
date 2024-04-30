@@ -6,7 +6,7 @@ const migrate = async () => {
     console.log('migrating...')
     const sequelize = await db.open()
     console.log(Object.keys(sequelize.models).length)
-    relations(sequelize)
+    relations()
     await sequelize.sync({force: true})
     await sequelize.close()
     console.log('migrated')

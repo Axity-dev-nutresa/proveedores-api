@@ -1,13 +1,12 @@
+import {validateModel} from '@src/declarations/middlewares'
 import {Router} from 'express'
 import crudRoutes from './crud'
-// import clientRoutes from './routes/client'
-// import userRoutes from './routes/user'
+import {employeeUuid} from './controllers/employee'
 
 export const router = Router()
 
-// router.use('/Client', clientRoutes)
-// router.use('/User', userRoutes)
-
+router.get('/Employee/:uuid', employeeUuid)
+router.use('/:modelName/', validateModel)
 router.use('/', crudRoutes)
 
 export default router

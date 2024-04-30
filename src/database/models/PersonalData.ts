@@ -34,7 +34,7 @@ export default (sequelize: Sequelize) => {
       civilStatus: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        comment: 'Estado sivil del empleado.'
+        comment: 'Estado civil del empleado.'
       },
       numberChildren: {
         type: DataTypes.INTEGER,
