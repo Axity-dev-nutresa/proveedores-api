@@ -1,0 +1,14 @@
+{
+    "sonarlint.connectedMode.project": {
+        "connectionId": "axity-dev-nutresa",
+        "projectKey": "Axity-dev-nutresa_api-tablero-incidentes"
+    },
+    "cSpell.words": [
+        "DATEONLY",
+        "dotenv",
+        "esbuild",
+        "hstore",
+        "Parens",
+        "Proveedores"
+    ]
+}
