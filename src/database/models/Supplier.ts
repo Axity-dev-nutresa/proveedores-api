@@ -23,13 +23,13 @@ export default (sequelize: Sequelize) => {
         comment: 'Descripcion del proveedor.'
       },
       nit: {
-        type: DataTypes.STRING(32),
+        type: DataTypes.STRING(16),
         allowNull: false,
         unique: true,
         comment: 'número de NIT del proveedor.'
       },
       sapCode: {
-        type: DataTypes.STRING(32),
+        type: DataTypes.STRING(16),
         allowNull: false,
         unique: true,
         comment: 'Codigo SAP del proveedor.'
