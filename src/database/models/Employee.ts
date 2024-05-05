@@ -110,14 +110,14 @@ export default (sequelize: Sequelize) => {
         allowNull: false,
         comment: 'Id de la clasificación de riesgo.'
       },
-      egressDate: {
+      entryDate: {
         type: DataTypes.DATEONLY,
         allowNull: false,
         comment: 'Fecha de ingreso del empleado.'
       },
-      entryDate: {
+      egressDate: {
         type: DataTypes.DATEONLY,
-        allowNull: false,
+        allowNull: true,
         comment: 'Fecha de egreso del empleado.'
       },
       creatorUser: {

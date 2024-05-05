@@ -3,7 +3,7 @@ import {getModels} from '@db'
 export const relations = () => {
   const models = getModels()
   const {Supplier, Employee, PersonalData, ContactData, EnterpriseData} = models
-  const {DniType, BloodGroup, Gender, CivilStatus, AcademicLevel, City} = models
+  const {DniType, Rh, Gender, CivilStatus, AcademicLevel, City} = models
   const {Role, Position, Eps, Afp, Ccf, Arl, RiskLevel, RiskClass, Province} = models
   const {Business, Company, Regional, Location, CompanyType, Service} = models
 
@@ -46,8 +46,8 @@ export const relations = () => {
   Employee.hasOne(EnterpriseData, {foreignKey: 'uuid'})
   DniType.hasMany(Employee, {foreignKey: 'dniType'})
   Employee.belongsTo(DniType, {foreignKey: 'dniType'})
-  BloodGroup.hasMany(PersonalData, {foreignKey: 'bloodGroup'})
-  PersonalData.belongsTo(BloodGroup, {foreignKey: 'bloodGroup'})
+  Rh.hasMany(PersonalData, {foreignKey: 'rh'})
+  PersonalData.belongsTo(Rh, {foreignKey: 'rh'})
   Gender.hasMany(PersonalData, {foreignKey: 'gender'})
   PersonalData.belongsTo(Gender, {foreignKey: 'gender'})
   CivilStatus.hasMany(PersonalData, {foreignKey: 'civil_status'})

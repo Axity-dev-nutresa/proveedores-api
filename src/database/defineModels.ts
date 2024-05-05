@@ -2,7 +2,6 @@ import type {Sequelize} from 'sequelize'
 import defineAcademicLevel from './models/AcademicLevel'
 import defineAfp from './models/Afp'
 import defineArl from './models/Arl'
-import defineBloodGroup from './models/BloodGroup'
 import defineBusiness from './models/Business'
 import defineCcf from './models/Ccf'
 import defineCity from './models/City'
@@ -20,6 +19,7 @@ import definePersonalData from './models/PersonalData'
 import definePosition from './models/Position'
 import defineProvince from './models/Province'
 import defineRegional from './models/Regional'
+import defineRh from './models/Rh'
 import defineRiskClass from './models/RiskClass'
 import defineRiskLevel from './models/RiskLevel'
 import defineRole from './models/Role'
@@ -30,7 +30,6 @@ export const defineModels = (sequelize: Sequelize) => {
   defineAcademicLevel(sequelize)
   defineAfp(sequelize)
   defineArl(sequelize)
-  defineBloodGroup(sequelize)
   defineBusiness(sequelize)
   defineCcf(sequelize)
   defineCity(sequelize)
@@ -48,6 +47,7 @@ export const defineModels = (sequelize: Sequelize) => {
   definePosition(sequelize)
   defineProvince(sequelize)
   defineRegional(sequelize)
+  defineRh(sequelize)
   defineRiskClass(sequelize)
   defineRiskLevel(sequelize)
   defineRole(sequelize)
