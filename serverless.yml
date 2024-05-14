@@ -21,7 +21,7 @@ functions:
           path: '/service/{proxy+}'
 custom:
   dotenv:
-    path: .env.dev
+    path: .env
   esbuild:
     bundle: true
     minify: true

@@ -3,9 +3,8 @@
   "version": "1.0.0",
   "description": "Backend Proveedores",
   "scripts": {
-    "deploy": "serverless deploy",
     "start": "ts-node --files -r tsconfig-paths/register ./src",
-    "migrate": "cross-env NODE_ENV=dev ts-node --files -r tsconfig-paths/register ./src/database/migrate",
+    "migrate": "ts-node --files -r tsconfig-paths/register ./src/database/migrate",
     "dev": "nodemon",
     "test": "jest --coverage && npm run format",
     "test-w": "jest --watch -o",
@@ -31,6 +30,9 @@
     "serverless-http": "^3.2.0",
     "swagger-ui-express": "^5.0.0"
   },
+  "peerDependencies": {
+    "serverless": "^3.38.0"
+  },
   "devDependencies": {
     "@types/aws-lambda": "^8.10.93",
     "@types/cookie-parser": "^1.4.4",
@@ -49,7 +51,6 @@
     "pg-hstore": "^2.3.4",
     "pre-commit": "^1.2.2",
     "prettier": "^3.2.4",
-    "serverless": "^3.38.0",
     "serverless-dotenv-plugin": "^6.0.0",
     "serverless-esbuild": "^1.26.1",
     "serverless-offline": "^13.1.1",

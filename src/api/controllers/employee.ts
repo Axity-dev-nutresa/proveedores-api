@@ -10,10 +10,12 @@ export const employeeDetail = async (req: Request, res: Response) => {
   const {Employee} = getModels()
   const result = await Employee.findByPk(uuid, {
     include: [
+      'Supplier',
       'Gender',
       'AcademicLevel',
       'Province',
       'City',
+      'Position',
       'Arl',
       'RiskLevel',
       'RiskClass'
