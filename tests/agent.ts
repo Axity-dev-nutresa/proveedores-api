@@ -1,12 +1,12 @@
 import {addRoute} from './swagger'
-import type {LambdaConfog, LambdaResult} from './types'
+import type {LambdaConfig, LambdaResult} from './types'
 import type {APIGatewayProxyHandler} from 'aws-lambda'
 
 let lambda = <APIGatewayProxyHandler | null>null
 
-const spy = async (action: LambdaConfog): Promise<LambdaResult> => {
+const spy = async (action: LambdaConfig): Promise<LambdaResult> => {
   const {body, headers, params, querys, path, method} = action
-  if (!lambda) throw Error('No se ha llamado a agent')
+  if (!lambda) throw Error('An agent has not been called')
   const url = Object.entries(params).reduce(
     (acc, [key, value]) => acc.replace(`:${key}`, value),
     path
@@ -110,7 +110,7 @@ const spy = async (action: LambdaConfog): Promise<LambdaResult> => {
     return {
       statusCode: 500,
       data: {},
-      body: 'Error al ejecutar la lambda',
+      body: 'Error executing lambda',
       headers: {}
     }
   }
@@ -125,17 +125,9 @@ const spy = async (action: LambdaConfog): Promise<LambdaResult> => {
   return response
 }
 
-export const agent = (andler: APIGatewayProxyHandler) => {
-  if (!lambda) lambda = andler
+export const agent = (handler: APIGatewayProxyHandler) => {
+  if (!lambda) lambda = handler
   return spy
-}
-
-const equivalent = (actual: {[x: string]: any}, initial: {[x: string]: any}) => {
-  const initialKeys = Object.keys(initial)
-  return initialKeys.reduce((ecual: {[x: string]: any}, key: string) => {
-    ecual[key] = actual[key]
-    return ecual
-  }, {})
 }
 
 export default agent

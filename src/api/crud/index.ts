@@ -22,14 +22,6 @@ router.get('/:modelName/', async (req: Request, res: Response): Promise<any> => 
   return res.status(statusCodes.OK).json(result)
 })
 
-router.get('/:modelName/:uuid/', async (req: Request, res: Response) => {
-  const {uuid, modelName} = req.params
-  const Model = getModels()[modelName]
-  const result = await Model.findByPk(uuid)
-  if (!result) return resPkNotMach(res, uuid)
-  return res.status(statusCodes.OK).json(result)
-})
-
 router.post('/:modelName/', async (req: Request, res: Response) => {
   const {modelName} = req.params
   const Model = getModels()[modelName]
@@ -43,15 +35,6 @@ router.put('/:modelName/:uuid', async (req: Request, res: Response) => {
   const model = await Model.findByPk(uuid)
   if (!model) return resPkNotMach(res, uuid)
   const newModel = await model.update({...req.body})
-  return res.status(statusCodes.OK).json(newModel)
-})
-
-router.delete('/:modelName/:uuid', async (req: Request, res: Response) => {
-  const {uuid, modelName} = req.params
-  const Model = getModels()[modelName]
-  const model = await Model.findByPk(parseInt(uuid, 10))
-  if (!model) return resPkNotMach(res, uuid)
-  const newModel = await model.destroy()
   return res.status(statusCodes.OK).json(newModel)
 })
 

@@ -1,120 +1,298 @@
 {
-  "Supplier": {
+  "AcademicLevel": {
     "list": [
-      {
-        "uuid": "96382cc6-a473-4485-a3b8-1fb4eb377c46",
-        "name": "Supplier name",
-        "description": "Supplier description",
-        "nit": 996,
-        "isActive": true,
-        "creatorUser": "Supplier creator user",
-        "editorUser": "Supplier editor user"
-      },
-      {
-        "uuid": "b389d73c-1b49-4a26-8f94-7b3641d72c81",
-        "name": "Supplier name",
-        "description": "Supplier description",
-        "nit": 507,
-        "isActive": true,
-        "creatorUser": "Supplier creator user",
-        "editorUser": "Supplier editor user"
-      },
-      {
-        "uuid": "2c88eb77-7730-4fbd-830a-48d06454fe20",
-        "name": "Supplier name",
-        "description": "Supplier description",
-        "nit": 501,
-        "isActive": true,
-        "creatorUser": "Supplier creator user",
-        "editorUser": "Supplier editor user"
-      }
+      {"id": 1, "name": "0 academic level name"},
+      {"id": 2, "name": "1 academic level name"}
     ],
-    "new": {
-      "uuid": "629f9f80-d4f7-40bc-a0b1-99100a8268c8",
-      "name": "Supplier name",
-      "description": "Supplier description",
-      "nit": 503,
-      "isActive": true,
-      "creatorUser": "Supplier creator user",
-      "editorUser": "Supplier editor user"
-    },
-    "edit": {
-      "uuid": "96382cc6-a473-4485-a3b8-1fb4eb377c46",
-      "name": "Supplier name",
-      "description": "Supplier description",
-      "nit": 73,
-      "isActive": true,
-      "creatorUser": "Supplier creator user",
-      "editorUser": "Supplier editor user"
-    }
+    "new": {"id": 3, "name": "2 academic level name"},
+    "edit": {"id": 1, "name": "3 academic level name"}
+  },
+  "Arl": {
+    "list": [
+      {"id": 1, "name": "0 arl name"},
+      {"id": 2, "name": "1 arl name"}
+    ],
+    "new": {"id": 3, "name": "2 arl name"},
+    "edit": {"id": 1, "name": "3 arl name"}
+  },
+  "Business": {
+    "list": [
+      {"id": 1, "name": "0 business name"},
+      {"id": 2, "name": "1 business name"}
+    ],
+    "new": {"id": 3, "name": "2 business name"},
+    "edit": {"id": 1, "name": "3 business name"}
+  },
+  "City": {
+    "list": [
+      {"id": "A", "name": "0 city name", "province": "A"},
+      {"id": "B", "name": "1 city name", "province": "A"}
+    ],
+    "new": {"id": "C", "name": "2 city name", "province": "A"},
+    "edit": {"id": "A", "name": "3 city name", "province": "A"}
+  },
+  "Company": {
+    "list": [
+      {"id": 1, "name": "0 company name"},
+      {"id": 2, "name": "1 company name"}
+    ],
+    "new": {"id": 3, "name": "2 company name"},
+    "edit": {"id": 1, "name": "3 company name"}
+  },
+  "CompanyType": {
+    "list": [
+      {"id": 1, "name": "0 company type name"},
+      {"id": 2, "name": "1 company type name"}
+    ],
+    "new": {"id": 3, "name": "2 company type name"},
+    "edit": {"id": 1, "name": "3 company type name"}
+  },
+  "DniType": {
+    "list": [
+      {"code": "A", "name": "0 dni type name", "minLength": 429, "maxLength": 297},
+      {"code": "B", "name": "1 dni type name", "minLength": 10, "maxLength": 539}
+    ],
+    "new": {"code": "C", "name": "2 dni type name", "minLength": 833, "maxLength": 31},
+    "edit": {"code": "A", "name": "3 dni type name", "minLength": 1006, "maxLength": 178}
   },
   "Employee": {
     "list": [
       {
-        "uuid": "a7894342-5f08-4531-975c-862cba7eaf2f",
-        "firstName": "Employee first name",
-        "middleName": "Employee middle name",
-        "surname": "Employee surname",
-        "middleSurname": "Employee middle surname",
-        "documentType": "Emp",
-        "documentNumber": 515,
-        "birthdate": "2024-03-17",
+        "uuid": "b7b47508-e125-40f2-85c7-6de96eb3356c",
+        "dniType": "0 em",
+        "dni": "0 employee dni",
+        "firstName": "0 employee first name",
+        "middleName": "0 employee middle name",
+        "surname": "0 employee surname",
+        "secondSurname": "0 employee second surname",
+        "picture": "0 employee picture",
+        "gender": "A",
+        "cellPhone": "0 employee",
+        "email": "0 employee email",
+        "academicLevel": 1,
+        "supplier": "b7b47508-e125-40f2-85c7-6de96eb3356c",
+        "position": 1,
+        "arl": 1,
+        "province": "A",
+        "city": "A",
         "isActive": true,
-        "creatorUser": "Employee creator user",
-        "editorUser": "Employee editor user"
+        "riskLevel": "A",
+        "riskClass": 1,
+        "entryDate": "2024-05-20",
+        "egressDate": "2024-05-20",
+        "creatorUser": "0 employee creator user",
+        "editorUser": "0 employee editor user"
       },
       {
-        "uuid": "a4b59786-beea-43a4-8c1a-500b5978ab49",
-        "firstName": "Employee first name",
-        "middleName": "Employee middle name",
-        "surname": "Employee surname",
-        "middleSurname": "Employee middle surname",
-        "documentType": "Emp",
-        "documentNumber": 665,
-        "birthdate": "2024-03-17",
+        "uuid": "856d2da5-8aef-4801-833f-257122aca09b",
+        "dniType": "1 em",
+        "dni": "1 employee dni",
+        "firstName": "1 employee first name",
+        "middleName": "1 employee middle name",
+        "surname": "1 employee surname",
+        "secondSurname": "1 employee second surname",
+        "picture": "1 employee picture",
+        "gender": "A",
+        "cellPhone": "1 employee",
+        "email": "1 employee email",
+        "academicLevel": 1,
+        "supplier": "b7b47508-e125-40f2-85c7-6de96eb3356c",
+        "position": 1,
+        "arl": 1,
+        "province": "A",
+        "city": "A",
         "isActive": true,
-        "creatorUser": "Employee creator user",
-        "editorUser": "Employee editor user"
-      },
-      {
-        "uuid": "0af28551-5030-4894-9870-5bdf085dcdda",
-        "firstName": "Employee first name",
-        "middleName": "Employee middle name",
-        "surname": "Employee surname",
-        "middleSurname": "Employee middle surname",
-        "documentType": "Emp",
-        "documentNumber": 269,
-        "birthdate": "2024-03-17",
-        "isActive": true,
-        "creatorUser": "Employee creator user",
-        "editorUser": "Employee editor user"
+        "riskLevel": "A",
+        "riskClass": 1,
+        "entryDate": "2024-05-20",
+        "egressDate": "2024-05-20",
+        "creatorUser": "1 employee creator user",
+        "editorUser": "1 employee editor user"
       }
     ],
     "new": {
-      "uuid": "2f6b7f19-e387-47f0-ac86-baf4ca1dc3c4",
-      "firstName": "Employee first name",
-      "middleName": "Employee middle name",
-      "surname": "Employee surname",
-      "middleSurname": "Employee middle surname",
-      "documentType": "Emp",
-      "documentNumber": 724,
-      "birthdate": "2024-03-17",
+      "uuid": "f4f06035-ad0b-4f71-94fa-bdf23e99803e",
+      "dniType": "2 em",
+      "dni": "2 employee dni",
+      "firstName": "2 employee first name",
+      "middleName": "2 employee middle name",
+      "surname": "2 employee surname",
+      "secondSurname": "2 employee second surname",
+      "picture": "2 employee picture",
+      "gender": "A",
+      "cellPhone": "2 employee",
+      "email": "2 employee email",
+      "academicLevel": 1,
+      "supplier": "b7b47508-e125-40f2-85c7-6de96eb3356c",
+      "position": 1,
+      "arl": 1,
+      "province": "A",
+      "city": "A",
       "isActive": true,
-      "creatorUser": "Employee creator user",
-      "editorUser": "Employee editor user"
+      "riskLevel": "A",
+      "riskClass": 1,
+      "entryDate": "2024-05-20",
+      "egressDate": "2024-05-20",
+      "creatorUser": "2 employee creator user",
+      "editorUser": "2 employee editor user"
     },
     "edit": {
-      "uuid": "a7894342-5f08-4531-975c-862cba7eaf2f",
-      "firstName": "Employee first name",
-      "middleName": "Employee middle name",
-      "surname": "Employee surname",
-      "middleSurname": "Employee middle surname",
-      "documentType": "Emp",
-      "documentNumber": 73,
-      "birthdate": "2024-03-17",
+      "uuid": "b7b47508-e125-40f2-85c7-6de96eb3356c",
+      "dniType": "3 em",
+      "dni": "3 employee dni",
+      "firstName": "3 employee first name",
+      "middleName": "3 employee middle name",
+      "surname": "3 employee surname",
+      "secondSurname": "3 employee second surname",
+      "picture": "3 employee picture",
+      "gender": "A",
+      "cellPhone": "3 employee",
+      "email": "3 employee email",
+      "academicLevel": 1,
+      "supplier": "b7b47508-e125-40f2-85c7-6de96eb3356c",
+      "position": 1,
+      "arl": 1,
+      "province": "A",
+      "city": "A",
       "isActive": true,
-      "creatorUser": "Employee creator user",
-      "editorUser": "Employee editor user"
+      "riskLevel": "A",
+      "riskClass": 1,
+      "entryDate": "2024-05-20",
+      "egressDate": "2024-05-20",
+      "creatorUser": "3 employee creator user",
+      "editorUser": "3 employee editor user"
+    }
+  },
+  "Gender": {
+    "list": [
+      {"code": "A", "name": "0 gender name"},
+      {"code": "B", "name": "1 gender name"}
+    ],
+    "new": {"code": "C", "name": "2 gender name"},
+    "edit": {"code": "A", "name": "3 gender name"}
+  },
+  "Location": {
+    "list": [
+      {"id": 1, "name": "0 location name"},
+      {"id": 2, "name": "1 location name"}
+    ],
+    "new": {"id": 3, "name": "2 location name"},
+    "edit": {"id": 1, "name": "3 location name"}
+  },
+  "Position": {
+    "list": [
+      {"id": 1, "name": "0 position name", "description": "0 position description"},
+      {"id": 2, "name": "1 position name", "description": "1 position description"}
+    ],
+    "new": {"id": 3, "name": "2 position name", "description": "2 position description"},
+    "edit": {"id": 1, "name": "3 position name", "description": "3 position description"}
+  },
+  "Province": {
+    "list": [
+      {"id": "A", "name": "0 province name", "code": "0 province code"},
+      {"id": "B", "name": "1 province name", "code": "1 province code"}
+    ],
+    "new": {"id": "C", "name": "2 province name", "code": "2 province code"},
+    "edit": {"id": "A", "name": "3 province name", "code": "3 province code"}
+  },
+  "Regional": {
+    "list": [
+      {"id": 1, "name": "0 regional name"},
+      {"id": 2, "name": "1 regional name"}
+    ],
+    "new": {"id": 3, "name": "2 regional name"},
+    "edit": {"id": 1, "name": "3 regional name"}
+  },
+  "RiskClass": {
+    "list": [
+      {"id": 1, "name": "0 risk class name"},
+      {"id": 2, "name": "1 risk class name"}
+    ],
+    "new": {"id": 3, "name": "2 risk class name"},
+    "edit": {"id": 1, "name": "3 risk class name"}
+  },
+  "RiskLevel": {
+    "list": [
+      {"code": "A", "name": "0 risk level name"},
+      {"code": "B", "name": "1 risk level name"}
+    ],
+    "new": {"code": "C", "name": "2 risk level name"},
+    "edit": {"code": "A", "name": "3 risk level name"}
+  },
+  "Service": {
+    "list": [
+      {"id": 1, "name": "0 service name"},
+      {"id": 2, "name": "1 service name"}
+    ],
+    "new": {"id": 3, "name": "2 service name"},
+    "edit": {"id": 1, "name": "3 service name"}
+  },
+  "Supplier": {
+    "list": [
+      {
+        "uuid": "b7b47508-e125-40f2-85c7-6de96eb3356c",
+        "name": "0 supplier name",
+        "description": "0 supplier description",
+        "nit": "0 supplier nit",
+        "sapCode": "0 supplier sap c",
+        "business": 1,
+        "company": 1,
+        "regional": 1,
+        "location": 1,
+        "companyType": 1,
+        "service": 1,
+        "isActive": true,
+        "creatorUser": "0 supplier creator user",
+        "editorUser": "0 supplier editor user"
+      },
+      {
+        "uuid": "856d2da5-8aef-4801-833f-257122aca09b",
+        "name": "1 supplier name",
+        "description": "1 supplier description",
+        "nit": "1 supplier nit",
+        "sapCode": "1 supplier sap c",
+        "business": 1,
+        "company": 1,
+        "regional": 1,
+        "location": 1,
+        "companyType": 1,
+        "service": 1,
+        "isActive": true,
+        "creatorUser": "1 supplier creator user",
+        "editorUser": "1 supplier editor user"
+      }
+    ],
+    "new": {
+      "uuid": "f4f06035-ad0b-4f71-94fa-bdf23e99803e",
+      "name": "2 supplier name",
+      "description": "2 supplier description",
+      "nit": "2 supplier nit",
+      "sapCode": "2 supplier sap c",
+      "business": 1,
+      "company": 1,
+      "regional": 1,
+      "location": 1,
+      "companyType": 1,
+      "service": 1,
+      "isActive": true,
+      "creatorUser": "2 supplier creator user",
+      "editorUser": "2 supplier editor user"
+    },
+    "edit": {
+      "uuid": "b7b47508-e125-40f2-85c7-6de96eb3356c",
+      "name": "3 supplier name",
+      "description": "3 supplier description",
+      "nit": "3 supplier nit",
+      "sapCode": "3 supplier sap c",
+      "business": 1,
+      "company": 1,
+      "regional": 1,
+      "location": 1,
+      "companyType": 1,
+      "service": 1,
+      "isActive": true,
+      "creatorUser": "3 supplier creator user",
+      "editorUser": "3 supplier editor user"
     }
   }
 }

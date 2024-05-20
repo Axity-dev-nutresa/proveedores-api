@@ -2,6 +2,7 @@ import envVars from '@config/envVars'
 import mysql2 from 'mysql2'
 import {Sequelize} from 'sequelize'
 import {defineModels} from './defineModels'
+import {relations} from './relations'
 
 let sequelize: Sequelize | null = null
 
@@ -60,4 +61,4 @@ export const getModels = () => {
   return sequelize.models
 }
 
-export default {open, close, getModels}
+export default {open, close, relations, getModels}

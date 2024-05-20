@@ -8,8 +8,8 @@ const getLength = (typeSq: string): number => {
   return length
 }
 
-export const getTypeExp = (atribute: Attribute) => {
-  const columType = atribute.type.toString({})
+export const getTypeExp = (attribute: Attribute) => {
+  const columType = attribute.type.toString({})
   if (columType === 'TINYINT(1)') return 'boolean'
   if (columType.includes('VARCHAR')) return 'string'
   if (columType.includes('CHAR')) return 'string'
@@ -21,7 +21,7 @@ export const getTypeExp = (atribute: Attribute) => {
   if (columType.includes('TIME')) return 'string'
   if (columType.includes('INTEGER')) return 'number'
   if (columType.includes('NUMBER')) return 'number'
-  console.log(atribute.field, columType)
+  console.log(attribute.field, columType)
   return ''
 }
 
@@ -50,8 +50,8 @@ export const getTypeExp2 = (attribute: Attribute) => {
   return ''
 }
 
-const getTypeOf = (atribute: Attribute): [string, number] => {
-  const typeSq = atribute.type.toString({})
+const getTypeOf = (attribute: Attribute): [string, number] => {
+  const typeSq = attribute.type.toString({})
   if (typeSq === 'TINYINT(1)') return ['boolean', 1]
   if (typeSq.includes('VARCHAR')) return ['string', getLength(typeSq)]
   if (typeSq.includes('CHAR')) return ['string', getLength(typeSq)]
@@ -62,6 +62,6 @@ const getTypeOf = (atribute: Attribute): [string, number] => {
   if (typeSq.includes('TIME')) return ['string', 8]
   if (typeSq.includes('INTEGER')) return ['number', getLength(typeSq) ?? 1]
   if (typeSq.includes('NUMBER')) return ['number', getLength(typeSq) ?? 1]
-  console.log(atribute.field, typeSq)
+  console.log(attribute.field, typeSq)
   return ['', 0]
 }

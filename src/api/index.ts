@@ -2,15 +2,14 @@ import db from '@db'
 import api from '@src/api/routes'
 import {trapErrors} from '@src/declarations/middlewares'
 import server from '@src/server'
-import 'express-async-errors'
-import serverless from 'serverless-http'
-
 import type {
   APIGatewayEvent,
   APIGatewayProxyHandler,
   APIGatewayProxyResult,
   Context
 } from 'aws-lambda'
+import 'express-async-errors'
+import serverless from 'serverless-http'
 
 const getResponseError = (error: any) => {
   return {

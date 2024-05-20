@@ -2,8 +2,8 @@ import fs from 'fs'
 import yaml from 'js-yaml'
 import {description, name, version} from 'package.json'
 import type {Model, ModelStatic} from 'sequelize'
-import type {LambdaConfog, LambdaResult} from '../types'
-import {mekeSchema} from './mekeSchema'
+import type {LambdaConfig, LambdaResult} from '../types'
+import {makeSchema} from './makeSchema'
 
 export type Models = {[key: string]: ModelStatic<Model<any, any>>}
 
@@ -38,13 +38,13 @@ export const saveSwagger = () => {
 
 export const addModels = (models: ModelStatic<Model<any, any>>[], examples: any) => {
   return models.forEach((model) => {
-    const schema = mekeSchema(model, examples[model.name].new)
+    const schema = makeSchema(model, examples[model.name].new)
     swaggerObject.components.schemas[model.tableName] = schema
     swaggerObject.components.tags.push(model.name)
   })
 }
 
-export const addRoute = (action: LambdaConfog, res: LambdaResult) => {
+export const addRoute = (action: LambdaConfig, res: LambdaResult) => {
   const {url, parameters} = getParameters(action)
 
   if (!swaggerObject.paths[url]) {
@@ -57,17 +57,17 @@ export const addRoute = (action: LambdaConfog, res: LambdaResult) => {
     requestBody: action.body
       ? {
           required: true,
-          content: mekeContent(res.data)
+          content: makeContent(res.data)
         }
       : null,
     responses: {}
   }
   swaggerObject.paths[url][action.method.toLowerCase()].responses[res.statusCode] = {
-    content: mekeContent(res.data)
+    content: makeContent(res.data)
   }
 }
 
-const mekeContent = (data: any) => {
+const makeContent = (data: any) => {
   return {
     'application/json': {
       schema: {
@@ -78,7 +78,7 @@ const mekeContent = (data: any) => {
   }
 }
 
-const getParameters = (action: LambdaConfog) => {
+const getParameters = (action: LambdaConfig) => {
   const [baseUrl, params] = Object.entries(action.params).reduce(
     ([path, parameter], [key, value]) => {
       path = path.replace(`:${key}`, `{${key}}`)

@@ -1,36 +1,50 @@
 import fs from 'fs'
-import examples from './examples.json'
 import type {Model} from '../types'
-import {mekeAtribut} from './mekeAtribut'
+import {makeAttribute} from './makeAttribute'
 
-const mekeExample = (model: Model) => {
+const makeExample = (model: Model, exp: any, item: number) => {
   const attributes = Object.entries(model.getAttributes())
-  return attributes.reduce((exp: any, [key, attribute]) => {
-    exp[key] = mekeAtribut(attribute, model.tableName)
-    return exp
+  return attributes.reduce((example: any, [key, attribute]) => {
+    if (exp?.[key] !== undefined) example[key] = exp[key]
+    else {
+      const newAttribute = makeAttribute(attribute, model.tableName, item)
+      if (newAttribute !== undefined) example[key] = newAttribute
+    }
+    return example
   }, {})
 }
 
-const getExample = (model: Model, exp: any) => {
+const getPkKey = (model: Model): string => {
+  const attributes = Object.entries(model.getAttributes())
+  return attributes.reduce((pkKey, [key, attribute]) => {
+    if (attribute.primaryKey) return key
+    else return pkKey
+  }, '')
+}
+
+export const getExample = (model: Model, exp: any) => {
   if (!exp) exp = {}
   if (!exp.list) exp.list = []
-  if (!exp.list[0]) exp.list[0] = mekeExample(model)
-  if (!exp.list[1]) exp.list[1] = mekeExample(model)
-  if (!exp.list[2]) exp.list[2] = mekeExample(model)
-  if (!exp.new) exp.new = mekeExample(model)
-  if (!exp.edit)
-    exp.edit = {
-      ...mekeExample(model),
-      uuid: exp.list[0].uuid
-    }
+  exp.list[0] = makeExample(model, exp.list[0], 0)
+  exp.list[1] = makeExample(model, exp.list[1], 1)
+  exp.new = makeExample(model, exp?.new, 2)
+  const pkKey = getPkKey(model)
+  exp.edit = {
+    ...makeExample(model, exp?.edit, 3),
+    [pkKey]: exp.list[0][pkKey]
+  }
   return exp
 }
 
-export const getExamples = (models: Model[]) => {
-  const expls = models.reduce((exps, model) => {
-    exps[model.name] = getExample(model, {...exps?.[model.name]})
-    return exps
-  }, examples as any)
-  fs.writeFileSync('./tests/examples/examples.json', JSON.stringify(expls), 'utf8')
-  return expls
+export const makeExamples = (models: Model[]) => {
+  const examples = fs.readFileSync('./tests/examples/examples.json', 'utf8')
+  const newExamples = models.reduce(
+    (exps, model) => {
+      exps[model.name] = getExample(model, {...exps?.[model.name]})
+      return exps
+    },
+    JSON.parse(examples) ?? {}
+  )
+  fs.writeFileSync('./tests/examples/examples.json', JSON.stringify(newExamples), 'utf8')
+  return newExamples
 }

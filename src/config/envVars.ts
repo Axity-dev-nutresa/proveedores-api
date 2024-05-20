@@ -6,10 +6,13 @@ import {NodeEnvs} from '@src/declarations/enums'
 import env from 'dotenv'
 import path from 'path'
 
-const nodeEnv = process.env.NODE_ENV ?? NodeEnvs.prd
+const nodeEnv = process.env.NODE_ENV ?? NodeEnvs.prod
 
 env.config({
-  path: path.resolve(process.cwd(), nodeEnv === NodeEnvs.prd ? '.env' : `.env.${nodeEnv}`)
+  path: path.resolve(
+    process.cwd(),
+    nodeEnv === NodeEnvs.prod ? '.env' : `.env.${nodeEnv}`
+  )
 })
 
 export default {

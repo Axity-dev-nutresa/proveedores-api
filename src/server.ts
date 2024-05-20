@@ -10,12 +10,11 @@ const server = express()
 server.use(express.json())
 server.use(express.urlencoded({extended: true}))
 server.use(cookieParser())
-if (envVars.nodeEnv === NodeEnvs.dev) {
+server.use(cors())
+if (envVars.nodeEnv !== NodeEnvs.prod) {
   server.use(morgan('dev'))
-}
-if (envVars.nodeEnv === NodeEnvs.prd) {
+} else {
   server.use(helmet())
 }
-server.use(cors())
 
 export default server

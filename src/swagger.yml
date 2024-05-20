@@ -5,9 +5,1122 @@ info:
   version: 1.0.0
   servers:
     - http://localhost:4000
-paths: {}
+paths:
+  /api/AcademicLevel:
+    get:
+      tags:
+        - AcademicLevel
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - id: 1
+                    name: 0 academic level name
+                  - id: 2
+                    name: 1 academic level name
+  /api/Arl:
+    get:
+      tags:
+        - Arl
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - id: 1
+                    name: 0 arl name
+                  - id: 2
+                    name: 1 arl name
+  /api/Business:
+    get:
+      tags:
+        - Business
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - id: 1
+                    name: 0 business name
+                  - id: 2
+                    name: 1 business name
+  /api/City:
+    get:
+      tags:
+        - City
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - id: A
+                    name: 0 city name
+                    province: A
+                  - id: B
+                    name: 1 city name
+                    province: A
+  /api/Company:
+    get:
+      tags:
+        - Company
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - id: 1
+                    name: 0 company name
+                  - id: 2
+                    name: 1 company name
+  /api/CompanyType:
+    get:
+      tags:
+        - CompanyType
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - id: 1
+                    name: 0 company type name
+                  - id: 2
+                    name: 1 company type name
+  /api/DniType:
+    get:
+      tags:
+        - DniType
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - code: A
+                    name: 0 dni type name
+                    minLength: 429
+                    maxLength: 297
+                  - code: B
+                    name: 1 dni type name
+                    minLength: 10
+                    maxLength: 539
+  /api/Employee:
+    get:
+      tags:
+        - Employee
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - name: 1 employee first name 1 employee middle name
+                    lastName: 1 employee surname 1 employee second surname
+                    fullName: >-
+                      1 employee first name 1 employee middle name 1 employee
+                      surname 1 employee second surname
+                    uuid: 856d2da5-8aef-4801-833f-257122aca09b
+                    dniType: 1 em
+                    dni: 1 employee dni
+                    firstName: 1 employee first name
+                    middleName: 1 employee middle name
+                    surname: 1 employee surname
+                    secondSurname: 1 employee second surname
+                    picture: 1 employee picture
+                    gender: A
+                    cellPhone: 1 employee
+                    email: 1 employee email
+                    academicLevel: 1
+                    supplier: b7b47508-e125-40f2-85c7-6de96eb3356c
+                    position: 1
+                    arl: 1
+                    province: A
+                    city: A
+                    isActive: true
+                    riskLevel: A
+                    riskClass: 1
+                    entryDate: '2024-05-20'
+                    egressDate: '2024-05-20'
+                    creatorUser: 1 employee creator user
+                    editorUser: 1 employee editor user
+                  - name: 0 employee first name 0 employee middle name
+                    lastName: 0 employee surname 0 employee second surname
+                    fullName: >-
+                      0 employee first name 0 employee middle name 0 employee
+                      surname 0 employee second surname
+                    uuid: b7b47508-e125-40f2-85c7-6de96eb3356c
+                    dniType: 0 em
+                    dni: 0 employee dni
+                    firstName: 0 employee first name
+                    middleName: 0 employee middle name
+                    surname: 0 employee surname
+                    secondSurname: 0 employee second surname
+                    picture: 0 employee picture
+                    gender: A
+                    cellPhone: 0 employee
+                    email: 0 employee email
+                    academicLevel: 1
+                    supplier: b7b47508-e125-40f2-85c7-6de96eb3356c
+                    position: 1
+                    arl: 1
+                    province: A
+                    city: A
+                    isActive: true
+                    riskLevel: A
+                    riskClass: 1
+                    entryDate: '2024-05-20'
+                    egressDate: '2024-05-20'
+                    creatorUser: 0 employee creator user
+                    editorUser: 0 employee editor user
+    post:
+      tags:
+        - Employee
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              example: &ref_0
+                name: 2 employee first name 2 employee middle name
+                lastName: 2 employee surname 2 employee second surname
+                fullName: >-
+                  2 employee first name 2 employee middle name 2 employee
+                  surname 2 employee second surname
+                uuid: f4f06035-ad0b-4f71-94fa-bdf23e99803e
+                dniType: 2 em
+                dni: 2 employee dni
+                firstName: 2 employee first name
+                middleName: 2 employee middle name
+                surname: 2 employee surname
+                secondSurname: 2 employee second surname
+                picture: 2 employee picture
+                gender: A
+                cellPhone: 2 employee
+                email: 2 employee email
+                academicLevel: 1
+                supplier: b7b47508-e125-40f2-85c7-6de96eb3356c
+                position: 1
+                arl: 1
+                province: A
+                city: A
+                isActive: true
+                riskLevel: A
+                riskClass: 1
+                entryDate: '2024-05-20'
+                egressDate: '2024-05-20'
+                creatorUser: 2 employee creator user
+                editorUser: 2 employee editor user
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                example: *ref_0
+  /api/Employee/{uuid}:
+    put:
+      tags:
+        - Employee
+      parameters:
+        - name: uuid
+          in: path
+          type: string
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              example: &ref_1
+                name: 3 employee first name 3 employee middle name
+                lastName: 3 employee surname 3 employee second surname
+                fullName: >-
+                  3 employee first name 3 employee middle name 3 employee
+                  surname 3 employee second surname
+                uuid: b7b47508-e125-40f2-85c7-6de96eb3356c
+                dniType: 3 em
+                dni: 3 employee dni
+                firstName: 3 employee first name
+                middleName: 3 employee middle name
+                surname: 3 employee surname
+                secondSurname: 3 employee second surname
+                picture: 3 employee picture
+                gender: A
+                cellPhone: 3 employee
+                email: 3 employee email
+                academicLevel: 1
+                supplier: b7b47508-e125-40f2-85c7-6de96eb3356c
+                position: 1
+                arl: 1
+                province: A
+                city: A
+                isActive: true
+                riskLevel: A
+                riskClass: 1
+                entryDate: '2024-05-20'
+                egressDate: '2024-05-20'
+                creatorUser: 3 employee creator user
+                editorUser: 3 employee editor user
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                example: *ref_1
+    get:
+      tags:
+        - Employee
+      parameters:
+        - name: uuid
+          in: path
+          type: string
+          required: true
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  name: 1 employee first name 1 employee middle name
+                  lastName: 1 employee surname 1 employee second surname
+                  fullName: >-
+                    1 employee first name 1 employee middle name 1 employee
+                    surname 1 employee second surname
+                  uuid: 856d2da5-8aef-4801-833f-257122aca09b
+                  dniType: 1 em
+                  dni: 1 employee dni
+                  firstName: 1 employee first name
+                  middleName: 1 employee middle name
+                  surname: 1 employee surname
+                  secondSurname: 1 employee second surname
+                  picture: 1 employee picture
+                  gender: A
+                  cellPhone: 1 employee
+                  email: 1 employee email
+                  academicLevel: 1
+                  supplier: b7b47508-e125-40f2-85c7-6de96eb3356c
+                  position: 1
+                  arl: 1
+                  province: A
+                  city: A
+                  isActive: true
+                  riskLevel: A
+                  riskClass: 1
+                  entryDate: '2024-05-20'
+                  egressDate: '2024-05-20'
+                  creatorUser: 1 employee creator user
+                  editorUser: 1 employee editor user
+                  Supplier:
+                    uuid: b7b47508-e125-40f2-85c7-6de96eb3356c
+                    name: 0 supplier name
+                    description: 0 supplier description
+                    nit: 0 supplier nit
+                    sapCode: 0 supplier sap c
+                    business: 1
+                    company: 1
+                    regional: 1
+                    location: 1
+                    companyType: 1
+                    service: 1
+                    isActive: true
+                    creatorUser: 0 supplier creator user
+                    editorUser: 0 supplier editor user
+                  Gender:
+                    code: A
+                    name: 0 gender name
+                  AcademicLevel:
+                    id: 1
+                    name: 0 academic level name
+                  Province:
+                    id: A
+                    name: 0 province name
+                    code: 0 province code
+                  City:
+                    id: A
+                    name: 0 city name
+                    province: A
+                  Position:
+                    id: 1
+                    name: 0 position name
+                    description: 0 position description
+                  Arl:
+                    id: 1
+                    name: 0 arl name
+                  RiskLevel:
+                    code: A
+                    name: 0 risk level name
+                  RiskClass:
+                    id: 1
+                    name: 0 risk class name
+  /api/Gender:
+    get:
+      tags:
+        - Gender
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - code: A
+                    name: 0 gender name
+                  - code: B
+                    name: 1 gender name
+  /api/Location:
+    get:
+      tags:
+        - Location
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - id: 1
+                    name: 0 location name
+                  - id: 2
+                    name: 1 location name
+  /api/Position:
+    get:
+      tags:
+        - Position
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - id: 1
+                    name: 0 position name
+                    description: 0 position description
+                  - id: 2
+                    name: 1 position name
+                    description: 1 position description
+  /api/Province:
+    get:
+      tags:
+        - Province
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - id: A
+                    name: 0 province name
+                    code: 0 province code
+                  - id: B
+                    name: 1 province name
+                    code: 1 province code
+  /api/Regional:
+    get:
+      tags:
+        - Regional
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - id: 1
+                    name: 0 regional name
+                  - id: 2
+                    name: 1 regional name
+  /api/RiskClass:
+    get:
+      tags:
+        - RiskClass
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - id: 1
+                    name: 0 risk class name
+                  - id: 2
+                    name: 1 risk class name
+  /api/RiskLevel:
+    get:
+      tags:
+        - RiskLevel
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - code: A
+                    name: 0 risk level name
+                  - code: B
+                    name: 1 risk level name
+  /api/Service:
+    get:
+      tags:
+        - Service
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - id: 1
+                    name: 0 service name
+                  - id: 2
+                    name: 1 service name
+  /api/Supplier:
+    get:
+      tags:
+        - Supplier
+      parameters: []
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                example:
+                  - uuid: 856d2da5-8aef-4801-833f-257122aca09b
+                    name: 1 supplier name
+                    description: 1 supplier description
+                    nit: 1 supplier nit
+                    sapCode: 1 supplier sap c
+                    business: 1
+                    company: 1
+                    regional: 1
+                    location: 1
+                    companyType: 1
+                    service: 1
+                    isActive: true
+                    creatorUser: 1 supplier creator user
+                    editorUser: 1 supplier editor user
+                  - uuid: b7b47508-e125-40f2-85c7-6de96eb3356c
+                    name: 0 supplier name
+                    description: 0 supplier description
+                    nit: 0 supplier nit
+                    sapCode: 0 supplier sap c
+                    business: 1
+                    company: 1
+                    regional: 1
+                    location: 1
+                    companyType: 1
+                    service: 1
+                    isActive: true
+                    creatorUser: 0 supplier creator user
+                    editorUser: 0 supplier editor user
+    post:
+      tags:
+        - Supplier
+      parameters: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              example: &ref_2
+                uuid: f4f06035-ad0b-4f71-94fa-bdf23e99803e
+                name: 2 supplier name
+                description: 2 supplier description
+                nit: 2 supplier nit
+                sapCode: 2 supplier sap c
+                business: 1
+                company: 1
+                regional: 1
+                location: 1
+                companyType: 1
+                service: 1
+                isActive: true
+                creatorUser: 2 supplier creator user
+                editorUser: 2 supplier editor user
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                example: *ref_2
+  /api/Supplier/{uuid}:
+    put:
+      tags:
+        - Supplier
+      parameters:
+        - name: uuid
+          in: path
+          type: string
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              example: &ref_3
+                uuid: b7b47508-e125-40f2-85c7-6de96eb3356c
+                name: 3 supplier name
+                description: 3 supplier description
+                nit: 3 supplier nit
+                sapCode: 3 supplier sap c
+                business: 1
+                company: 1
+                regional: 1
+                location: 1
+                companyType: 1
+                service: 1
+                isActive: true
+                creatorUser: 3 supplier creator user
+                editorUser: 3 supplier editor user
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                example: *ref_3
+    get:
+      tags:
+        - Supplier
+      parameters:
+        - name: uuid
+          in: path
+          type: string
+          required: true
+      requestBody: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  uuid: 856d2da5-8aef-4801-833f-257122aca09b
+                  name: 1 supplier name
+                  description: 1 supplier description
+                  nit: 1 supplier nit
+                  sapCode: 1 supplier sap c
+                  business: 1
+                  company: 1
+                  regional: 1
+                  location: 1
+                  companyType: 1
+                  service: 1
+                  isActive: true
+                  creatorUser: 1 supplier creator user
+                  editorUser: 1 supplier editor user
+                  Business:
+                    id: 1
+                    name: 0 business name
+                  Company:
+                    id: 1
+                    name: 0 company name
+                  Regional:
+                    id: 1
+                    name: 0 regional name
+                  Location:
+                    id: 1
+                    name: 0 location name
+                  CompanyType:
+                    id: 1
+                    name: 0 company type name
+                  Service:
+                    id: 1
+                    name: 0 service name
 components:
   parameters: {}
   definitions: {}
-  schemas: {}
-  tags: []
+  schemas:
+    academic_level:
+      type: object
+      properties:
+        id:
+          type: number
+          required: true
+          description: Identificador único para el nivel académico.
+          example: 3
+        name:
+          type: string
+          required: true
+          description: Descripción del nivel académico.
+          example: 2 academic level name
+    arl:
+      type: object
+      properties:
+        id:
+          type: number
+          required: true
+          description: Identificador único para la administradoras de riesgos laborales.
+          example: 3
+        name:
+          type: string
+          required: true
+          description: Nombre de la administradoras de riesgos laborales.
+          example: 2 arl name
+    business:
+      type: object
+      properties:
+        id:
+          type: number
+          required: true
+          description: Identificador único para el negocio.
+          example: 3
+        name:
+          type: string
+          required: true
+          description: Nombre del negocio.
+          example: 2 business name
+    city:
+      type: object
+      properties:
+        id:
+          type: string
+          required: true
+          description: Código único para cada ciudad.
+          example: C
+        name:
+          type: string
+          required: true
+          description: Nombre de la ciudad.
+          example: 2 city name
+        province:
+          type: string
+          required: true
+          description: Codigo del departamento.
+          example: A
+    company:
+      type: object
+      properties:
+        id:
+          type: number
+          required: true
+          description: Identificador único para la empresa.
+          example: 3
+        name:
+          type: string
+          required: true
+          description: Nombre la empresa.
+          example: 2 company name
+    company_type:
+      type: object
+      properties:
+        id:
+          type: number
+          required: true
+          description: Identificador único para el tipo de empresa.
+          example: 3
+        name:
+          type: string
+          required: true
+          description: Nombre del tipo de empresa.
+          example: 2 company type name
+    dni_type:
+      type: object
+      properties:
+        code:
+          type: string
+          required: true
+          description: Identificador unico para el tipo de documento.
+          example: C
+        name:
+          type: string
+          required: true
+          description: Nombre del tipo de documento.
+          example: 2 dni type name
+        minLength:
+          type: number
+          required: true
+          description: Mínimo de caracteres que permite cada tipo de documento.
+          example: 833
+        maxLength:
+          type: number
+          required: true
+          description: Máximo de caracteres que permite cada tipo de documento.
+          example: 31
+    employee:
+      type: object
+      properties:
+        uuid:
+          type: string
+          required: true
+          description: Identificador universal unico para el empleado.
+          example: f4f06035-ad0b-4f71-94fa-bdf23e99803e
+        dniType:
+          type: string
+          required: true
+          description: Tipo de documento del empleado.
+          example: 2 em
+        dni:
+          type: string
+          required: true
+          description: Numero de documento del empleado.
+          example: 2 employee dni
+        firstName:
+          type: string
+          required: true
+          description: Primer nombre del empleado.
+          example: 2 employee first name
+        middleName:
+          type: string
+          required: false
+          description: Segundo nombre del empleado.
+          example: 2 employee middle name
+        surname:
+          type: string
+          required: true
+          description: Primer nombre del empleado.
+          example: 2 employee surname
+        secondSurname:
+          type: string
+          required: true
+          description: Segundo nombre del empleado.
+          example: 2 employee second surname
+        picture:
+          type: string
+          required: false
+          description: Foto de perfil del empleado.
+          example: 2 employee picture
+        gender:
+          type: string
+          required: true
+          description: Genero del empleado.
+          example: A
+        cellPhone:
+          type: string
+          required: true
+          description: Numero de celular del empleado.
+          example: 2 employee
+        email:
+          type: string
+          required: true
+          description: Correo electronico corporativo del empleado.
+          example: 2 employee email
+        academicLevel:
+          type: number
+          required: true
+          description: Nivel academico del empleado
+          example: 1
+        supplier:
+          type: string
+          required: true
+          description: Uuid del proveedor.
+          example: b7b47508-e125-40f2-85c7-6de96eb3356c
+        position:
+          type: number
+          required: true
+          description: Id del cargo que desempeña el empleado.
+          example: 1
+        arl:
+          type: number
+          required: true
+          description: Id de la administradoras de riesgos laborales.
+          example: 1
+        province:
+          type: string
+          required: true
+          description: Departamento de residencia del empleado.
+          example: A
+        city:
+          type: string
+          required: true
+          description: Ciudad de residencia del empleado.
+          example: A
+        isActive:
+          type: boolean
+          required: true
+          description: Indica si el empleado esta activo.
+          example: true
+        riskLevel:
+          type: string
+          required: true
+          description: codigo del nivel de riesgo.
+          example: A
+        riskClass:
+          type: number
+          required: true
+          description: Id de la clasificación de riesgo.
+          example: 1
+        entryDate:
+          type: string
+          required: true
+          description: Fecha de ingreso del empleado.
+          example: '2024-05-20'
+        egressDate:
+          type: string
+          required: false
+          description: Fecha de egreso del empleado.
+          example: '2024-05-20'
+        creatorUser:
+          type: string
+          required: true
+          description: Nombre de usuario que creo el empleado.
+          example: 2 employee creator user
+        editorUser:
+          type: string
+          required: true
+          description: Nombre de usuario que edito el empleado.
+          example: 2 employee editor user
+    gender:
+      type: object
+      properties:
+        code:
+          type: string
+          required: true
+          description: Código único para el género.
+          example: C
+        name:
+          type: string
+          required: true
+          description: Descripción del género.
+          example: 2 gender name
+    location:
+      type: object
+      properties:
+        id:
+          type: number
+          required: true
+          description: Identificador único para la localidad.
+          example: 3
+        name:
+          type: string
+          required: true
+          description: Nombre la localidad.
+          example: 2 location name
+    position:
+      type: object
+      properties:
+        id:
+          type: number
+          required: true
+          description: Identificador único para cada cargo.
+          example: 3
+        name:
+          type: string
+          required: true
+          description: Nombre del cargo.
+          example: 2 position name
+        description:
+          type: string
+          required: true
+          description: Nombre del cargo.
+          example: 2 position description
+    province:
+      type: object
+      properties:
+        id:
+          type: string
+          required: true
+          description: Identificador único para cada departamento.
+          example: C
+        name:
+          type: string
+          required: true
+          description: Nombre del departamento.
+          example: 2 province name
+        code:
+          type: string
+          required: true
+          description: Nombre del departamento.
+          example: 2 province code
+    regional:
+      type: object
+      properties:
+        id:
+          type: number
+          required: true
+          description: Identificador único para la regional.
+          example: 3
+        name:
+          type: string
+          required: true
+          description: Nombre la regional.
+          example: 2 regional name
+    risk_class:
+      type: object
+      properties:
+        id:
+          type: number
+          required: true
+          description: Identificador único para la administradoras de riesgos laborales.
+          example: 3
+        name:
+          type: string
+          required: true
+          description: Nombre de la administradoras de riesgos laborales.
+          example: 2 risk class name
+    risk_level:
+      type: object
+      properties:
+        code:
+          type: string
+          required: true
+          description: Identificador único para el nivel de riesgo.
+          example: C
+        name:
+          type: string
+          required: true
+          description: Nombre del nivel de riesgo.
+          example: 2 risk level name
+    service:
+      type: object
+      properties:
+        id:
+          type: number
+          required: true
+          description: Identificador único para el servicio prestado.
+          example: 3
+        name:
+          type: string
+          required: true
+          description: Nombre del servicio prestado.
+          example: 2 service name
+    supplier:
+      type: object
+      properties:
+        uuid:
+          type: string
+          required: true
+          description: Identificador universal unico para la tabal proveedor.
+          example: f4f06035-ad0b-4f71-94fa-bdf23e99803e
+        name:
+          type: string
+          required: true
+          description: Nombre del proveedor.
+          example: 2 supplier name
+        description:
+          type: string
+          required: false
+          description: Descripcion del proveedor.
+          example: 2 supplier description
+        nit:
+          type: string
+          required: true
+          description: número de NIT del proveedor.
+          example: 2 supplier nit
+        sapCode:
+          type: string
+          required: true
+          description: Codigo SAP del proveedor.
+          example: 2 supplier sap c
+        business:
+          type: number
+          required: true
+          description: Negocio.
+          example: 1
+        company:
+          type: number
+          required: true
+          description: Empresa.
+          example: 1
+        regional:
+          type: number
+          required: true
+          description: Regional.
+          example: 1
+        location:
+          type: number
+          required: true
+          description: Localidad.
+          example: 1
+        companyType:
+          type: number
+          required: true
+          description: Tipo de empresa.
+          example: 1
+        service:
+          type: number
+          required: true
+          description: Servicio prestado.
+          example: 1
+        isActive:
+          type: boolean
+          required: true
+          description: Indica si el proveedos esta activo.
+          example: true
+        creatorUser:
+          type: string
+          required: true
+          description: Nombre de usuario que creo el proveedor.
+          example: 2 supplier creator user
+        editorUser:
+          type: string
+          required: true
+          description: Nombre de usuario que edito el proveedor.
+          example: 2 supplier editor user
+  tags:
+    - AcademicLevel
+    - Arl
+    - Business
+    - City
+    - Company
+    - CompanyType
+    - DniType
+    - Employee
+    - Gender
+    - Location
+    - Position
+    - Province
+    - Regional
+    - RiskClass
+    - RiskLevel
+    - Service
+    - Supplier

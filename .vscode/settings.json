@@ -1,14 +1,26 @@
 {
-    "sonarlint.connectedMode.project": {
-        "connectionId": "axity-dev-nutresa",
-        "projectKey": "Axity-dev-nutresa_api-tablero-incidentes"
-    },
-    "cSpell.words": [
-        "DATEONLY",
-        "dotenv",
-        "esbuild",
-        "hstore",
-        "Parens",
-        "Proveedores"
-    ]
+  "editor.formatOnType": false,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.formatOnSaveMode": "file",
+  "files.autoSave": "onFocusChange",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "sonarlint.connectedMode.project": {
+    "connectionId": "axity-dev-nutresa",
+    "projectKey": "Axity-dev-nutresa_api-tablero-incidentes"
+  },
+  "cSpell.words": [
+    "DATEONLY",
+    "DATETIME",
+    "dotenv",
+    "esbuild",
+    "hstore",
+    "openapi",
+    "Parens",
+    "Proveedores",
+    "TINYINT"
+  ],
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

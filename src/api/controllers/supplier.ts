@@ -1,13 +1,12 @@
 import statusCodes from '@config/statusCodes'
-import {getModels} from '@db'
-import {relations} from '@src/database/relations'
+import db from '@db'
 import {resPkNotMach} from '@src/declarations/functions'
 import type {Request, Response} from 'express'
 
 export const supplierDetail = async (req: Request, res: Response) => {
   const {uuid} = req.params
-  relations()
-  const {Supplier} = getModels()
+  db.relations('Supplier')
+  const {Supplier} = db.getModels()
   const result = await Supplier.findByPk(uuid, {
     include: ['Business', 'Company', 'Regional', 'Location', 'CompanyType', 'Service']
   })
