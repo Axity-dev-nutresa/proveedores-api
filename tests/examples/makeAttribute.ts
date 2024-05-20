@@ -2,6 +2,7 @@ import {noCase} from 'change-case-all'
 import crypto from 'crypto'
 import type {ModelAttributeColumnOptions} from 'sequelize'
 
+const dis = ['A', 'B', 'new', 'edit', '']
 const codes = ['A', 'B', 'C', 'D', 'E']
 const ids = [1, 2, 3, 4, 5]
 const uuids = [
@@ -24,7 +25,6 @@ export const makeAttribute = (
   item: number
 ) => {
   const strType = colum.type.toString({})
-
   if (colum.primaryKey) {
     if (strType === 'CHAR(36) BINARY') return uuids[item]
     if (/(INTEGER)|(NUMBER)/i.test(strType)) return ids[item]
@@ -39,7 +39,7 @@ export const makeAttribute = (
 
   if (/(VARCHAR)|(TEXT)|(CHAR)/i.test(strType)) {
     if (colum.defaultValue) return colum.defaultValue
-    const expColum = `${item} ${noCase(tableName)} ${noCase(colum.field ?? '')}`
+    const expColum = `${dis[item]} ${noCase(tableName)} ${noCase(colum.field ?? '')}`
     return expColum.slice(0, getLength(strType))
   }
 

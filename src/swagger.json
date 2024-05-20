@@ -19,8 +19,8 @@
                 "schema": {
                   "type": "array",
                   "example": [
-                    {"id": 1, "name": "0 academic level name"},
-                    {"id": 2, "name": "1 academic level name"}
+                    {"id": 1, "name": "Primaria"},
+                    {"id": 2, "name": "Secundaria"}
                   ]
                 }
               }
@@ -41,8 +41,8 @@
                 "schema": {
                   "type": "array",
                   "example": [
-                    {"id": 1, "name": "0 arl name"},
-                    {"id": 2, "name": "1 arl name"}
+                    {"id": 1, "name": "ARL Positiva"},
+                    {"id": 2, "name": "Seguros Bolívar S.A"}
                   ]
                 }
               }
@@ -63,8 +63,8 @@
                 "schema": {
                   "type": "array",
                   "example": [
-                    {"id": 1, "name": "0 business name"},
-                    {"id": 2, "name": "1 business name"}
+                    {"id": 1, "name": "ALIMENTOS AL CONSUMIDOR"},
+                    {"id": 2, "name": "CAFÉ"}
                   ]
                 }
               }
@@ -85,8 +85,8 @@
                 "schema": {
                   "type": "array",
                   "example": [
-                    {"id": "A", "name": "0 city name", "province": "A"},
-                    {"id": "B", "name": "1 city name", "province": "A"}
+                    {"id": "05001", "name": "MEDELLÍN", "province": "05"},
+                    {"id": "05002", "name": "ABEJORRAL", "province": "05"}
                   ]
                 }
               }
@@ -107,8 +107,8 @@
                 "schema": {
                   "type": "array",
                   "example": [
-                    {"id": 1, "name": "0 company name"},
-                    {"id": 2, "name": "1 company name"}
+                    {"id": 1, "name": "FUNDACION NUTRESA"},
+                    {"id": 2, "name": "GESTION CARGO ZONAFRANCA"}
                   ]
                 }
               }
@@ -129,8 +129,8 @@
                 "schema": {
                   "type": "array",
                   "example": [
-                    {"id": 1, "name": "0 company type name"},
-                    {"id": 2, "name": "1 company type name"}
+                    {"id": 1, "name": "CONTRATISTA"},
+                    {"id": 2, "name": "EMPRESA DE SERVICIOS TEMPORALES"}
                   ]
                 }
               }
@@ -152,16 +152,16 @@
                   "type": "array",
                   "example": [
                     {
-                      "code": "A",
-                      "name": "0 dni type name",
-                      "minLength": 429,
-                      "maxLength": 297
+                      "code": "CC",
+                      "name": "Cédula de Ciudadanía",
+                      "minLength": 6,
+                      "maxLength": 10
                     },
                     {
-                      "code": "B",
-                      "name": "1 dni type name",
-                      "minLength": 10,
-                      "maxLength": 539
+                      "code": "CE",
+                      "name": "Cédula de Extranjería",
+                      "minLength": 4,
+                      "maxLength": 10
                     }
                   ]
                 }
@@ -184,62 +184,62 @@
                   "type": "array",
                   "example": [
                     {
-                      "name": "1 employee first name 1 employee middle name",
-                      "lastName": "1 employee surname 1 employee second surname",
-                      "fullName": "1 employee first name 1 employee middle name 1 employee surname 1 employee second surname",
-                      "uuid": "856d2da5-8aef-4801-833f-257122aca09b",
-                      "dniType": "1 em",
-                      "dni": "1 employee dni",
-                      "firstName": "1 employee first name",
-                      "middleName": "1 employee middle name",
-                      "surname": "1 employee surname",
-                      "secondSurname": "1 employee second surname",
-                      "picture": "1 employee picture",
-                      "gender": "A",
-                      "cellPhone": "1 employee",
-                      "email": "1 employee email",
+                      "name": "Juan Esteban",
+                      "lastName": "Quintero Bedoya",
+                      "fullName": "Juan Esteban Quintero Bedoya",
+                      "uuid": "0990f956-6acf-4447-8b0c-9fcfe5325779",
+                      "dniType": "CC",
+                      "dni": "1037750844",
+                      "firstName": "Juan",
+                      "middleName": "Esteban",
+                      "surname": "Quintero",
+                      "secondSurname": "Bedoya",
+                      "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750844.jpg",
+                      "gender": "M",
+                      "cellPhone": "3127140333",
+                      "email": "juannes@gmail.com",
                       "academicLevel": 1,
-                      "supplier": "b7b47508-e125-40f2-85c7-6de96eb3356c",
+                      "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
                       "position": 1,
                       "arl": 1,
-                      "province": "A",
-                      "city": "A",
+                      "province": "05",
+                      "city": "05001",
                       "isActive": true,
-                      "riskLevel": "A",
+                      "riskLevel": "I",
                       "riskClass": 1,
-                      "entryDate": "2024-05-20",
-                      "egressDate": "2024-05-20",
-                      "creatorUser": "1 employee creator user",
-                      "editorUser": "1 employee editor user"
+                      "entryDate": "2024-05-02",
+                      "egressDate": null,
+                      "creatorUser": "estebanquintero",
+                      "editorUser": "administrador"
                     },
                     {
-                      "name": "0 employee first name 0 employee middle name",
-                      "lastName": "0 employee surname 0 employee second surname",
-                      "fullName": "0 employee first name 0 employee middle name 0 employee surname 0 employee second surname",
-                      "uuid": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-                      "dniType": "0 em",
-                      "dni": "0 employee dni",
-                      "firstName": "0 employee first name",
-                      "middleName": "0 employee middle name",
-                      "surname": "0 employee surname",
-                      "secondSurname": "0 employee second surname",
-                      "picture": "0 employee picture",
-                      "gender": "A",
-                      "cellPhone": "0 employee",
-                      "email": "0 employee email",
-                      "academicLevel": 1,
-                      "supplier": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-                      "position": 1,
-                      "arl": 1,
-                      "province": "A",
-                      "city": "A",
+                      "name": "Maria Jose",
+                      "lastName": "Bedoya Martinez",
+                      "fullName": "Maria Jose Bedoya Martinez",
+                      "uuid": "201131d1-ff11-4fd7-9c01-0e8a69c36226",
+                      "dniType": "CC",
+                      "dni": "21791046",
+                      "firstName": "Maria",
+                      "middleName": "Jose",
+                      "surname": "Bedoya",
+                      "secondSurname": "Martinez",
+                      "picture": null,
+                      "gender": "F",
+                      "cellPhone": "3127140344",
+                      "email": "maria@gmail.com",
+                      "academicLevel": 2,
+                      "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                      "position": 2,
+                      "arl": 2,
+                      "province": "05",
+                      "city": "05001",
                       "isActive": true,
-                      "riskLevel": "A",
-                      "riskClass": 1,
-                      "entryDate": "2024-05-20",
-                      "egressDate": "2024-05-20",
-                      "creatorUser": "0 employee creator user",
-                      "editorUser": "0 employee editor user"
+                      "riskLevel": "I",
+                      "riskClass": 2,
+                      "entryDate": "2024-02-10",
+                      "egressDate": "2024-05-09",
+                      "creatorUser": "estebanquintero",
+                      "editorUser": "estebanquintero"
                     }
                   ]
                 }
@@ -258,33 +258,33 @@
               "schema": {
                 "type": "object",
                 "example": {
-                  "name": "2 employee first name 2 employee middle name",
-                  "lastName": "2 employee surname 2 employee second surname",
-                  "fullName": "2 employee first name 2 employee middle name 2 employee surname 2 employee second surname",
-                  "uuid": "f4f06035-ad0b-4f71-94fa-bdf23e99803e",
-                  "dniType": "2 em",
-                  "dni": "2 employee dni",
-                  "firstName": "2 employee first name",
-                  "middleName": "2 employee middle name",
-                  "surname": "2 employee surname",
-                  "secondSurname": "2 employee second surname",
-                  "picture": "2 employee picture",
-                  "gender": "A",
-                  "cellPhone": "2 employee",
-                  "email": "2 employee email",
-                  "academicLevel": 1,
-                  "supplier": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-                  "position": 1,
-                  "arl": 1,
-                  "province": "A",
-                  "city": "A",
+                  "name": "Juan Carlos",
+                  "lastName": "Quintero Martinez",
+                  "fullName": "Juan Carlos Quintero Martinez",
+                  "uuid": "300eb91e-9476-448b-b160-8122ba7ad4d5",
+                  "dniType": "CC",
+                  "dni": "1037750899",
+                  "firstName": "Juan",
+                  "middleName": "Carlos",
+                  "surname": "Quintero",
+                  "secondSurname": "Martinez",
+                  "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750899.png",
+                  "gender": "M",
+                  "cellPhone": "3127140399",
+                  "email": "juannes99@gmail.com",
+                  "academicLevel": 2,
+                  "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                  "position": 2,
+                  "arl": 2,
+                  "province": "05",
+                  "city": "05001",
                   "isActive": true,
-                  "riskLevel": "A",
-                  "riskClass": 1,
-                  "entryDate": "2024-05-20",
-                  "egressDate": "2024-05-20",
-                  "creatorUser": "2 employee creator user",
-                  "editorUser": "2 employee editor user"
+                  "riskLevel": "II",
+                  "riskClass": 2,
+                  "entryDate": "2022-09-07",
+                  "egressDate": null,
+                  "creatorUser": "estebanquintero",
+                  "editorUser": "estebanquintero"
                 }
               }
             }
@@ -297,33 +297,33 @@
                 "schema": {
                   "type": "object",
                   "example": {
-                    "name": "2 employee first name 2 employee middle name",
-                    "lastName": "2 employee surname 2 employee second surname",
-                    "fullName": "2 employee first name 2 employee middle name 2 employee surname 2 employee second surname",
-                    "uuid": "f4f06035-ad0b-4f71-94fa-bdf23e99803e",
-                    "dniType": "2 em",
-                    "dni": "2 employee dni",
-                    "firstName": "2 employee first name",
-                    "middleName": "2 employee middle name",
-                    "surname": "2 employee surname",
-                    "secondSurname": "2 employee second surname",
-                    "picture": "2 employee picture",
-                    "gender": "A",
-                    "cellPhone": "2 employee",
-                    "email": "2 employee email",
-                    "academicLevel": 1,
-                    "supplier": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-                    "position": 1,
-                    "arl": 1,
-                    "province": "A",
-                    "city": "A",
+                    "name": "Juan Carlos",
+                    "lastName": "Quintero Martinez",
+                    "fullName": "Juan Carlos Quintero Martinez",
+                    "uuid": "300eb91e-9476-448b-b160-8122ba7ad4d5",
+                    "dniType": "CC",
+                    "dni": "1037750899",
+                    "firstName": "Juan",
+                    "middleName": "Carlos",
+                    "surname": "Quintero",
+                    "secondSurname": "Martinez",
+                    "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750899.png",
+                    "gender": "M",
+                    "cellPhone": "3127140399",
+                    "email": "juannes99@gmail.com",
+                    "academicLevel": 2,
+                    "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                    "position": 2,
+                    "arl": 2,
+                    "province": "05",
+                    "city": "05001",
                     "isActive": true,
-                    "riskLevel": "A",
-                    "riskClass": 1,
-                    "entryDate": "2024-05-20",
-                    "egressDate": "2024-05-20",
-                    "creatorUser": "2 employee creator user",
-                    "editorUser": "2 employee editor user"
+                    "riskLevel": "II",
+                    "riskClass": 2,
+                    "entryDate": "2022-09-07",
+                    "egressDate": null,
+                    "creatorUser": "estebanquintero",
+                    "editorUser": "estebanquintero"
                   }
                 }
               }
@@ -345,33 +345,33 @@
               "schema": {
                 "type": "object",
                 "example": {
-                  "name": "3 employee first name 3 employee middle name",
-                  "lastName": "3 employee surname 3 employee second surname",
-                  "fullName": "3 employee first name 3 employee middle name 3 employee surname 3 employee second surname",
-                  "uuid": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-                  "dniType": "3 em",
-                  "dni": "3 employee dni",
-                  "firstName": "3 employee first name",
-                  "middleName": "3 employee middle name",
-                  "surname": "3 employee surname",
-                  "secondSurname": "3 employee second surname",
-                  "picture": "3 employee picture",
-                  "gender": "A",
-                  "cellPhone": "3 employee",
-                  "email": "3 employee email",
+                  "name": "Emily ",
+                  "lastName": "Quintero Martinez",
+                  "fullName": "Emily  Quintero Martinez",
+                  "uuid": "201131d1-ff11-4fd7-9c01-0e8a69c36226",
+                  "dniType": "CC",
+                  "dni": "1022161626",
+                  "firstName": "Emily",
+                  "middleName": null,
+                  "surname": "Quintero",
+                  "secondSurname": "Martinez",
+                  "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg",
+                  "gender": "F",
+                  "cellPhone": "3127140334",
+                  "email": "emily@gmail.com",
                   "academicLevel": 1,
-                  "supplier": "b7b47508-e125-40f2-85c7-6de96eb3356c",
+                  "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
                   "position": 1,
                   "arl": 1,
-                  "province": "A",
-                  "city": "A",
+                  "province": "05",
+                  "city": "05001",
                   "isActive": true,
-                  "riskLevel": "A",
+                  "riskLevel": "I",
                   "riskClass": 1,
-                  "entryDate": "2024-05-20",
-                  "egressDate": "2024-05-20",
-                  "creatorUser": "3 employee creator user",
-                  "editorUser": "3 employee editor user"
+                  "entryDate": "2020-06-09",
+                  "egressDate": null,
+                  "creatorUser": "estebanquintero",
+                  "editorUser": "estebanquintero"
                 }
               }
             }
@@ -384,33 +384,33 @@
                 "schema": {
                   "type": "object",
                   "example": {
-                    "name": "3 employee first name 3 employee middle name",
-                    "lastName": "3 employee surname 3 employee second surname",
-                    "fullName": "3 employee first name 3 employee middle name 3 employee surname 3 employee second surname",
-                    "uuid": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-                    "dniType": "3 em",
-                    "dni": "3 employee dni",
-                    "firstName": "3 employee first name",
-                    "middleName": "3 employee middle name",
-                    "surname": "3 employee surname",
-                    "secondSurname": "3 employee second surname",
-                    "picture": "3 employee picture",
-                    "gender": "A",
-                    "cellPhone": "3 employee",
-                    "email": "3 employee email",
+                    "name": "Emily ",
+                    "lastName": "Quintero Martinez",
+                    "fullName": "Emily  Quintero Martinez",
+                    "uuid": "201131d1-ff11-4fd7-9c01-0e8a69c36226",
+                    "dniType": "CC",
+                    "dni": "1022161626",
+                    "firstName": "Emily",
+                    "middleName": null,
+                    "surname": "Quintero",
+                    "secondSurname": "Martinez",
+                    "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg",
+                    "gender": "F",
+                    "cellPhone": "3127140334",
+                    "email": "emily@gmail.com",
                     "academicLevel": 1,
-                    "supplier": "b7b47508-e125-40f2-85c7-6de96eb3356c",
+                    "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
                     "position": 1,
                     "arl": 1,
-                    "province": "A",
-                    "city": "A",
+                    "province": "05",
+                    "city": "05001",
                     "isActive": true,
-                    "riskLevel": "A",
+                    "riskLevel": "I",
                     "riskClass": 1,
-                    "entryDate": "2024-05-20",
-                    "egressDate": "2024-05-20",
-                    "creatorUser": "3 employee creator user",
-                    "editorUser": "3 employee editor user"
+                    "entryDate": "2020-06-09",
+                    "egressDate": null,
+                    "creatorUser": "estebanquintero",
+                    "editorUser": "estebanquintero"
                   }
                 }
               }
@@ -431,39 +431,39 @@
                 "schema": {
                   "type": "object",
                   "example": {
-                    "name": "1 employee first name 1 employee middle name",
-                    "lastName": "1 employee surname 1 employee second surname",
-                    "fullName": "1 employee first name 1 employee middle name 1 employee surname 1 employee second surname",
-                    "uuid": "856d2da5-8aef-4801-833f-257122aca09b",
-                    "dniType": "1 em",
-                    "dni": "1 employee dni",
-                    "firstName": "1 employee first name",
-                    "middleName": "1 employee middle name",
-                    "surname": "1 employee surname",
-                    "secondSurname": "1 employee second surname",
-                    "picture": "1 employee picture",
-                    "gender": "A",
-                    "cellPhone": "1 employee",
-                    "email": "1 employee email",
+                    "name": "Juan Esteban",
+                    "lastName": "Quintero Bedoya",
+                    "fullName": "Juan Esteban Quintero Bedoya",
+                    "uuid": "0990f956-6acf-4447-8b0c-9fcfe5325779",
+                    "dniType": "CC",
+                    "dni": "1037750844",
+                    "firstName": "Juan",
+                    "middleName": "Esteban",
+                    "surname": "Quintero",
+                    "secondSurname": "Bedoya",
+                    "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750844.jpg",
+                    "gender": "M",
+                    "cellPhone": "3127140333",
+                    "email": "juannes@gmail.com",
                     "academicLevel": 1,
-                    "supplier": "b7b47508-e125-40f2-85c7-6de96eb3356c",
+                    "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
                     "position": 1,
                     "arl": 1,
-                    "province": "A",
-                    "city": "A",
+                    "province": "05",
+                    "city": "05001",
                     "isActive": true,
-                    "riskLevel": "A",
+                    "riskLevel": "I",
                     "riskClass": 1,
-                    "entryDate": "2024-05-20",
-                    "egressDate": "2024-05-20",
-                    "creatorUser": "1 employee creator user",
-                    "editorUser": "1 employee editor user",
+                    "entryDate": "2024-05-02",
+                    "egressDate": null,
+                    "creatorUser": "estebanquintero",
+                    "editorUser": "administrador",
                     "Supplier": {
-                      "uuid": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-                      "name": "0 supplier name",
-                      "description": "0 supplier description",
-                      "nit": "0 supplier nit",
-                      "sapCode": "0 supplier sap c",
+                      "uuid": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                      "name": "Axity",
+                      "description": "El hogar del mejor talento",
+                      "nit": "343243423",
+                      "sapCode": "3432423",
                       "business": 1,
                       "company": 1,
                       "regional": 1,
@@ -471,25 +471,21 @@
                       "companyType": 1,
                       "service": 1,
                       "isActive": true,
-                      "creatorUser": "0 supplier creator user",
-                      "editorUser": "0 supplier editor user"
+                      "creatorUser": "estebanquintero",
+                      "editorUser": "estebanquintero"
                     },
-                    "Gender": {"code": "A", "name": "0 gender name"},
-                    "AcademicLevel": {"id": 1, "name": "0 academic level name"},
-                    "Province": {
-                      "id": "A",
-                      "name": "0 province name",
-                      "code": "0 province code"
-                    },
-                    "City": {"id": "A", "name": "0 city name", "province": "A"},
+                    "Gender": {"code": "M", "name": "Masculino"},
+                    "AcademicLevel": {"id": 1, "name": "Primaria"},
+                    "Province": {"id": "05", "name": "ANTIOQUIA", "code": "604"},
+                    "City": {"id": "05001", "name": "MEDELLÍN", "province": "05"},
                     "Position": {
                       "id": 1,
-                      "name": "0 position name",
-                      "description": "0 position description"
+                      "name": "Client Manager",
+                      "description": "Gerente de Proyecto"
                     },
-                    "Arl": {"id": 1, "name": "0 arl name"},
-                    "RiskLevel": {"code": "A", "name": "0 risk level name"},
-                    "RiskClass": {"id": 1, "name": "0 risk class name"}
+                    "Arl": {"id": 1, "name": "ARL Positiva"},
+                    "RiskLevel": {"code": "I", "name": "Riesgo minimo"},
+                    "RiskClass": {"id": 1, "name": "Riesgo público"}
                   }
                 }
               }
@@ -510,8 +506,8 @@
                 "schema": {
                   "type": "array",
                   "example": [
-                    {"code": "A", "name": "0 gender name"},
-                    {"code": "B", "name": "1 gender name"}
+                    {"code": "F", "name": "Femenino"},
+                    {"code": "M", "name": "Masculino"}
                   ]
                 }
               }
@@ -532,8 +528,8 @@
                 "schema": {
                   "type": "array",
                   "example": [
-                    {"id": 1, "name": "0 location name"},
-                    {"id": 2, "name": "1 location name"}
+                    {"id": 1, "name": "RB-BARRANQUILLA (AANN)"},
+                    {"id": 2, "name": "RB-BOGOTÁ (ABCN)"}
                   ]
                 }
               }
@@ -556,13 +552,13 @@
                   "example": [
                     {
                       "id": 1,
-                      "name": "0 position name",
-                      "description": "0 position description"
+                      "name": "Client Manager",
+                      "description": "Gerente de Proyecto"
                     },
                     {
                       "id": 2,
-                      "name": "1 position name",
-                      "description": "1 position description"
+                      "name": "Supervisor",
+                      "description": "Supervisor de coordinadores"
                     }
                   ]
                 }
@@ -584,8 +580,8 @@
                 "schema": {
                   "type": "array",
                   "example": [
-                    {"id": "A", "name": "0 province name", "code": "0 province code"},
-                    {"id": "B", "name": "1 province name", "code": "1 province code"}
+                    {"id": "05", "name": "ANTIOQUIA", "code": "604"},
+                    {"id": "08", "name": "ATLANTICO", "code": "605"}
                   ]
                 }
               }
@@ -606,8 +602,8 @@
                 "schema": {
                   "type": "array",
                   "example": [
-                    {"id": 1, "name": "0 regional name"},
-                    {"id": 2, "name": "1 regional name"}
+                    {"id": 1, "name": "REGIONAL BARRANQUILLA"},
+                    {"id": 2, "name": "REGIONAL BOGOTA"}
                   ]
                 }
               }
@@ -628,8 +624,8 @@
                 "schema": {
                   "type": "array",
                   "example": [
-                    {"id": 1, "name": "0 risk class name"},
-                    {"id": 2, "name": "1 risk class name"}
+                    {"id": 1, "name": "Riesgo público"},
+                    {"id": 2, "name": "Riesgo locativo"}
                   ]
                 }
               }
@@ -650,8 +646,8 @@
                 "schema": {
                   "type": "array",
                   "example": [
-                    {"code": "A", "name": "0 risk level name"},
-                    {"code": "B", "name": "1 risk level name"}
+                    {"code": "I", "name": "Riesgo minimo"},
+                    {"code": "II", "name": "Riesgo bajo"}
                   ]
                 }
               }
@@ -672,8 +668,8 @@
                 "schema": {
                   "type": "array",
                   "example": [
-                    {"id": 1, "name": "0 service name"},
-                    {"id": 2, "name": "1 service name"}
+                    {"id": 1, "name": "ALIMENTACIÓN/CASINO"},
+                    {"id": 2, "name": "ASEO Y LIMPIEZA"}
                   ]
                 }
               }
@@ -695,11 +691,11 @@
                   "type": "array",
                   "example": [
                     {
-                      "uuid": "856d2da5-8aef-4801-833f-257122aca09b",
-                      "name": "1 supplier name",
-                      "description": "1 supplier description",
-                      "nit": "1 supplier nit",
-                      "sapCode": "1 supplier sap c",
+                      "uuid": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
+                      "name": "Novaventa",
+                      "description": "Siempre juntos, siempre con tigo.",
+                      "nit": "434324234",
+                      "sapCode": "2423423",
                       "business": 1,
                       "company": 1,
                       "regional": 1,
@@ -707,15 +703,15 @@
                       "companyType": 1,
                       "service": 1,
                       "isActive": true,
-                      "creatorUser": "1 supplier creator user",
-                      "editorUser": "1 supplier editor user"
+                      "creatorUser": "estebanquintero",
+                      "editorUser": "estebanquintero"
                     },
                     {
-                      "uuid": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-                      "name": "0 supplier name",
-                      "description": "0 supplier description",
-                      "nit": "0 supplier nit",
-                      "sapCode": "0 supplier sap c",
+                      "uuid": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                      "name": "Axity",
+                      "description": "El hogar del mejor talento",
+                      "nit": "343243423",
+                      "sapCode": "3432423",
                       "business": 1,
                       "company": 1,
                       "regional": 1,
@@ -723,8 +719,8 @@
                       "companyType": 1,
                       "service": 1,
                       "isActive": true,
-                      "creatorUser": "0 supplier creator user",
-                      "editorUser": "0 supplier editor user"
+                      "creatorUser": "estebanquintero",
+                      "editorUser": "estebanquintero"
                     }
                   ]
                 }
@@ -744,10 +740,10 @@
                 "type": "object",
                 "example": {
                   "uuid": "f4f06035-ad0b-4f71-94fa-bdf23e99803e",
-                  "name": "2 supplier name",
-                  "description": "2 supplier description",
-                  "nit": "2 supplier nit",
-                  "sapCode": "2 supplier sap c",
+                  "name": "new supplier name",
+                  "description": "new supplier description",
+                  "nit": "new supplier nit",
+                  "sapCode": "new supplier sap",
                   "business": 1,
                   "company": 1,
                   "regional": 1,
@@ -755,8 +751,8 @@
                   "companyType": 1,
                   "service": 1,
                   "isActive": true,
-                  "creatorUser": "2 supplier creator user",
-                  "editorUser": "2 supplier editor user"
+                  "creatorUser": "new supplier creator user",
+                  "editorUser": "new supplier editor user"
                 }
               }
             }
@@ -770,10 +766,10 @@
                   "type": "object",
                   "example": {
                     "uuid": "f4f06035-ad0b-4f71-94fa-bdf23e99803e",
-                    "name": "2 supplier name",
-                    "description": "2 supplier description",
-                    "nit": "2 supplier nit",
-                    "sapCode": "2 supplier sap c",
+                    "name": "new supplier name",
+                    "description": "new supplier description",
+                    "nit": "new supplier nit",
+                    "sapCode": "new supplier sap",
                     "business": 1,
                     "company": 1,
                     "regional": 1,
@@ -781,8 +777,8 @@
                     "companyType": 1,
                     "service": 1,
                     "isActive": true,
-                    "creatorUser": "2 supplier creator user",
-                    "editorUser": "2 supplier editor user"
+                    "creatorUser": "new supplier creator user",
+                    "editorUser": "new supplier editor user"
                   }
                 }
               }
@@ -804,11 +800,11 @@
               "schema": {
                 "type": "object",
                 "example": {
-                  "uuid": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-                  "name": "3 supplier name",
-                  "description": "3 supplier description",
-                  "nit": "3 supplier nit",
-                  "sapCode": "3 supplier sap c",
+                  "uuid": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                  "name": "edit supplier name",
+                  "description": "edit supplier description",
+                  "nit": "edit supplier ni",
+                  "sapCode": "edit supplier sa",
                   "business": 1,
                   "company": 1,
                   "regional": 1,
@@ -816,8 +812,8 @@
                   "companyType": 1,
                   "service": 1,
                   "isActive": true,
-                  "creatorUser": "3 supplier creator user",
-                  "editorUser": "3 supplier editor user"
+                  "creatorUser": "edit supplier creator user",
+                  "editorUser": "edit supplier editor user"
                 }
               }
             }
@@ -830,11 +826,11 @@
                 "schema": {
                   "type": "object",
                   "example": {
-                    "uuid": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-                    "name": "3 supplier name",
-                    "description": "3 supplier description",
-                    "nit": "3 supplier nit",
-                    "sapCode": "3 supplier sap c",
+                    "uuid": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                    "name": "edit supplier name",
+                    "description": "edit supplier description",
+                    "nit": "edit supplier ni",
+                    "sapCode": "edit supplier sa",
                     "business": 1,
                     "company": 1,
                     "regional": 1,
@@ -842,8 +838,8 @@
                     "companyType": 1,
                     "service": 1,
                     "isActive": true,
-                    "creatorUser": "3 supplier creator user",
-                    "editorUser": "3 supplier editor user"
+                    "creatorUser": "edit supplier creator user",
+                    "editorUser": "edit supplier editor user"
                   }
                 }
               }
@@ -864,11 +860,11 @@
                 "schema": {
                   "type": "object",
                   "example": {
-                    "uuid": "856d2da5-8aef-4801-833f-257122aca09b",
-                    "name": "1 supplier name",
-                    "description": "1 supplier description",
-                    "nit": "1 supplier nit",
-                    "sapCode": "1 supplier sap c",
+                    "uuid": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
+                    "name": "Novaventa",
+                    "description": "Siempre juntos, siempre con tigo.",
+                    "nit": "434324234",
+                    "sapCode": "2423423",
                     "business": 1,
                     "company": 1,
                     "regional": 1,
@@ -876,14 +872,14 @@
                     "companyType": 1,
                     "service": 1,
                     "isActive": true,
-                    "creatorUser": "1 supplier creator user",
-                    "editorUser": "1 supplier editor user",
-                    "Business": {"id": 1, "name": "0 business name"},
-                    "Company": {"id": 1, "name": "0 company name"},
-                    "Regional": {"id": 1, "name": "0 regional name"},
-                    "Location": {"id": 1, "name": "0 location name"},
-                    "CompanyType": {"id": 1, "name": "0 company type name"},
-                    "Service": {"id": 1, "name": "0 service name"}
+                    "creatorUser": "estebanquintero",
+                    "editorUser": "estebanquintero",
+                    "Business": {"id": 1, "name": "ALIMENTOS AL CONSUMIDOR"},
+                    "Company": {"id": 1, "name": "FUNDACION NUTRESA"},
+                    "Regional": {"id": 1, "name": "REGIONAL BARRANQUILLA"},
+                    "Location": {"id": 1, "name": "RB-BARRANQUILLA (AANN)"},
+                    "CompanyType": {"id": 1, "name": "CONTRATISTA"},
+                    "Service": {"id": 1, "name": "ALIMENTACIÓN/CASINO"}
                   }
                 }
               }
@@ -910,7 +906,7 @@
             "type": "string",
             "required": true,
             "description": "Descripción del nivel académico.",
-            "example": "2 academic level name"
+            "example": "Técnico"
           }
         }
       },
@@ -927,7 +923,7 @@
             "type": "string",
             "required": true,
             "description": "Nombre de la administradoras de riesgos laborales.",
-            "example": "2 arl name"
+            "example": "Seguros de Vida Aurora S.A"
           }
         }
       },
@@ -944,7 +940,7 @@
             "type": "string",
             "required": true,
             "description": "Nombre del negocio.",
-            "example": "2 business name"
+            "example": "CARNICO"
           }
         }
       },
@@ -955,19 +951,19 @@
             "type": "string",
             "required": true,
             "description": "Código único para cada ciudad.",
-            "example": "C"
+            "example": "05004"
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre de la ciudad.",
-            "example": "2 city name"
+            "example": "ABRIAQUÍ"
           },
           "province": {
             "type": "string",
             "required": true,
             "description": "Codigo del departamento.",
-            "example": "A"
+            "example": "05"
           }
         }
       },
@@ -984,7 +980,7 @@
             "type": "string",
             "required": true,
             "description": "Nombre la empresa.",
-            "example": "2 company name"
+            "example": "GRUPO NUTRESA"
           }
         }
       },
@@ -1012,25 +1008,25 @@
             "type": "string",
             "required": true,
             "description": "Identificador unico para el tipo de documento.",
-            "example": "C"
+            "example": "NIT"
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre del tipo de documento.",
-            "example": "2 dni type name"
+            "example": "Número de Identificación Tributaria"
           },
           "minLength": {
             "type": "number",
             "required": true,
             "description": "Mínimo de caracteres que permite cada tipo de documento.",
-            "example": 833
+            "example": 9
           },
           "maxLength": {
             "type": "number",
             "required": true,
             "description": "Máximo de caracteres que permite cada tipo de documento.",
-            "example": 31
+            "example": 9
           }
         }
       },
@@ -1041,103 +1037,103 @@
             "type": "string",
             "required": true,
             "description": "Identificador universal unico para el empleado.",
-            "example": "f4f06035-ad0b-4f71-94fa-bdf23e99803e"
+            "example": "300eb91e-9476-448b-b160-8122ba7ad4d5"
           },
           "dniType": {
             "type": "string",
             "required": true,
             "description": "Tipo de documento del empleado.",
-            "example": "2 em"
+            "example": "CC"
           },
           "dni": {
             "type": "string",
             "required": true,
             "description": "Numero de documento del empleado.",
-            "example": "2 employee dni"
+            "example": "1037750899"
           },
           "firstName": {
             "type": "string",
             "required": true,
             "description": "Primer nombre del empleado.",
-            "example": "2 employee first name"
+            "example": "Juan"
           },
           "middleName": {
             "type": "string",
             "required": false,
             "description": "Segundo nombre del empleado.",
-            "example": "2 employee middle name"
+            "example": "Carlos"
           },
           "surname": {
             "type": "string",
             "required": true,
             "description": "Primer nombre del empleado.",
-            "example": "2 employee surname"
+            "example": "Quintero"
           },
           "secondSurname": {
             "type": "string",
             "required": true,
             "description": "Segundo nombre del empleado.",
-            "example": "2 employee second surname"
+            "example": "Martinez"
           },
           "picture": {
             "type": "string",
             "required": false,
             "description": "Foto de perfil del empleado.",
-            "example": "2 employee picture"
+            "example": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750899.png"
           },
           "gender": {
             "type": "string",
             "required": true,
             "description": "Genero del empleado.",
-            "example": "A"
+            "example": "M"
           },
           "cellPhone": {
             "type": "string",
             "required": true,
             "description": "Numero de celular del empleado.",
-            "example": "2 employee"
+            "example": "3127140399"
           },
           "email": {
             "type": "string",
             "required": true,
             "description": "Correo electronico corporativo del empleado.",
-            "example": "2 employee email"
+            "example": "juannes99@gmail.com"
           },
           "academicLevel": {
             "type": "number",
             "required": true,
             "description": "Nivel academico del empleado",
-            "example": 1
+            "example": 2
           },
           "supplier": {
             "type": "string",
             "required": true,
             "description": "Uuid del proveedor.",
-            "example": "b7b47508-e125-40f2-85c7-6de96eb3356c"
+            "example": "a366e7f9-4bfa-40d8-8d6f-be69846fb160"
           },
           "position": {
             "type": "number",
             "required": true,
             "description": "Id del cargo que desempeña el empleado.",
-            "example": 1
+            "example": 2
           },
           "arl": {
             "type": "number",
             "required": true,
             "description": "Id de la administradoras de riesgos laborales.",
-            "example": 1
+            "example": 2
           },
           "province": {
             "type": "string",
             "required": true,
             "description": "Departamento de residencia del empleado.",
-            "example": "A"
+            "example": "05"
           },
           "city": {
             "type": "string",
             "required": true,
             "description": "Ciudad de residencia del empleado.",
-            "example": "A"
+            "example": "05001"
           },
           "isActive": {
             "type": "boolean",
@@ -1149,37 +1145,37 @@
             "type": "string",
             "required": true,
             "description": "codigo del nivel de riesgo.",
-            "example": "A"
+            "example": "II"
           },
           "riskClass": {
             "type": "number",
             "required": true,
             "description": "Id de la clasificación de riesgo.",
-            "example": 1
+            "example": 2
           },
           "entryDate": {
             "type": "string",
             "required": true,
             "description": "Fecha de ingreso del empleado.",
-            "example": "2024-05-20"
+            "example": "2022-09-07"
           },
           "egressDate": {
-            "type": "string",
+            "type": "object",
             "required": false,
             "description": "Fecha de egreso del empleado.",
-            "example": "2024-05-20"
+            "example": null
           },
           "creatorUser": {
             "type": "string",
             "required": true,
             "description": "Nombre de usuario que creo el empleado.",
-            "example": "2 employee creator user"
+            "example": "estebanquintero"
           },
           "editorUser": {
             "type": "string",
             "required": true,
             "description": "Nombre de usuario que edito el empleado.",
-            "example": "2 employee editor user"
+            "example": "estebanquintero"
           }
         }
       },
@@ -1190,13 +1186,13 @@
             "type": "string",
             "required": true,
             "description": "Código único para el género.",
-            "example": "C"
+            "example": "O"
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Descripción del género.",
-            "example": "2 gender name"
+            "example": "Otro"
           }
         }
       },
@@ -1213,7 +1209,7 @@
             "type": "string",
             "required": true,
             "description": "Nombre la localidad.",
-            "example": "2 location name"
+            "example": "RM-MEDELLILN (COLCAFE)"
           }
         }
       },
@@ -1230,13 +1226,13 @@
             "type": "string",
             "required": true,
             "description": "Nombre del cargo.",
-            "example": "2 position name"
+            "example": "Supervisor Junior"
           },
           "description": {
             "type": "string",
             "required": true,
             "description": "Nombre del cargo.",
-            "example": "2 position description"
+            "example": "Coordinadores"
           }
         }
       },
@@ -1247,19 +1243,19 @@
             "type": "string",
             "required": true,
             "description": "Identificador único para cada departamento.",
-            "example": "C"
+            "example": "11"
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre del departamento.",
-            "example": "2 province name"
+            "example": "BOGOTÁ, D.C."
           },
           "code": {
             "type": "string",
             "required": true,
             "description": "Nombre del departamento.",
-            "example": "2 province code"
+            "example": "601"
           }
         }
       },
@@ -1276,7 +1272,7 @@
             "type": "string",
             "required": true,
             "description": "Nombre la regional.",
-            "example": "2 regional name"
+            "example": "REGIONAL CALI"
           }
         }
       },
@@ -1304,13 +1300,13 @@
             "type": "string",
             "required": true,
             "description": "Identificador único para el nivel de riesgo.",
-            "example": "C"
+            "example": "III"
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre del nivel de riesgo.",
-            "example": "2 risk level name"
+            "example": "Riesgo medio"
           }
         }
       },
@@ -1327,7 +1323,7 @@
             "type": "string",
             "required": true,
             "description": "Nombre del servicio prestado.",
-            "example": "2 service name"
+            "example": "AUTOMATIZACION Y CONTROL"
           }
         }
       },
@@ -1344,25 +1340,25 @@
             "type": "string",
             "required": true,
             "description": "Nombre del proveedor.",
-            "example": "2 supplier name"
+            "example": "new supplier name"
           },
           "description": {
             "type": "string",
             "required": false,
             "description": "Descripcion del proveedor.",
-            "example": "2 supplier description"
+            "example": "new supplier description"
           },
           "nit": {
             "type": "string",
             "required": true,
             "description": "número de NIT del proveedor.",
-            "example": "2 supplier nit"
+            "example": "new supplier nit"
           },
           "sapCode": {
             "type": "string",
             "required": true,
             "description": "Codigo SAP del proveedor.",
-            "example": "2 supplier sap c"
+            "example": "new supplier sap"
           },
           "business": {
             "type": "number",
@@ -1410,13 +1406,13 @@
             "type": "string",
             "required": true,
             "description": "Nombre de usuario que creo el proveedor.",
-            "example": "2 supplier creator user"
+            "example": "new supplier creator user"
           },
           "editorUser": {
             "type": "string",
             "required": true,
             "description": "Nombre de usuario que edito el proveedor.",
-            "example": "2 supplier editor user"
+            "example": "new supplier editor user"
           }
         }
       }

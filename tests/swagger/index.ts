@@ -36,12 +36,10 @@ export const saveSwagger = () => {
   fs.writeFileSync('./src/swagger.yml', yaml.dump(swaggerObject), 'utf8')
 }
 
-export const addModels = (models: ModelStatic<Model<any, any>>[], examples: any) => {
-  return models.forEach((model) => {
-    const schema = makeSchema(model, examples[model.name].new)
-    swaggerObject.components.schemas[model.tableName] = schema
-    swaggerObject.components.tags.push(model.name)
-  })
+export const addModel = (model: ModelStatic<Model<any, any>>, example: any) => {
+  const schema = makeSchema(model, example.new)
+  swaggerObject.components.schemas[model.tableName] = schema
+  swaggerObject.components.tags.push(model.name)
 }
 
 export const addRoute = (action: LambdaConfig, res: LambdaResult) => {

@@ -1,240 +1,254 @@
 {
   "AcademicLevel": {
     "list": [
-      {"id": 1, "name": "0 academic level name"},
-      {"id": 2, "name": "1 academic level name"}
+      {"id": 1, "name": "Primaria"},
+      {"id": 2, "name": "Secundaria"}
     ],
-    "new": {"id": 3, "name": "2 academic level name"},
-    "edit": {"id": 1, "name": "3 academic level name"}
+    "new": {"id": 3, "name": "Técnico"},
+    "edit": {"id": 2, "name": "Tecnológica"}
   },
   "Arl": {
     "list": [
-      {"id": 1, "name": "0 arl name"},
-      {"id": 2, "name": "1 arl name"}
+      {"id": 1, "name": "ARL Positiva"},
+      {"id": 2, "name": "Seguros Bolívar S.A"}
     ],
-    "new": {"id": 3, "name": "2 arl name"},
-    "edit": {"id": 1, "name": "3 arl name"}
+    "new": {"id": 3, "name": "Seguros de Vida Aurora S.A"},
+    "edit": {"id": 2, "name": "Liberty Seguros de Vida"}
   },
   "Business": {
     "list": [
-      {"id": 1, "name": "0 business name"},
-      {"id": 2, "name": "1 business name"}
+      {"id": 1, "name": "ALIMENTOS AL CONSUMIDOR"},
+      {"id": 2, "name": "CAFÉ"}
     ],
-    "new": {"id": 3, "name": "2 business name"},
-    "edit": {"id": 1, "name": "3 business name"}
+    "new": {"id": 3, "name": "CARNICO"},
+    "edit": {"id": 2, "name": "CHOCOLATES"}
   },
   "City": {
     "list": [
-      {"id": "A", "name": "0 city name", "province": "A"},
-      {"id": "B", "name": "1 city name", "province": "A"}
+      {"id": "05001", "name": "MEDELLÍN", "province": "05"},
+      {"id": "05002", "name": "ABEJORRAL", "province": "05"}
     ],
-    "new": {"id": "C", "name": "2 city name", "province": "A"},
-    "edit": {"id": "A", "name": "3 city name", "province": "A"}
+    "new": {"id": "05004", "name": "ABRIAQUÍ", "province": "05"},
+    "edit": {"id": "05002", "name": "ALEJANDRÍA", "province": "05"}
   },
   "Company": {
     "list": [
-      {"id": 1, "name": "0 company name"},
-      {"id": 2, "name": "1 company name"}
+      {"id": 1, "name": "FUNDACION NUTRESA"},
+      {"id": 2, "name": "GESTION CARGO ZONAFRANCA"}
     ],
-    "new": {"id": 3, "name": "2 company name"},
-    "edit": {"id": 1, "name": "3 company name"}
+    "new": {"id": 3, "name": "GRUPO NUTRESA"},
+    "edit": {"id": 2, "name": "OPPERAR COLOMBIA"}
   },
   "CompanyType": {
     "list": [
-      {"id": 1, "name": "0 company type name"},
-      {"id": 2, "name": "1 company type name"}
+      {"id": 1, "name": "CONTRATISTA"},
+      {"id": 2, "name": "EMPRESA DE SERVICIOS TEMPORALES"}
     ],
     "new": {"id": 3, "name": "2 company type name"},
-    "edit": {"id": 1, "name": "3 company type name"}
+    "edit": {"id": 2, "name": "3 company type name"}
   },
   "DniType": {
     "list": [
-      {"code": "A", "name": "0 dni type name", "minLength": 429, "maxLength": 297},
-      {"code": "B", "name": "1 dni type name", "minLength": 10, "maxLength": 539}
+      {"code": "CC", "name": "Cédula de Ciudadanía", "minLength": 6, "maxLength": 10},
+      {"code": "CE", "name": "Cédula de Extranjería", "minLength": 4, "maxLength": 10}
     ],
-    "new": {"code": "C", "name": "2 dni type name", "minLength": 833, "maxLength": 31},
-    "edit": {"code": "A", "name": "3 dni type name", "minLength": 1006, "maxLength": 178}
+    "new": {
+      "code": "NIT",
+      "name": "Número de Identificación Tributaria",
+      "minLength": 9,
+      "maxLength": 9
+    },
+    "edit": {
+      "code": "CE",
+      "name": "Número único de identificación personal",
+      "minLength": 10,
+      "maxLength": 10
+    }
   },
   "Employee": {
     "list": [
       {
-        "uuid": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-        "dniType": "0 em",
-        "dni": "0 employee dni",
-        "firstName": "0 employee first name",
-        "middleName": "0 employee middle name",
-        "surname": "0 employee surname",
-        "secondSurname": "0 employee second surname",
-        "picture": "0 employee picture",
-        "gender": "A",
-        "cellPhone": "0 employee",
-        "email": "0 employee email",
+        "uuid": "0990f956-6acf-4447-8b0c-9fcfe5325779",
+        "dniType": "CC",
+        "dni": "1037750844",
+        "firstName": "Juan",
+        "middleName": "Esteban",
+        "surname": "Quintero",
+        "secondSurname": "Bedoya",
+        "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750844.jpg",
+        "gender": "M",
+        "cellPhone": "3127140333",
+        "email": "juannes@gmail.com",
         "academicLevel": 1,
-        "supplier": "b7b47508-e125-40f2-85c7-6de96eb3356c",
+        "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
         "position": 1,
         "arl": 1,
-        "province": "A",
-        "city": "A",
+        "province": "05",
+        "city": "05001",
         "isActive": true,
-        "riskLevel": "A",
+        "riskLevel": "I",
         "riskClass": 1,
-        "entryDate": "2024-05-20",
-        "egressDate": "2024-05-20",
-        "creatorUser": "0 employee creator user",
-        "editorUser": "0 employee editor user"
+        "entryDate": "2024-05-02",
+        "egressDate": null,
+        "creatorUser": "estebanquintero",
+        "editorUser": "administrador"
       },
       {
-        "uuid": "856d2da5-8aef-4801-833f-257122aca09b",
-        "dniType": "1 em",
-        "dni": "1 employee dni",
-        "firstName": "1 employee first name",
-        "middleName": "1 employee middle name",
-        "surname": "1 employee surname",
-        "secondSurname": "1 employee second surname",
-        "picture": "1 employee picture",
-        "gender": "A",
-        "cellPhone": "1 employee",
-        "email": "1 employee email",
-        "academicLevel": 1,
-        "supplier": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-        "position": 1,
-        "arl": 1,
-        "province": "A",
-        "city": "A",
+        "uuid": "201131d1-ff11-4fd7-9c01-0e8a69c36226",
+        "dniType": "CC",
+        "dni": "21791046",
+        "firstName": "Maria",
+        "middleName": "Jose",
+        "surname": "Bedoya",
+        "secondSurname": "Martinez",
+        "picture": null,
+        "gender": "F",
+        "cellPhone": "3127140344",
+        "email": "maria@gmail.com",
+        "academicLevel": 2,
+        "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+        "position": 2,
+        "arl": 2,
+        "province": "05",
+        "city": "05001",
         "isActive": true,
-        "riskLevel": "A",
-        "riskClass": 1,
-        "entryDate": "2024-05-20",
-        "egressDate": "2024-05-20",
-        "creatorUser": "1 employee creator user",
-        "editorUser": "1 employee editor user"
+        "riskLevel": "I",
+        "riskClass": 2,
+        "entryDate": "2024-02-10",
+        "egressDate": "2024-05-09",
+        "creatorUser": "estebanquintero",
+        "editorUser": "estebanquintero"
       }
     ],
     "new": {
-      "uuid": "f4f06035-ad0b-4f71-94fa-bdf23e99803e",
-      "dniType": "2 em",
-      "dni": "2 employee dni",
-      "firstName": "2 employee first name",
-      "middleName": "2 employee middle name",
-      "surname": "2 employee surname",
-      "secondSurname": "2 employee second surname",
-      "picture": "2 employee picture",
-      "gender": "A",
-      "cellPhone": "2 employee",
-      "email": "2 employee email",
-      "academicLevel": 1,
-      "supplier": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-      "position": 1,
-      "arl": 1,
-      "province": "A",
-      "city": "A",
+      "uuid": "300eb91e-9476-448b-b160-8122ba7ad4d5",
+      "dniType": "CC",
+      "dni": "1037750899",
+      "firstName": "Juan",
+      "middleName": "Carlos",
+      "surname": "Quintero",
+      "secondSurname": "Martinez",
+      "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750899.png",
+      "gender": "M",
+      "cellPhone": "3127140399",
+      "email": "juannes99@gmail.com",
+      "academicLevel": 2,
+      "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+      "position": 2,
+      "arl": 2,
+      "province": "05",
+      "city": "05001",
       "isActive": true,
-      "riskLevel": "A",
-      "riskClass": 1,
-      "entryDate": "2024-05-20",
-      "egressDate": "2024-05-20",
-      "creatorUser": "2 employee creator user",
-      "editorUser": "2 employee editor user"
+      "riskLevel": "II",
+      "riskClass": 2,
+      "entryDate": "2022-09-07",
+      "egressDate": null,
+      "creatorUser": "estebanquintero",
+      "editorUser": "estebanquintero"
     },
     "edit": {
-      "uuid": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-      "dniType": "3 em",
-      "dni": "3 employee dni",
-      "firstName": "3 employee first name",
-      "middleName": "3 employee middle name",
-      "surname": "3 employee surname",
-      "secondSurname": "3 employee second surname",
-      "picture": "3 employee picture",
-      "gender": "A",
-      "cellPhone": "3 employee",
-      "email": "3 employee email",
+      "uuid": "201131d1-ff11-4fd7-9c01-0e8a69c36226",
+      "dniType": "CC",
+      "dni": "1022161626",
+      "firstName": "Emily",
+      "middleName": null,
+      "surname": "Quintero",
+      "secondSurname": "Martinez",
+      "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg",
+      "gender": "F",
+      "cellPhone": "3127140334",
+      "email": "emily@gmail.com",
       "academicLevel": 1,
-      "supplier": "b7b47508-e125-40f2-85c7-6de96eb3356c",
+      "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
       "position": 1,
       "arl": 1,
-      "province": "A",
-      "city": "A",
+      "province": "05",
+      "city": "05001",
       "isActive": true,
-      "riskLevel": "A",
+      "riskLevel": "I",
       "riskClass": 1,
-      "entryDate": "2024-05-20",
-      "egressDate": "2024-05-20",
-      "creatorUser": "3 employee creator user",
-      "editorUser": "3 employee editor user"
+      "entryDate": "2020-06-09",
+      "egressDate": null,
+      "creatorUser": "estebanquintero",
+      "editorUser": "estebanquintero"
     }
   },
   "Gender": {
     "list": [
-      {"code": "A", "name": "0 gender name"},
-      {"code": "B", "name": "1 gender name"}
+      {"code": "F", "name": "Femenino"},
+      {"code": "M", "name": "Masculino"}
     ],
-    "new": {"code": "C", "name": "2 gender name"},
-    "edit": {"code": "A", "name": "3 gender name"}
+    "new": {"code": "O", "name": "Otro"},
+    "edit": {"code": "M", "name": "3 gender name"}
   },
   "Location": {
     "list": [
-      {"id": 1, "name": "0 location name"},
-      {"id": 2, "name": "1 location name"}
+      {"id": 1, "name": "RB-BARRANQUILLA (AANN)"},
+      {"id": 2, "name": "RB-BOGOTÁ (ABCN)"}
     ],
-    "new": {"id": 3, "name": "2 location name"},
-    "edit": {"id": 1, "name": "3 location name"}
+    "new": {"id": 3, "name": "RM-MEDELLILN (COLCAFE)"},
+    "edit": {"id": 2, "name": "RC-CALI (AANN)"}
   },
   "Position": {
     "list": [
-      {"id": 1, "name": "0 position name", "description": "0 position description"},
-      {"id": 2, "name": "1 position name", "description": "1 position description"}
+      {"id": 1, "name": "Client Manager", "description": "Gerente de Proyecto"},
+      {"id": 2, "name": "Supervisor", "description": "Supervisor de coordinadores"}
     ],
-    "new": {"id": 3, "name": "2 position name", "description": "2 position description"},
-    "edit": {"id": 1, "name": "3 position name", "description": "3 position description"}
+    "new": {"id": 3, "name": "Supervisor Junior", "description": "Coordinadores"},
+    "edit": {
+      "id": 2,
+      "name": "Analista de Operación Junior ",
+      "description": "Analista de Operación"
+    }
   },
   "Province": {
     "list": [
-      {"id": "A", "name": "0 province name", "code": "0 province code"},
-      {"id": "B", "name": "1 province name", "code": "1 province code"}
+      {"id": "05", "name": "ANTIOQUIA", "code": "604"},
+      {"id": "08", "name": "ATLANTICO", "code": "605"}
     ],
-    "new": {"id": "C", "name": "2 province name", "code": "2 province code"},
-    "edit": {"id": "A", "name": "3 province name", "code": "3 province code"}
+    "new": {"id": "11", "name": "BOGOTÁ, D.C.", "code": "601"},
+    "edit": {"id": "08", "name": "BOLIVAR", "code": "605"}
   },
   "Regional": {
     "list": [
-      {"id": 1, "name": "0 regional name"},
-      {"id": 2, "name": "1 regional name"}
+      {"id": 1, "name": "REGIONAL BARRANQUILLA"},
+      {"id": 2, "name": "REGIONAL BOGOTA"}
     ],
-    "new": {"id": 3, "name": "2 regional name"},
-    "edit": {"id": 1, "name": "3 regional name"}
+    "new": {"id": 3, "name": "REGIONAL CALI"},
+    "edit": {"id": 2, "name": "REGIONAL MEDELLIN"}
   },
   "RiskClass": {
     "list": [
-      {"id": 1, "name": "0 risk class name"},
-      {"id": 2, "name": "1 risk class name"}
+      {"id": 1, "name": "Riesgo público"},
+      {"id": 2, "name": "Riesgo locativo"}
     ],
     "new": {"id": 3, "name": "2 risk class name"},
-    "edit": {"id": 1, "name": "3 risk class name"}
+    "edit": {"id": 2, "name": "3 risk class name"}
   },
   "RiskLevel": {
     "list": [
-      {"code": "A", "name": "0 risk level name"},
-      {"code": "B", "name": "1 risk level name"}
+      {"code": "I", "name": "Riesgo minimo"},
+      {"code": "II", "name": "Riesgo bajo"}
     ],
-    "new": {"code": "C", "name": "2 risk level name"},
-    "edit": {"code": "A", "name": "3 risk level name"}
+    "new": {"code": "III", "name": "Riesgo medio"},
+    "edit": {"code": "II", "name": "Riesgo alto"}
   },
   "Service": {
     "list": [
-      {"id": 1, "name": "0 service name"},
-      {"id": 2, "name": "1 service name"}
+      {"id": 1, "name": "ALIMENTACIÓN/CASINO"},
+      {"id": 2, "name": "ASEO Y LIMPIEZA"}
     ],
-    "new": {"id": 3, "name": "2 service name"},
-    "edit": {"id": 1, "name": "3 service name"}
+    "new": {"id": 3, "name": "AUTOMATIZACION Y CONTROL"},
+    "edit": {"id": 2, "name": "CARGUE Y DESCARGUE"}
   },
   "Supplier": {
     "list": [
       {
-        "uuid": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-        "name": "0 supplier name",
-        "description": "0 supplier description",
-        "nit": "0 supplier nit",
-        "sapCode": "0 supplier sap c",
+        "uuid": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
+        "name": "Novaventa",
+        "description": "Siempre juntos, siempre con tigo.",
+        "nit": "434324234",
+        "sapCode": "2423423",
         "business": 1,
         "company": 1,
         "regional": 1,
@@ -242,15 +256,15 @@
         "companyType": 1,
         "service": 1,
         "isActive": true,
-        "creatorUser": "0 supplier creator user",
-        "editorUser": "0 supplier editor user"
+        "creatorUser": "estebanquintero",
+        "editorUser": "estebanquintero"
       },
       {
-        "uuid": "856d2da5-8aef-4801-833f-257122aca09b",
-        "name": "1 supplier name",
-        "description": "1 supplier description",
-        "nit": "1 supplier nit",
-        "sapCode": "1 supplier sap c",
+        "uuid": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+        "name": "Axity",
+        "description": "El hogar del mejor talento",
+        "nit": "343243423",
+        "sapCode": "3432423",
         "business": 1,
         "company": 1,
         "regional": 1,
@@ -258,16 +272,16 @@
         "companyType": 1,
         "service": 1,
         "isActive": true,
-        "creatorUser": "1 supplier creator user",
-        "editorUser": "1 supplier editor user"
+        "creatorUser": "estebanquintero",
+        "editorUser": "estebanquintero"
       }
     ],
     "new": {
       "uuid": "f4f06035-ad0b-4f71-94fa-bdf23e99803e",
-      "name": "2 supplier name",
-      "description": "2 supplier description",
-      "nit": "2 supplier nit",
-      "sapCode": "2 supplier sap c",
+      "name": "new supplier name",
+      "description": "new supplier description",
+      "nit": "new supplier nit",
+      "sapCode": "new supplier sap",
       "business": 1,
       "company": 1,
       "regional": 1,
@@ -275,15 +289,15 @@
       "companyType": 1,
       "service": 1,
       "isActive": true,
-      "creatorUser": "2 supplier creator user",
-      "editorUser": "2 supplier editor user"
+      "creatorUser": "new supplier creator user",
+      "editorUser": "new supplier editor user"
     },
     "edit": {
-      "uuid": "b7b47508-e125-40f2-85c7-6de96eb3356c",
-      "name": "3 supplier name",
-      "description": "3 supplier description",
-      "nit": "3 supplier nit",
-      "sapCode": "3 supplier sap c",
+      "uuid": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+      "name": "edit supplier name",
+      "description": "edit supplier description",
+      "nit": "edit supplier ni",
+      "sapCode": "edit supplier sa",
       "business": 1,
       "company": 1,
       "regional": 1,
@@ -291,8 +305,8 @@
       "companyType": 1,
       "service": 1,
       "isActive": true,
-      "creatorUser": "3 supplier creator user",
-      "editorUser": "3 supplier editor user"
+      "creatorUser": "edit supplier creator user",
+      "editorUser": "edit supplier editor user"
     }
   }
 }
