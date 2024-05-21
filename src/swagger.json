@@ -95,6 +95,30 @@
         }
       }
     },
+    "/api/City?province={province}": {
+      "get": {
+        "tags": ["City"],
+        "parameters": [
+          {"name": "province", "in": "path", "type": "string", "required": false}
+        ],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "example": [
+                    {"id": "05001", "name": "MEDELLÍN", "province": "05"},
+                    {"id": "05002", "name": "ABEJORRAL", "province": "05"}
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Company": {
       "get": {
         "tags": ["Company"],
@@ -228,7 +252,7 @@
                       "cellPhone": "3127140344",
                       "email": "maria@gmail.com",
                       "academicLevel": 2,
-                      "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                      "supplier": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
                       "position": 2,
                       "arl": 2,
                       "province": "05",
@@ -282,7 +306,7 @@
                   "riskLevel": "II",
                   "riskClass": 2,
                   "entryDate": "2022-09-07",
-                  "egressDate": null,
+                  "egressDate": "2023-09-07",
                   "creatorUser": "estebanquintero",
                   "editorUser": "estebanquintero"
                 }
@@ -321,10 +345,61 @@
                     "riskLevel": "II",
                     "riskClass": 2,
                     "entryDate": "2022-09-07",
-                    "egressDate": null,
+                    "egressDate": "2023-09-07",
                     "creatorUser": "estebanquintero",
                     "editorUser": "estebanquintero"
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Employee?supplier={supplier}": {
+      "get": {
+        "tags": ["Employee"],
+        "parameters": [
+          {"name": "supplier", "in": "path", "type": "string", "required": false}
+        ],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "example": [
+                    {
+                      "name": "Maria Jose",
+                      "lastName": "Bedoya Martinez",
+                      "fullName": "Maria Jose Bedoya Martinez",
+                      "uuid": "201131d1-ff11-4fd7-9c01-0e8a69c36226",
+                      "dniType": "CC",
+                      "dni": "21791046",
+                      "firstName": "Maria",
+                      "middleName": "Jose",
+                      "surname": "Bedoya",
+                      "secondSurname": "Martinez",
+                      "picture": null,
+                      "gender": "F",
+                      "cellPhone": "3127140344",
+                      "email": "maria@gmail.com",
+                      "academicLevel": 2,
+                      "supplier": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
+                      "position": 2,
+                      "arl": 2,
+                      "province": "05",
+                      "city": "05001",
+                      "isActive": true,
+                      "riskLevel": "I",
+                      "riskClass": 2,
+                      "entryDate": "2024-02-10",
+                      "egressDate": "2024-05-09",
+                      "creatorUser": "estebanquintero",
+                      "editorUser": "estebanquintero"
+                    }
+                  ]
                 }
               }
             }
@@ -787,6 +862,44 @@
         }
       }
     },
+    "/api/Supplier?uuid={uuid}": {
+      "get": {
+        "tags": ["Supplier"],
+        "parameters": [
+          {"name": "uuid", "in": "path", "type": "string", "required": false}
+        ],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "example": [
+                    {
+                      "uuid": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
+                      "name": "Novaventa",
+                      "description": "Siempre juntos, siempre con tigo.",
+                      "nit": "434324234",
+                      "sapCode": "2423423",
+                      "business": 1,
+                      "company": 1,
+                      "regional": 1,
+                      "location": 1,
+                      "companyType": 1,
+                      "service": 1,
+                      "isActive": true,
+                      "creatorUser": "estebanquintero",
+                      "editorUser": "estebanquintero"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/Supplier/{uuid}": {
       "put": {
         "tags": ["Supplier"],
@@ -800,7 +913,7 @@
               "schema": {
                 "type": "object",
                 "example": {
-                  "uuid": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                  "uuid": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
                   "name": "edit supplier name",
                   "description": "edit supplier description",
                   "nit": "edit supplier ni",
@@ -826,7 +939,7 @@
                 "schema": {
                   "type": "object",
                   "example": {
-                    "uuid": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                    "uuid": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
                     "name": "edit supplier name",
                     "description": "edit supplier description",
                     "nit": "edit supplier ni",
@@ -860,11 +973,11 @@
                 "schema": {
                   "type": "object",
                   "example": {
-                    "uuid": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
-                    "name": "Novaventa",
-                    "description": "Siempre juntos, siempre con tigo.",
-                    "nit": "434324234",
-                    "sapCode": "2423423",
+                    "uuid": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                    "name": "Axity",
+                    "description": "El hogar del mejor talento",
+                    "nit": "343243423",
+                    "sapCode": "3432423",
                     "business": 1,
                     "company": 1,
                     "regional": 1,
@@ -1160,10 +1273,10 @@
             "example": "2022-09-07"
           },
           "egressDate": {
-            "type": "object",
+            "type": "string",
             "required": false,
             "description": "Fecha de egreso del empleado.",
-            "example": null
+            "example": "2023-09-07"
           },
           "creatorUser": {
             "type": "string",

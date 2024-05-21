@@ -1,17 +1,17 @@
 import db from '@db'
-import {relations} from '../relations'
+import masterData from '@src/database/migrate/masterData.json'
 
 const migrate = async () => {
   try {
     console.log('migrating...')
     const sequelize = await db.open()
-    // const backup = Object.entries(sequelize.models).reduce( (bk, [modelName, Model]) => {
-    //   bk[modelName] = await Model.findAll() ?? []
-    //   return bk
-    // }, {} as {[m: string]: any[]})
     console.log(Object.keys(sequelize.models).length)
-    relations()
-    await sequelize.sync({force: true})
+    db.relations()
+    for (const [modelName, data] of Object.entries(masterData)) {
+      const Model = sequelize.models[modelName]
+      const values = await Model.findAll()
+      if (values.length === 0) await Model.bulkCreate(data)
+    }
     await sequelize.close()
     console.log('migrated')
   } catch (error) {

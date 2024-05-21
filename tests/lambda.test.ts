@@ -34,6 +34,69 @@ const testModel = (modelName: string) => {
       expect(data.length).toBe(examples[modelName].list.length)
     })
 
+    if (modelName === 'Employee') {
+      test(`GET: '/api/${modelName}?supplier=value'`, async () => {
+        const {supplier} = examples[modelName].list[1]
+        const config = {
+          method: 'GET',
+          path: `/api/${modelName}`,
+          modelName,
+          params: {},
+          querys: {supplier},
+          headers: {},
+          body: null
+        }
+        const {statusCode, headers, data} = await lambda(config)
+        expect(statusCode).toBe(statusCodes.OK)
+        expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
+        expect(Array.isArray(data)).toBe(true)
+        const list = examples[modelName].list.filter((e: any) => e.supplier === supplier)
+        expect(data.length).toBe(list.length)
+      })
+    }
+
+    if (modelName === 'Supplier') {
+      test(`GET: '/api/${modelName}?uuid=value'`, async () => {
+        const {uuid} = examples[modelName].list[1]
+        const config = {
+          method: 'GET',
+          path: `/api/${modelName}`,
+          modelName,
+          params: {},
+          querys: {uuid},
+          headers: {},
+          body: null
+        }
+        const {statusCode, headers, data} = await lambda(config)
+        expect(statusCode).toBe(statusCodes.OK)
+        expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
+        expect(Array.isArray(data)).toBe(true)
+        const list = examples[modelName].list.filter((e: any) => e.uuid === uuid)
+        expect(data.length).toBe(list.length)
+      })
+    }
+
+    if (modelName === 'City') {
+      test(`GET: '/api/${modelName}?province=value'`, async () => {
+        const {province} = examples[modelName].list[1]
+        const config = {
+          method: 'GET',
+          path: `/api/${modelName}`,
+          modelName,
+          params: {},
+          querys: {province},
+          headers: {},
+          body: null
+        }
+        const {statusCode, headers, data} = await lambda(config)
+        expect(statusCode).toBe(statusCodes.OK)
+        expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
+        expect(Array.isArray(data)).toBe(true)
+        const list = examples[modelName].list.filter((e: any) => e.province === province)
+        expect(data.length).toBe(list.length)
+      })
+    }
+
     if (['Employee', 'Supplier'].includes(modelName)) {
       test(`POST: '/api/${modelName}'`, async () => {
         const newElement = examples[modelName].new
@@ -127,9 +190,6 @@ describe('Tests for CRUD', () => {
   })
 
   afterAll(saveSwagger)
-
-  // testModel('Arl')
-  // testModel('Employee')
 
   filesModel.forEach((file) => {
     const path = `${PATH_MODELS}/${file}`

@@ -33,6 +33,190 @@
     {"id": 8, "name": "PASTAS"},
     {"id": 9, "name": "SERVICIOS"}
   ],
+  "Company": [
+    {"id": 1, "name": "FUNDACION NUTRESA"},
+    {"id": 2, "name": "GESTION CARGO ZONAFRANCA"},
+    {"id": 3, "name": "GRUPO NUTRESA"},
+    {"id": 4, "name": "OPPERAR COLOMBIA"},
+    {"id": 5, "name": "SERVICIOS NUTRESA"}
+  ],
+  "CompanyType": [
+    {"id": 1, "name": "CONTRATISTA"},
+    {"id": 2, "name": "EMPRESA DE SERVICIOS TEMPORALES"}
+  ],
+  "DniType": [
+    {"code": "CC", "name": "Cédula de Ciudadanía", "minLength": 6, "maxLength": 10},
+    {"code": "CE", "name": "Cédula de Extranjería", "minLength": 4, "maxLength": 10},
+    {
+      "code": "NIT",
+      "name": "Número de Identificación Tributaria",
+      "minLength": 9,
+      "maxLength": 9
+    },
+    {
+      "code": "NUI",
+      "name": "Número único de identificación personal",
+      "minLength": 10,
+      "maxLength": 10
+    },
+    {"code": "PA", "name": "Pasaporte", "minLength": 6, "maxLength": 20},
+    {
+      "code": "PEP",
+      "name": "Permiso especial de Permanencia",
+      "minLength": 4,
+      "maxLength": 10
+    },
+    {
+      "code": "PPT",
+      "name": "Permiso por protección Temporal",
+      "minLength": 4,
+      "maxLength": 10
+    },
+    {"code": "RC", "name": "Registro Civil", "minLength": 6, "maxLength": 10},
+    {"code": "RUT", "name": "Registro Único Tributario", "minLength": 6, "maxLength": 20},
+    {"code": "TI", "name": "Tarjeta de Identidad", "minLength": 10, "maxLength": 10}
+  ],
+  "Gender": [
+    {"code": "F", "name": "Femenino"},
+    {"code": "M", "name": "Masculino"},
+    {"code": "O", "name": "Otro"}
+  ],
+  "Location": [
+    {"id": 1, "name": "RB-BARRANQUILLA (AANN)"},
+    {"id": 2, "name": "RB-BOGOTÁ (ABCN)"},
+    {"id": 3, "name": "RM-MEDELLILN (COLCAFE)"},
+    {"id": 4, "name": "RC-CALI (AANN)"},
+    {"id": 5, "name": "RM-MULTICOMPAÑÍAS"},
+    {"id": 6, "name": "RM-SANTILLANA (ABCN)"},
+    {"id": 7, "name": "RM-SEDE PRINCIPAL"},
+    {"id": 8, "name": "RM-VIDARIUM (RUTA N)"}
+  ],
+  "Position": [
+    {"id": 1, "name": "Client Manager", "description": "Gerente de Proyecto"},
+    {"id": 2, "name": "Supervisor", "description": "Supervisor de coordinadores"},
+    {"id": 3, "name": "Supervisor Junior", "description": "Coordinadores"},
+    {
+      "id": 4,
+      "name": "Analista de Operación Junior ",
+      "description": "Analista de Operación"
+    },
+    {"id": 5, "name": "Analista de Operación", "description": "Analista de Operación"},
+    {"id": 6, "name": "Consultor Junior", "description": "Consultor Junior"},
+    {
+      "id": 7,
+      "name": "Supernumerario",
+      "description": "Es una figura mediante la cual se pueden proveer los empleos públicos de manera temporal, se vinculan atendiendo las necesidades del servicio para suplir vacancias temporales del empleado público"
+    },
+    {"id": 8, "name": "Consultor Avanzado", "description": "Consultor Avanzado"},
+    {
+      "id": 9,
+      "name": "Consultor Junior Avanzado",
+      "description": "Consultor Junior Avanzado"
+    }
+  ],
+  "Regional": [
+    {"id": 1, "name": "REGIONAL BARRANQUILLA"},
+    {"id": 2, "name": "REGIONAL BOGOTA"},
+    {"id": 3, "name": "REGIONAL CALI"},
+    {"id": 4, "name": "REGIONAL MEDELLIN"}
+  ],
+  "RiskClass": [
+    {"id": 1, "name": "Riesgo público"},
+    {"id": 2, "name": "Riesgo locativo"}
+  ],
+  "RiskLevel": [
+    {"code": "I", "name": "Riesgo minimo"},
+    {"code": "II", "name": "Riesgo bajo"},
+    {"code": "III", "name": "Riesgo medio"},
+    {"code": "IV", "name": "Riesgo alto"},
+    {"code": "V", "name": "Riesgo máximo"}
+  ],
+  "Service": [
+    {"id": 1, "name": "ALIMENTACIÓN/CASINO"},
+    {"id": 2, "name": "ASEO Y LIMPIEZA"},
+    {"id": 3, "name": "AUTOMATIZACION Y CONTROL"},
+    {"id": 4, "name": "CARGUE Y DESCARGUE"},
+    {"id": 5, "name": "CONTROL DE PLAGAS"},
+    {"id": 6, "name": "DISTRIBUCION/TRANS DE PRODUCTO"},
+    {"id": 7, "name": "ESCOLTAS"},
+    {"id": 8, "name": "FABRICACIÓN Y MONTAJES MECÁNICOS"},
+    {"id": 9, "name": "FUMIGACIÓN"},
+    {"id": 10, "name": "GESTIÓN DE RESIDUOS - ACOPIO"},
+    {"id": 11, "name": "GESTIÓN DOCUMENTAL"},
+    {"id": 12, "name": "IMPULSO Y MERCADEO"},
+    {"id": 13, "name": "INTERVENTORA SEDIC"},
+    {"id": 14, "name": "JARDINERIA"},
+    {"id": 15, "name": "LIMPIEZA DE TANQUES"},
+    {"id": 16, "name": "MANTENIMIENTO AIRE ACONDICIONADO"},
+    {"id": 17, "name": "MANTENIMIENTO CONTADORES"},
+    {"id": 18, "name": "MANTENIMIENTO DE AIRE ACONDICIONADO"},
+    {"id": 19, "name": "MANTENIMIENTO DE ASCENSOR"},
+    {"id": 20, "name": "MANTENIMIENTO ELÉCTRICO"},
+    {"id": 21, "name": "MANTENIMIENTO MECÁNICO"},
+    {"id": 22, "name": "MANTENIMIENTO PLANTA ELECTRICA"},
+    {"id": 23, "name": "MANTENIMIENTO REDES DE DATOS Y ELECTRICOS"},
+    {"id": 24, "name": "MANTENIMIENTO SISTEMAS DE REFRIGERACION"},
+    {"id": 25, "name": "MAQUILA DE EMPAQUE"},
+    {"id": 26, "name": "MONITOREO DE CAMARAS"},
+    {"id": 27, "name": "MONTACARGAS"},
+    {"id": 28, "name": "MONTAJES ELECTRICOS"},
+    {"id": 29, "name": "MONTAJES MECANICOS"},
+    {"id": 30, "name": "OBRAS CIVIL"},
+    {"id": 31, "name": "OPERACIÓN PLANTA DE TRANTAMIENTO AGUA RESIDUALES"},
+    {"id": 32, "name": "OPERADOR LOGISTICO"},
+    {"id": 33, "name": "OTRO"},
+    {"id": 34, "name": "OTRO SERVICIO"},
+    {"id": 35, "name": "OTROS SERVICIOS"},
+    {"id": 36, "name": "PODAS - CHIPEADO MATERIAL VEGETAL"},
+    {"id": 37, "name": "PROYECTOS DE INGENIERIA"},
+    {"id": 38, "name": "SERVICIO DE MONTACARGAS"},
+    {"id": 39, "name": "SERVICIO MANTENIMIENTO IMPRESORAS"},
+    {"id": 40, "name": "SERVICIO MECÁNICO"},
+    {"id": 41, "name": "SERVICIO MEDICO IN HOUSE"},
+    {"id": 42, "name": "SERVICIOS ASEGURAMIENTO AMBIENTAL"},
+    {"id": 43, "name": "SERVICIOS DE MANTENIMIENTO MECANICO"},
+    {"id": 44, "name": "SERVICIOS DE MONTAJE DE INGENIERIA"},
+    {"id": 45, "name": "SERVICIOS DE TI"},
+    {"id": 46, "name": "SERVICIOS GENERALES FABRICA"},
+    {"id": 47, "name": "SERVICIOS MECANICOS"},
+    {"id": 48, "name": "SUMINISTRO DE PERSONAL/TEMPORAL"},
+    {"id": 49, "name": "VIGILANCIA"}
+  ],
+  "Province": [
+    {"id": "05", "name": "ANTIOQUIA", "code": "604"},
+    {"id": "08", "name": "ATLANTICO", "code": "605"},
+    {"id": "11", "name": "BOGOTÁ, D.C.", "code": "601"},
+    {"id": "13", "name": "BOLIVAR", "code": "605"},
+    {"id": "15", "name": "BOYACÁ", "code": "608"},
+    {"id": "17", "name": "CALDAS", "code": "606"},
+    {"id": "18", "name": "CAQUETÁ", "code": "608"},
+    {"id": "19", "name": "CAUCA", "code": "602"},
+    {"id": "20", "name": "CESAR", "code": "605"},
+    {"id": "23", "name": "CORDOBA", "code": "606"},
+    {"id": "25", "name": "CUNDINAMARCA", "code": "601"},
+    {"id": "27", "name": "CHOCÓ", "code": "604"},
+    {"id": "41", "name": "HUILA", "code": "608"},
+    {"id": "44", "name": "LA GUAJIRA", "code": "605"},
+    {"id": "47", "name": "MAGDALENA", "code": "605"},
+    {"id": "50", "name": "META", "code": "608"},
+    {"id": "52", "name": "NARIÑO", "code": "602"},
+    {"id": "54", "name": "NORTE DE SANTANDER", "code": "607"},
+    {"id": "63", "name": "QUINDÍO", "code": "606"},
+    {"id": "66", "name": "RISARALDA", "code": "606"},
+    {"id": "68", "name": "SANTANDER", "code": "607"},
+    {"id": "70", "name": "SUCRE", "code": "605"},
+    {"id": "73", "name": "TOLIMA", "code": "608"},
+    {"id": "76", "name": "VALLE DEL CAUCA", "code": "606"},
+    {"id": "81", "name": "ARAUCA", "code": "607"},
+    {"id": "85", "name": "CASANARE", "code": "608"},
+    {"id": "86", "name": "PUTUMAYO", "code": "608"},
+    {"id": "88", "name": "SAN ANDRÉS Y PROVIDENCIA", "code": "608"},
+    {"id": "91", "name": "AMAZONAS", "code": "608"},
+    {"id": "94", "name": "GUAINÍA", "code": "608"},
+    {"id": "95", "name": "GUAVIARE", "code": "608"},
+    {"id": "97", "name": "VAUPÉS", "code": "608"},
+    {"id": "99", "name": "VICHADA", "code": "608"}
+  ],
   "City": [
     {"id": "05001", "name": "MEDELLÍN", "province": "05"},
     {"id": "05002", "name": "ABEJORRAL", "province": "05"},
@@ -1182,190 +1366,6 @@
     {"id": "99795", "name": "TOLU", "province": "70"},
     {"id": "99796", "name": "TOLU VIEJO", "province": "70"}
   ],
-  "Company": [
-    {"id": 1, "name": "FUNDACION NUTRESA"},
-    {"id": 2, "name": "GESTION CARGO ZONAFRANCA"},
-    {"id": 3, "name": "GRUPO NUTRESA"},
-    {"id": 4, "name": "OPPERAR COLOMBIA"},
-    {"id": 5, "name": "SERVICIOS NUTRESA"}
-  ],
-  "CompanyType": [
-    {"id": 1, "name": "CONTRATISTA"},
-    {"id": 2, "name": "EMPRESA DE SERVICIOS TEMPORALES"}
-  ],
-  "DniType": [
-    {"code": "CC", "name": "Cédula de Ciudadanía", "minLength": 6, "maxLength": 10},
-    {"code": "CE", "name": "Cédula de Extranjería", "minLength": 4, "maxLength": 10},
-    {
-      "code": "NIT",
-      "name": "Número de Identificación Tributaria",
-      "minLength": 9,
-      "maxLength": 9
-    },
-    {
-      "code": "NUI",
-      "name": "Número único de identificación personal",
-      "minLength": 10,
-      "maxLength": 10
-    },
-    {"code": "PA", "name": "Pasaporte", "minLength": 6, "maxLength": 20},
-    {
-      "code": "PEP",
-      "name": "Permiso especial de Permanencia",
-      "minLength": 4,
-      "maxLength": 10
-    },
-    {
-      "code": "PPT",
-      "name": "Permiso por protección Temporal",
-      "minLength": 4,
-      "maxLength": 10
-    },
-    {"code": "RC", "name": "Registro Civil", "minLength": 6, "maxLength": 10},
-    {"code": "RUT", "name": "Registro Único Tributario", "minLength": 6, "maxLength": 20},
-    {"code": "TI", "name": "Tarjeta de Identidad", "minLength": 10, "maxLength": 10}
-  ],
-  "Employee": [],
-  "Gender": [
-    {"code": "F", "name": "Femenino"},
-    {"code": "M", "name": "Masculino"},
-    {"code": "O", "name": "Otro"}
-  ],
-  "Location": [
-    {"id": 1, "name": "RB-BARRANQUILLA (AANN)"},
-    {"id": 2, "name": "RB-BOGOTÁ (ABCN)"},
-    {"id": 3, "name": "RM-MEDELLILN (COLCAFE)"},
-    {"id": 4, "name": "RC-CALI (AANN)"},
-    {"id": 5, "name": "RM-MULTICOMPAÑÍAS"},
-    {"id": 6, "name": "RM-SANTILLANA (ABCN)"},
-    {"id": 7, "name": "RM-SEDE PRINCIPAL"},
-    {"id": 8, "name": "RM-VIDARIUM (RUTA N)"}
-  ],
-  "Position": [
-    {"id": 1, "name": "Client Manager", "description": "Gerente de Proyecto"},
-    {"id": 2, "name": "Supervisor", "description": "Supervisor de coordinadores"},
-    {"id": 3, "name": "Supervisor Junior", "description": "Coordinadores"},
-    {
-      "id": 4,
-      "name": "Analista de Operación Junior ",
-      "description": "Analista de Operación"
-    },
-    {"id": 5, "name": "Analista de Operación", "description": "Analista de Operación"},
-    {"id": 6, "name": "Consultor Junior", "description": "Consultor Junior"},
-    {
-      "id": 7,
-      "name": "Supernumerario",
-      "description": "Es una figura mediante la cual se pueden proveer los empleos públicos de manera temporal, se vinculan atendiendo las necesidades del servicio para suplir vacancias temporales del empleado público"
-    },
-    {"id": 8, "name": "Consultor Avanzado", "description": "Consultor Avanzado"},
-    {
-      "id": 9,
-      "name": "Consultor Junior Avanzado",
-      "description": "Consultor Junior Avanzado"
-    }
-  ],
-  "Province": [
-    {"id": "05", "name": "ANTIOQUIA", "code": "604"},
-    {"id": "08", "name": "ATLANTICO", "code": "605"},
-    {"id": "11", "name": "BOGOTÁ, D.C.", "code": "601"},
-    {"id": "13", "name": "BOLIVAR", "code": "605"},
-    {"id": "15", "name": "BOYACÁ", "code": "608"},
-    {"id": "17", "name": "CALDAS", "code": "606"},
-    {"id": "18", "name": "CAQUETÁ", "code": "608"},
-    {"id": "19", "name": "CAUCA", "code": "602"},
-    {"id": "20", "name": "CESAR", "code": "605"},
-    {"id": "23", "name": "CORDOBA", "code": "606"},
-    {"id": "25", "name": "CUNDINAMARCA", "code": "601"},
-    {"id": "27", "name": "CHOCÓ", "code": "604"},
-    {"id": "41", "name": "HUILA", "code": "608"},
-    {"id": "44", "name": "LA GUAJIRA", "code": "605"},
-    {"id": "47", "name": "MAGDALENA", "code": "605"},
-    {"id": "50", "name": "META", "code": "608"},
-    {"id": "52", "name": "NARIÑO", "code": "602"},
-    {"id": "54", "name": "NORTE DE SANTANDER", "code": "607"},
-    {"id": "63", "name": "QUINDÍO", "code": "606"},
-    {"id": "66", "name": "RISARALDA", "code": "606"},
-    {"id": "68", "name": "SANTANDER", "code": "607"},
-    {"id": "70", "name": "SUCRE", "code": "605"},
-    {"id": "73", "name": "TOLIMA", "code": "608"},
-    {"id": "76", "name": "VALLE DEL CAUCA", "code": "606"},
-    {"id": "81", "name": "ARAUCA", "code": "607"},
-    {"id": "85", "name": "CASANARE", "code": "608"},
-    {"id": "86", "name": "PUTUMAYO", "code": "608"},
-    {"id": "88", "name": "SAN ANDRÉS Y PROVIDENCIA", "code": "608"},
-    {"id": "91", "name": "AMAZONAS", "code": "608"},
-    {"id": "94", "name": "GUAINÍA", "code": "608"},
-    {"id": "95", "name": "GUAVIARE", "code": "608"},
-    {"id": "97", "name": "VAUPÉS", "code": "608"},
-    {"id": "99", "name": "VICHADA", "code": "608"}
-  ],
-  "Regional": [
-    {"id": 1, "name": "REGIONAL BARRANQUILLA"},
-    {"id": 2, "name": "REGIONAL BOGOTA"},
-    {"id": 3, "name": "REGIONAL CALI"},
-    {"id": 4, "name": "REGIONAL MEDELLIN"}
-  ],
-  "RiskClass": [
-    {"id": 1, "name": "Riesgo público"},
-    {"id": 2, "name": "Riesgo locativo"}
-  ],
-  "RiskLevel": [
-    {"code": "I", "name": "Riesgo minimo"},
-    {"code": "II", "name": "Riesgo bajo"},
-    {"code": "III", "name": "Riesgo medio"},
-    {"code": "IV", "name": "Riesgo alto"},
-    {"code": "V", "name": "Riesgo máximo"}
-  ],
-  "Service": [
-    {"id": 1, "name": "ALIMENTACIÓN/CASINO"},
-    {"id": 2, "name": "ASEO Y LIMPIEZA"},
-    {"id": 3, "name": "AUTOMATIZACION Y CONTROL"},
-    {"id": 4, "name": "CARGUE Y DESCARGUE"},
-    {"id": 5, "name": "CONTROL DE PLAGAS"},
-    {"id": 6, "name": "DISTRIBUCION/TRANS DE PRODUCTO"},
-    {"id": 7, "name": "ESCOLTAS"},
-    {"id": 8, "name": "FABRICACIÓN Y MONTAJES MECÁNICOS"},
-    {"id": 9, "name": "FUMIGACIÓN"},
-    {"id": 10, "name": "GESTIÓN DE RESIDUOS - ACOPIO"},
-    {"id": 11, "name": "GESTIÓN DOCUMENTAL"},
-    {"id": 12, "name": "IMPULSO Y MERCADEO"},
-    {"id": 13, "name": "INTERVENTORA SEDIC"},
-    {"id": 14, "name": "JARDINERIA"},
-    {"id": 15, "name": "LIMPIEZA DE TANQUES"},
-    {"id": 16, "name": "MANTENIMIENTO AIRE ACONDICIONADO"},
-    {"id": 17, "name": "MANTENIMIENTO CONTADORES"},
-    {"id": 18, "name": "MANTENIMIENTO DE AIRE ACONDICIONADO"},
-    {"id": 19, "name": "MANTENIMIENTO DE ASCENSOR"},
-    {"id": 20, "name": "MANTENIMIENTO ELÉCTRICO"},
-    {"id": 21, "name": "MANTENIMIENTO MECÁNICO"},
-    {"id": 22, "name": "MANTENIMIENTO PLANTA ELECTRICA"},
-    {"id": 23, "name": "MANTENIMIENTO REDES DE DATOS Y ELECTRICOS"},
-    {"id": 24, "name": "MANTENIMIENTO SISTEMAS DE REFRIGERACION"},
-    {"id": 25, "name": "MAQUILA DE EMPAQUE"},
-    {"id": 26, "name": "MONITOREO DE CAMARAS"},
-    {"id": 27, "name": "MONTACARGAS"},
-    {"id": 28, "name": "MONTAJES ELECTRICOS"},
-    {"id": 29, "name": "MONTAJES MECANICOS"},
-    {"id": 30, "name": "OBRAS CIVIL"},
-    {"id": 31, "name": "OPERACIÓN PLANTA DE TRANTAMIENTO AGUA RESIDUALES"},
-    {"id": 32, "name": "OPERADOR LOGISTICO"},
-    {"id": 33, "name": "OTRO"},
-    {"id": 34, "name": "OTRO SERVICIO"},
-    {"id": 35, "name": "OTROS SERVICIOS"},
-    {"id": 36, "name": "PODAS - CHIPEADO MATERIAL VEGETAL"},
-    {"id": 37, "name": "PROYECTOS DE INGENIERIA"},
-    {"id": 38, "name": "SERVICIO DE MONTACARGAS"},
-    {"id": 39, "name": "SERVICIO MANTENIMIENTO IMPRESORAS"},
-    {"id": 40, "name": "SERVICIO MECÁNICO"},
-    {"id": 41, "name": "SERVICIO MEDICO IN HOUSE"},
-    {"id": 42, "name": "SERVICIOS ASEGURAMIENTO AMBIENTAL"},
-    {"id": 43, "name": "SERVICIOS DE MANTENIMIENTO MECANICO"},
-    {"id": 44, "name": "SERVICIOS DE MONTAJE DE INGENIERIA"},
-    {"id": 45, "name": "SERVICIOS DE TI"},
-    {"id": 46, "name": "SERVICIOS GENERALES FABRICA"},
-    {"id": 47, "name": "SERVICIOS MECANICOS"},
-    {"id": 48, "name": "SUMINISTRO DE PERSONAL/TEMPORAL"},
-    {"id": 49, "name": "VIGILANCIA"}
-  ],
-  "Supplier": []
+  "Supplier": [],
+  "Employee": []
 }

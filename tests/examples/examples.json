@@ -106,7 +106,7 @@
         "cellPhone": "3127140344",
         "email": "maria@gmail.com",
         "academicLevel": 2,
-        "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+        "supplier": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
         "position": 2,
         "arl": 2,
         "province": "05",
@@ -142,7 +142,7 @@
       "riskLevel": "II",
       "riskClass": 2,
       "entryDate": "2022-09-07",
-      "egressDate": null,
+      "egressDate": "2023-09-07",
       "creatorUser": "estebanquintero",
       "editorUser": "estebanquintero"
     },
@@ -244,11 +244,11 @@
   "Supplier": {
     "list": [
       {
-        "uuid": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
-        "name": "Novaventa",
-        "description": "Siempre juntos, siempre con tigo.",
-        "nit": "434324234",
-        "sapCode": "2423423",
+        "uuid": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+        "name": "Axity",
+        "description": "El hogar del mejor talento",
+        "nit": "343243423",
+        "sapCode": "3432423",
         "business": 1,
         "company": 1,
         "regional": 1,
@@ -260,11 +260,11 @@
         "editorUser": "estebanquintero"
       },
       {
-        "uuid": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
-        "name": "Axity",
-        "description": "El hogar del mejor talento",
-        "nit": "343243423",
-        "sapCode": "3432423",
+        "uuid": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
+        "name": "Novaventa",
+        "description": "Siempre juntos, siempre con tigo.",
+        "nit": "434324234",
+        "sapCode": "2423423",
         "business": 1,
         "company": 1,
         "regional": 1,
@@ -293,7 +293,7 @@
       "editorUser": "new supplier editor user"
     },
     "edit": {
-      "uuid": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+      "uuid": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
       "name": "edit supplier name",
       "description": "edit supplier description",
       "nit": "edit supplier ni",
