@@ -282,9 +282,6 @@
               "schema": {
                 "type": "object",
                 "example": {
-                  "name": "Juan Carlos",
-                  "lastName": "Quintero Martinez",
-                  "fullName": "Juan Carlos Quintero Martinez",
                   "uuid": "300eb91e-9476-448b-b160-8122ba7ad4d5",
                   "dniType": "CC",
                   "dni": "1037750899",
@@ -408,91 +405,6 @@
       }
     },
     "/api/Employee/{uuid}": {
-      "put": {
-        "tags": ["Employee"],
-        "parameters": [
-          {"name": "uuid", "in": "path", "type": "string", "required": true}
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "example": {
-                  "name": "Emily ",
-                  "lastName": "Quintero Martinez",
-                  "fullName": "Emily  Quintero Martinez",
-                  "uuid": "201131d1-ff11-4fd7-9c01-0e8a69c36226",
-                  "dniType": "CC",
-                  "dni": "1022161626",
-                  "firstName": "Emily",
-                  "middleName": null,
-                  "surname": "Quintero",
-                  "secondSurname": "Martinez",
-                  "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg",
-                  "gender": "F",
-                  "cellPhone": "3127140334",
-                  "email": "emily@gmail.com",
-                  "academicLevel": 1,
-                  "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
-                  "position": 1,
-                  "arl": 1,
-                  "province": "05",
-                  "city": "05001",
-                  "isActive": true,
-                  "riskLevel": "I",
-                  "riskClass": 1,
-                  "entryDate": "2020-06-09",
-                  "egressDate": null,
-                  "creatorUser": "estebanquintero",
-                  "editorUser": "estebanquintero"
-                }
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "example": {
-                    "name": "Emily ",
-                    "lastName": "Quintero Martinez",
-                    "fullName": "Emily  Quintero Martinez",
-                    "uuid": "201131d1-ff11-4fd7-9c01-0e8a69c36226",
-                    "dniType": "CC",
-                    "dni": "1022161626",
-                    "firstName": "Emily",
-                    "middleName": null,
-                    "surname": "Quintero",
-                    "secondSurname": "Martinez",
-                    "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg",
-                    "gender": "F",
-                    "cellPhone": "3127140334",
-                    "email": "emily@gmail.com",
-                    "academicLevel": 1,
-                    "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
-                    "position": 1,
-                    "arl": 1,
-                    "province": "05",
-                    "city": "05001",
-                    "isActive": true,
-                    "riskLevel": "I",
-                    "riskClass": 1,
-                    "entryDate": "2020-06-09",
-                    "egressDate": null,
-                    "creatorUser": "estebanquintero",
-                    "editorUser": "estebanquintero"
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
       "get": {
         "tags": ["Employee"],
         "parameters": [
@@ -561,6 +473,114 @@
                     "Arl": {"id": 1, "name": "ARL Positiva"},
                     "RiskLevel": {"code": "I", "name": "Riesgo minimo"},
                     "RiskClass": {"id": 1, "name": "Riesgo público"}
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": 400,
+                    "message": "No se encontro registro para pk: 'new'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["Employee"],
+        "parameters": [
+          {"name": "uuid", "in": "path", "type": "string", "required": true}
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "uuid": "201131d1-ff11-4fd7-9c01-0e8a69c36226",
+                  "dniType": "CC",
+                  "dni": "1022161626",
+                  "firstName": "Emily",
+                  "middleName": null,
+                  "surname": "Quintero",
+                  "secondSurname": "Martinez",
+                  "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg",
+                  "gender": "F",
+                  "cellPhone": "3127140334",
+                  "email": "emily@gmail.com",
+                  "academicLevel": 1,
+                  "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                  "position": 1,
+                  "arl": 1,
+                  "province": "05",
+                  "city": "05001",
+                  "isActive": true,
+                  "riskLevel": "I",
+                  "riskClass": 1,
+                  "entryDate": "2020-06-09",
+                  "egressDate": null,
+                  "creatorUser": "estebanquintero",
+                  "editorUser": "estebanquintero"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "name": "Emily ",
+                    "lastName": "Quintero Martinez",
+                    "fullName": "Emily  Quintero Martinez",
+                    "uuid": "201131d1-ff11-4fd7-9c01-0e8a69c36226",
+                    "dniType": "CC",
+                    "dni": "1022161626",
+                    "firstName": "Emily",
+                    "middleName": null,
+                    "surname": "Quintero",
+                    "secondSurname": "Martinez",
+                    "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg",
+                    "gender": "F",
+                    "cellPhone": "3127140334",
+                    "email": "emily@gmail.com",
+                    "academicLevel": 1,
+                    "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                    "position": 1,
+                    "arl": 1,
+                    "province": "05",
+                    "city": "05001",
+                    "isActive": true,
+                    "riskLevel": "I",
+                    "riskClass": 1,
+                    "entryDate": "2020-06-09",
+                    "egressDate": null,
+                    "creatorUser": "estebanquintero",
+                    "editorUser": "estebanquintero"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": 400,
+                    "message": "No se encontro registro para pk: 'new'"
                   }
                 }
               }
@@ -901,6 +921,59 @@
       }
     },
     "/api/Supplier/{uuid}": {
+      "get": {
+        "tags": ["Supplier"],
+        "parameters": [
+          {"name": "uuid", "in": "path", "type": "string", "required": true}
+        ],
+        "requestBody": null,
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "uuid": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                    "name": "Axity",
+                    "description": "El hogar del mejor talento",
+                    "nit": "343243423",
+                    "sapCode": "3432423",
+                    "business": 1,
+                    "company": 1,
+                    "regional": 1,
+                    "location": 1,
+                    "companyType": 1,
+                    "service": 1,
+                    "isActive": true,
+                    "creatorUser": "estebanquintero",
+                    "editorUser": "estebanquintero",
+                    "Business": {"id": 1, "name": "ALIMENTOS AL CONSUMIDOR"},
+                    "Company": {"id": 1, "name": "FUNDACION NUTRESA"},
+                    "Regional": {"id": 1, "name": "REGIONAL BARRANQUILLA"},
+                    "Location": {"id": 1, "name": "RB-BARRANQUILLA (AANN)"},
+                    "CompanyType": {"id": 1, "name": "CONTRATISTA"},
+                    "Service": {"id": 1, "name": "ALIMENTACIÓN/CASINO"}
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": 400,
+                    "message": "No se encontro registro para pk: 'new'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
       "put": {
         "tags": ["Supplier"],
         "parameters": [
@@ -957,42 +1030,39 @@
                 }
               }
             }
-          }
-        }
-      },
-      "get": {
-        "tags": ["Supplier"],
-        "parameters": [
-          {"name": "uuid", "in": "path", "type": "string", "required": true}
-        ],
-        "requestBody": null,
-        "responses": {
-          "200": {
+          },
+          "400": {
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "example": {
-                    "uuid": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
-                    "name": "Axity",
-                    "description": "El hogar del mejor talento",
-                    "nit": "343243423",
-                    "sapCode": "3432423",
-                    "business": 1,
-                    "company": 1,
-                    "regional": 1,
-                    "location": 1,
-                    "companyType": 1,
-                    "service": 1,
-                    "isActive": true,
-                    "creatorUser": "estebanquintero",
-                    "editorUser": "estebanquintero",
-                    "Business": {"id": 1, "name": "ALIMENTOS AL CONSUMIDOR"},
-                    "Company": {"id": 1, "name": "FUNDACION NUTRESA"},
-                    "Regional": {"id": 1, "name": "REGIONAL BARRANQUILLA"},
-                    "Location": {"id": 1, "name": "RB-BARRANQUILLA (AANN)"},
-                    "CompanyType": {"id": 1, "name": "CONTRATISTA"},
-                    "Service": {"id": 1, "name": "ALIMENTACIÓN/CASINO"}
+                    "status": 400,
+                    "message": "No se encontro registro para pk: 'new'"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/{modelName}": {
+      "get": {
+        "tags": ["model"],
+        "parameters": [
+          {"name": "modelName", "in": "path", "type": "string", "required": true}
+        ],
+        "requestBody": null,
+        "responses": {
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "status": 404,
+                    "message": "No se encontro el modelo 'model'"
                   }
                 }
               }

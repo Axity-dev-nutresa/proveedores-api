@@ -10,7 +10,7 @@ const purgeSequelize = (sqz: any): Sequelize => {
   // sqz is of type any so that getConnection can be removed
   sqz.connectionManager.initPools()
   if (sqz.connectionManager.hasOwnProperty('getConnection')) {
-    delete sqz.connectionManager['getConnection']
+    delete sqz.connectionManager.getConnection
   }
   return sqz
 }
@@ -48,12 +48,10 @@ export const open = async (): Promise<Sequelize> => {
 }
 
 export const close = async () => {
-  try {
-    if (!sequelize) return
-    await sequelize.connectionManager.close()
-  } catch (error) {
-    console.error(error)
-  }
+  if (!sequelize) return false
+  await sequelize.connectionManager.close()
+  sequelize = null
+  return true
 }
 
 export const getModels = () => {

@@ -98,6 +98,44 @@ const testModel = (modelName: string) => {
     }
 
     if (['Employee', 'Supplier'].includes(modelName)) {
+      test(`GET: '/api/${modelName}/:uuid'`, async () => {
+        const searchElement = examples[modelName].list[0]
+        const config = {
+          method: 'GET',
+          path: `/api/${modelName}/:uuid`,
+          modelName,
+          params: {uuid: searchElement.uuid},
+          querys: {},
+          headers: {},
+          body: null
+        }
+        const {statusCode, headers, data} = await lambda(config)
+        expect(statusCode).toBe(statusCodes.OK)
+        expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
+        expect(data).toBeDefined()
+        Object.keys(searchElement).forEach((key) => {
+          expect(data[key]).toBeDefined()
+          expect(data[key]).toEqual(searchElement[key])
+        })
+      })
+
+      test(`GET: '/api/${modelName}/:uuid' BAD REQUEST`, async () => {
+        const config = {
+          method: 'GET',
+          path: `/api/${modelName}/:uuid`,
+          modelName,
+          params: {uuid: 'new'},
+          querys: {},
+          headers: {},
+          body: null
+        }
+        const {statusCode, headers, data} = await lambda(config)
+        expect(statusCode).toBe(statusCodes.BAD_REQUEST)
+        expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
+        expect(data).toBeDefined()
+        expect(data?.message).toMatch(/(new)/)
+      })
+
       test(`POST: '/api/${modelName}'`, async () => {
         const newElement = examples[modelName].new
         const config = {
@@ -117,6 +155,23 @@ const testModel = (modelName: string) => {
         })
       })
 
+      test(`PUT: '/api/${modelName}/:uuid' BAD REQUEST`, async () => {
+        const config = {
+          method: 'PUT',
+          path: `/api/${modelName}/:uuid`,
+          modelName,
+          params: {uuid: 'new'},
+          querys: {},
+          headers: {[CONTENT_TYPE]: 'application/json; charset=utf-8'},
+          body: {}
+        }
+        const {statusCode, headers, data} = await lambda(config)
+        expect(statusCode).toBe(statusCodes.BAD_REQUEST)
+        expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
+        expect(data).toBeDefined()
+        expect(data?.message).toMatch(/(new)/)
+      })
+
       test(`PUT: '/api/${modelName}/:uuid'`, async () => {
         const editElement = examples[modelName].edit
         const config = {
@@ -133,27 +188,6 @@ const testModel = (modelName: string) => {
         expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
         Object.keys(editElement).forEach((key) => {
           expect(data?.[key]).toEqual(editElement[key])
-        })
-      })
-
-      test(`GET: '/api/${modelName}/:uuid'`, async () => {
-        const searchElement = examples[modelName].list[0]
-        const config = {
-          method: 'GET',
-          path: `/api/${modelName}/:uuid`,
-          modelName,
-          params: {uuid: searchElement.uuid},
-          querys: {},
-          headers: {},
-          body: null
-        }
-        const {statusCode, headers, data} = await lambda(config)
-        expect(statusCode).toBe(statusCodes.OK)
-        expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
-        expect(data).toBeDefined()
-        Object.keys(searchElement).forEach((key) => {
-          expect(data[key]).toBeDefined()
-          expect(data[key]).toEqual(searchElement[key])
         })
       })
     }
@@ -191,6 +225,19 @@ describe('Tests for CRUD', () => {
 
   afterAll(saveSwagger)
 
+  describe('Database close', () => {
+    test('db close error', async () => {
+      const res = await db.close()
+      expect(res).toBe(false)
+    })
+    test('db close', async () => {
+      await db.open()
+      await db.open()
+      const res = await db.close()
+      expect(res).toBe(true)
+    })
+  })
+
   filesModel.forEach((file) => {
     const path = `${PATH_MODELS}/${file}`
     const stats = fs.statSync(path)
@@ -198,5 +245,25 @@ describe('Tests for CRUD', () => {
       const modelName = file.split('.')[0]
       testModel(modelName)
     }
+  })
+
+  describe(`Route Model`, () => {
+    test(`GET: '/api/:modelName' NOT FOUND`, async () => {
+      const modelName = 'model'
+      const config = {
+        method: 'GET',
+        path: `/api/:modelName`,
+        modelName,
+        params: {modelName},
+        querys: {},
+        headers: {},
+        body: null
+      }
+      const {statusCode, headers, data} = await lambda(config)
+      expect(statusCode).toBe(statusCodes.NOT_FOUND)
+      expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
+      expect(data).toBeDefined()
+      expect(data?.message).toMatch(/(model)/)
+    })
   })
 })

@@ -2,7 +2,6 @@ import statusCodes from '@config/statusCodes'
 import {RouteError} from '@declarations/errors'
 import {getModels} from '@src/database'
 import type {NextFunction, Request, Response} from 'express'
-import 'express-async-errors'
 
 export const trapErrors = (
   error: Error | RouteError,

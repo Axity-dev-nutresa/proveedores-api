@@ -31,11 +31,6 @@ const swaggerObject: any = {
   }
 }
 
-export const saveSwagger = () => {
-  fs.writeFileSync('./src/swagger.json', JSON.stringify(swaggerObject), 'utf8')
-  fs.writeFileSync('./src/swagger.yml', yaml.dump(swaggerObject), 'utf8')
-}
-
 export const addModel = (model: ModelStatic<Model<any, any>>, example: any) => {
   const schema = makeSchema(model, example.new)
   swaggerObject.components.schemas[model.tableName] = schema
@@ -44,24 +39,15 @@ export const addModel = (model: ModelStatic<Model<any, any>>, example: any) => {
 
 export const addRoute = (action: LambdaConfig, res: LambdaResult) => {
   const {url, parameters} = getParameters(action)
-
-  if (!swaggerObject.paths[url]) {
-    swaggerObject.paths[url] = {}
-  }
-
-  swaggerObject.paths[url][action.method.toLowerCase()] = {
+  const method = action.method.toLowerCase()
+  if (!swaggerObject.paths[url]) swaggerObject.paths[url] = {}
+  const responses = swaggerObject.paths[url]?.[method]?.responses ?? {}
+  responses[res.statusCode] = {content: makeContent(res.data)}
+  swaggerObject.paths[url][method] = {
     tags: [action.modelName],
     parameters,
-    requestBody: action.body
-      ? {
-          required: true,
-          content: makeContent(res.data)
-        }
-      : null,
-    responses: {}
-  }
-  swaggerObject.paths[url][action.method.toLowerCase()].responses[res.statusCode] = {
-    content: makeContent(res.data)
+    requestBody: action.body ? {required: true, content: makeContent(action.body)} : null,
+    responses
   }
 }
 
@@ -104,6 +90,10 @@ const getParameters = (action: LambdaConfig) => {
     },
     [baseUrl, params]
   )
-
   return {url, parameters}
+}
+
+export const saveSwagger = () => {
+  fs.writeFileSync('./src/swagger.json', JSON.stringify(swaggerObject), 'utf8')
+  fs.writeFileSync('./src/swagger.yml', yaml.dump(swaggerObject), 'utf8')
 }

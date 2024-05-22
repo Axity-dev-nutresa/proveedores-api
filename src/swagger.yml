@@ -232,10 +232,7 @@ paths:
           application/json:
             schema:
               type: object
-              example: &ref_0
-                name: Juan Carlos
-                lastName: Quintero Martinez
-                fullName: Juan Carlos Quintero Martinez
+              example:
                 uuid: 300eb91e-9476-448b-b160-8122ba7ad4d5
                 dniType: CC
                 dni: '1037750899'
@@ -267,7 +264,35 @@ paths:
             application/json:
               schema:
                 type: object
-                example: *ref_0
+                example:
+                  name: Juan Carlos
+                  lastName: Quintero Martinez
+                  fullName: Juan Carlos Quintero Martinez
+                  uuid: 300eb91e-9476-448b-b160-8122ba7ad4d5
+                  dniType: CC
+                  dni: '1037750899'
+                  firstName: Juan
+                  middleName: Carlos
+                  surname: Quintero
+                  secondSurname: Martinez
+                  picture: >-
+                    https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750899.png
+                  gender: M
+                  cellPhone: '3127140399'
+                  email: juannes99@gmail.com
+                  academicLevel: 2
+                  supplier: a366e7f9-4bfa-40d8-8d6f-be69846fb160
+                  position: 2
+                  arl: 2
+                  province: '05'
+                  city: '05001'
+                  isActive: true
+                  riskLevel: II
+                  riskClass: 2
+                  entryDate: '2022-09-07'
+                  egressDate: '2023-09-07'
+                  creatorUser: estebanquintero
+                  editorUser: estebanquintero
   /api/Employee?supplier={supplier}:
     get:
       tags:
@@ -313,56 +338,6 @@ paths:
                     creatorUser: estebanquintero
                     editorUser: estebanquintero
   /api/Employee/{uuid}:
-    put:
-      tags:
-        - Employee
-      parameters:
-        - name: uuid
-          in: path
-          type: string
-          required: true
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              example: &ref_1
-                name: 'Emily '
-                lastName: Quintero Martinez
-                fullName: Emily  Quintero Martinez
-                uuid: 201131d1-ff11-4fd7-9c01-0e8a69c36226
-                dniType: CC
-                dni: '1022161626'
-                firstName: Emily
-                middleName: null
-                surname: Quintero
-                secondSurname: Martinez
-                picture: >-
-                  https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg
-                gender: F
-                cellPhone: '3127140334'
-                email: emily@gmail.com
-                academicLevel: 1
-                supplier: a366e7f9-4bfa-40d8-8d6f-be69846fb160
-                position: 1
-                arl: 1
-                province: '05'
-                city: '05001'
-                isActive: true
-                riskLevel: I
-                riskClass: 1
-                entryDate: '2020-06-09'
-                egressDate: null
-                creatorUser: estebanquintero
-                editorUser: estebanquintero
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                type: object
-                example: *ref_1
     get:
       tags:
         - Employee
@@ -449,6 +424,97 @@ paths:
                   RiskClass:
                     id: 1
                     name: Riesgo público
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 400
+                  message: 'No se encontro registro para pk: ''new'''
+    put:
+      tags:
+        - Employee
+      parameters:
+        - name: uuid
+          in: path
+          type: string
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                uuid: 201131d1-ff11-4fd7-9c01-0e8a69c36226
+                dniType: CC
+                dni: '1022161626'
+                firstName: Emily
+                middleName: null
+                surname: Quintero
+                secondSurname: Martinez
+                picture: >-
+                  https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg
+                gender: F
+                cellPhone: '3127140334'
+                email: emily@gmail.com
+                academicLevel: 1
+                supplier: a366e7f9-4bfa-40d8-8d6f-be69846fb160
+                position: 1
+                arl: 1
+                province: '05'
+                city: '05001'
+                isActive: true
+                riskLevel: I
+                riskClass: 1
+                entryDate: '2020-06-09'
+                egressDate: null
+                creatorUser: estebanquintero
+                editorUser: estebanquintero
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  name: 'Emily '
+                  lastName: Quintero Martinez
+                  fullName: Emily  Quintero Martinez
+                  uuid: 201131d1-ff11-4fd7-9c01-0e8a69c36226
+                  dniType: CC
+                  dni: '1022161626'
+                  firstName: Emily
+                  middleName: null
+                  surname: Quintero
+                  secondSurname: Martinez
+                  picture: >-
+                    https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg
+                  gender: F
+                  cellPhone: '3127140334'
+                  email: emily@gmail.com
+                  academicLevel: 1
+                  supplier: a366e7f9-4bfa-40d8-8d6f-be69846fb160
+                  position: 1
+                  arl: 1
+                  province: '05'
+                  city: '05001'
+                  isActive: true
+                  riskLevel: I
+                  riskClass: 1
+                  entryDate: '2020-06-09'
+                  egressDate: null
+                  creatorUser: estebanquintero
+                  editorUser: estebanquintero
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 400
+                  message: 'No se encontro registro para pk: ''new'''
   /api/Gender:
     get:
       tags:
@@ -640,7 +706,7 @@ paths:
           application/json:
             schema:
               type: object
-              example: &ref_2
+              example:
                 uuid: f4f06035-ad0b-4f71-94fa-bdf23e99803e
                 name: new supplier name
                 description: new supplier description
@@ -661,7 +727,21 @@ paths:
             application/json:
               schema:
                 type: object
-                example: *ref_2
+                example:
+                  uuid: f4f06035-ad0b-4f71-94fa-bdf23e99803e
+                  name: new supplier name
+                  description: new supplier description
+                  nit: new supplier nit
+                  sapCode: new supplier sap
+                  business: 1
+                  company: 1
+                  regional: 1
+                  location: 1
+                  companyType: 1
+                  service: 1
+                  isActive: true
+                  creatorUser: new supplier creator user
+                  editorUser: new supplier editor user
   /api/Supplier?uuid={uuid}:
     get:
       tags:
@@ -694,42 +774,6 @@ paths:
                     creatorUser: estebanquintero
                     editorUser: estebanquintero
   /api/Supplier/{uuid}:
-    put:
-      tags:
-        - Supplier
-      parameters:
-        - name: uuid
-          in: path
-          type: string
-          required: true
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              example: &ref_3
-                uuid: 933dee19-6ecf-4e42-8b08-6fae32c3ec43
-                name: edit supplier name
-                description: edit supplier description
-                nit: edit supplier ni
-                sapCode: edit supplier sa
-                business: 1
-                company: 1
-                regional: 1
-                location: 1
-                companyType: 1
-                service: 1
-                isActive: true
-                creatorUser: edit supplier creator user
-                editorUser: edit supplier editor user
-      responses:
-        '200':
-          content:
-            application/json:
-              schema:
-                type: object
-                example: *ref_3
     get:
       tags:
         - Supplier
@@ -778,6 +822,91 @@ paths:
                   Service:
                     id: 1
                     name: ALIMENTACIÓN/CASINO
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 400
+                  message: 'No se encontro registro para pk: ''new'''
+    put:
+      tags:
+        - Supplier
+      parameters:
+        - name: uuid
+          in: path
+          type: string
+          required: true
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                uuid: 933dee19-6ecf-4e42-8b08-6fae32c3ec43
+                name: edit supplier name
+                description: edit supplier description
+                nit: edit supplier ni
+                sapCode: edit supplier sa
+                business: 1
+                company: 1
+                regional: 1
+                location: 1
+                companyType: 1
+                service: 1
+                isActive: true
+                creatorUser: edit supplier creator user
+                editorUser: edit supplier editor user
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  uuid: 933dee19-6ecf-4e42-8b08-6fae32c3ec43
+                  name: edit supplier name
+                  description: edit supplier description
+                  nit: edit supplier ni
+                  sapCode: edit supplier sa
+                  business: 1
+                  company: 1
+                  regional: 1
+                  location: 1
+                  companyType: 1
+                  service: 1
+                  isActive: true
+                  creatorUser: edit supplier creator user
+                  editorUser: edit supplier editor user
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 400
+                  message: 'No se encontro registro para pk: ''new'''
+  /api/{modelName}:
+    get:
+      tags:
+        - model
+      parameters:
+        - name: modelName
+          in: path
+          type: string
+          required: true
+      requestBody: null
+      responses:
+        '404':
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  status: 404
+                  message: No se encontro el modelo 'model'
 components:
   parameters: {}
   definitions: {}

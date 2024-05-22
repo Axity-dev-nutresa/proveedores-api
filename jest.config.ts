@@ -12,7 +12,8 @@ const jestConfig: Config.InitialOptions = {
   preset: 'ts-jest',
   roots: ['<rootDir>/src/', '<rootDir>/tests/'],
   testEnvironment: 'node',
-  testPathIgnorePatterns: ['dist/', 'node_modules/', 'coverage/'],
+  testPathIgnorePatterns: ['node_modules/', 'coverage/', '.vscode/', '.serverless/'],
+  collectCoverageFrom: ['src/**/*.ts'],
   modulePaths: [compilerOptions.baseUrl],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths)
 }

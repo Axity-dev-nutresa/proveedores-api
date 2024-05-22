@@ -1,5 +1,6 @@
 import db from '@db'
 import api from '@src/api/routes'
+import statusCodes from '@src/config/statusCodes'
 import {trapErrors} from '@src/declarations/middlewares'
 import server from '@src/server'
 import type {
@@ -14,7 +15,7 @@ import serverless from 'serverless-http'
 const getResponseError = (error: any) => {
   return {
     isBase64Encoded: false,
-    statusCode: 500,
+    statusCode: statusCodes.INTERNAL_SERVER_ERROR,
     body: JSON.stringify({message: error.toString()}),
     headers: {'content-type': 'application/json'}
   }

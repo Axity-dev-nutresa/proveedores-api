@@ -11,9 +11,12 @@ server.use(express.json())
 server.use(express.urlencoded({extended: true}))
 server.use(cookieParser())
 server.use(cors())
+
 if (envVars.nodeEnv !== NodeEnvs.prod) {
   server.use(morgan('dev'))
-} else {
+}
+
+if (envVars.nodeEnv !== NodeEnvs.dev) {
   server.use(helmet())
 }
 
