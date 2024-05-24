@@ -1,17 +1,14 @@
 openapi: 3.0.0
 info:
-  title: proveedores-api
   description: Backend Proveedores
   version: 1.0.0
+  title: proveedores-api
   servers:
     - http://localhost:4000
 paths:
   /api/AcademicLevel:
     get:
-      tags:
-        - AcademicLevel
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -23,12 +20,12 @@ paths:
                     name: Primaria
                   - id: 2
                     name: Secundaria
+      tags:
+        - AcademicLevel
+      requestBody: null
   /api/Arl:
     get:
-      tags:
-        - Arl
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -40,12 +37,12 @@ paths:
                     name: ARL Positiva
                   - id: 2
                     name: Seguros Bolívar S.A
+      tags:
+        - Arl
+      requestBody: null
   /api/Business:
     get:
-      tags:
-        - Business
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -57,12 +54,12 @@ paths:
                     name: ALIMENTOS AL CONSUMIDOR
                   - id: 2
                     name: CAFÉ
+      tags:
+        - Business
+      requestBody: null
   /api/City:
     get:
-      tags:
-        - City
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -76,16 +73,16 @@ paths:
                   - id: '05002'
                     name: ABEJORRAL
                     province: '05'
-  /api/City?province={province}:
-    get:
       tags:
         - City
+      requestBody: null
+  /api/City?province={province}:
+    get:
       parameters:
         - name: province
           in: path
           type: string
           required: false
-      requestBody: null
       responses:
         '200':
           content:
@@ -99,12 +96,12 @@ paths:
                   - id: '05002'
                     name: ABEJORRAL
                     province: '05'
+      tags:
+        - City
+      requestBody: null
   /api/Company:
     get:
-      tags:
-        - Company
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -116,12 +113,12 @@ paths:
                     name: FUNDACION NUTRESA
                   - id: 2
                     name: GESTION CARGO ZONAFRANCA
+      tags:
+        - Company
+      requestBody: null
   /api/CompanyType:
     get:
-      tags:
-        - CompanyType
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -133,12 +130,12 @@ paths:
                     name: CONTRATISTA
                   - id: 2
                     name: EMPRESA DE SERVICIOS TEMPORALES
+      tags:
+        - CompanyType
+      requestBody: null
   /api/DniType:
     get:
-      tags:
-        - DniType
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -154,12 +151,12 @@ paths:
                     name: Cédula de Extranjería
                     minLength: 4
                     maxLength: 10
+      tags:
+        - DniType
+      requestBody: null
   /api/Employee:
     get:
-      tags:
-        - Employee
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -222,42 +219,11 @@ paths:
                     egressDate: '2024-05-09'
                     creatorUser: estebanquintero
                     editorUser: estebanquintero
-    post:
       tags:
         - Employee
+      requestBody: null
+    post:
       parameters: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                uuid: 300eb91e-9476-448b-b160-8122ba7ad4d5
-                dniType: CC
-                dni: '1037750899'
-                firstName: Juan
-                middleName: Carlos
-                surname: Quintero
-                secondSurname: Martinez
-                picture: >-
-                  https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750899.png
-                gender: M
-                cellPhone: '3127140399'
-                email: juannes99@gmail.com
-                academicLevel: 2
-                supplier: a366e7f9-4bfa-40d8-8d6f-be69846fb160
-                position: 2
-                arl: 2
-                province: '05'
-                city: '05001'
-                isActive: true
-                riskLevel: II
-                riskClass: 2
-                entryDate: '2022-09-07'
-                egressDate: '2023-09-07'
-                creatorUser: estebanquintero
-                editorUser: estebanquintero
       responses:
         '200':
           content:
@@ -293,16 +259,47 @@ paths:
                   egressDate: '2023-09-07'
                   creatorUser: estebanquintero
                   editorUser: estebanquintero
-  /api/Employee?supplier={supplier}:
-    get:
       tags:
         - Employee
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                uuid: 300eb91e-9476-448b-b160-8122ba7ad4d5
+                dniType: CC
+                dni: '1037750899'
+                firstName: Juan
+                middleName: Carlos
+                surname: Quintero
+                secondSurname: Martinez
+                picture: >-
+                  https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750899.png
+                gender: M
+                cellPhone: '3127140399'
+                email: juannes99@gmail.com
+                academicLevel: 2
+                supplier: a366e7f9-4bfa-40d8-8d6f-be69846fb160
+                position: 2
+                arl: 2
+                province: '05'
+                city: '05001'
+                isActive: true
+                riskLevel: II
+                riskClass: 2
+                entryDate: '2022-09-07'
+                egressDate: '2023-09-07'
+                creatorUser: estebanquintero
+                editorUser: estebanquintero
+  /api/Employee?supplier={supplier}:
+    get:
       parameters:
         - name: supplier
           in: path
           type: string
           required: false
-      requestBody: null
       responses:
         '200':
           content:
@@ -337,16 +334,16 @@ paths:
                     egressDate: '2024-05-09'
                     creatorUser: estebanquintero
                     editorUser: estebanquintero
-  /api/Employee/{uuid}:
-    get:
       tags:
         - Employee
+      requestBody: null
+  /api/Employee/{uuid}:
+    get:
       parameters:
         - name: uuid
           in: path
           type: string
           required: true
-      requestBody: null
       responses:
         '200':
           content:
@@ -432,46 +429,15 @@ paths:
                 example:
                   status: 400
                   message: 'No se encontro registro para pk: ''new'''
-    put:
       tags:
         - Employee
+      requestBody: null
+    put:
       parameters:
         - name: uuid
           in: path
           type: string
           required: true
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                uuid: 201131d1-ff11-4fd7-9c01-0e8a69c36226
-                dniType: CC
-                dni: '1022161626'
-                firstName: Emily
-                middleName: null
-                surname: Quintero
-                secondSurname: Martinez
-                picture: >-
-                  https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg
-                gender: F
-                cellPhone: '3127140334'
-                email: emily@gmail.com
-                academicLevel: 1
-                supplier: a366e7f9-4bfa-40d8-8d6f-be69846fb160
-                position: 1
-                arl: 1
-                province: '05'
-                city: '05001'
-                isActive: true
-                riskLevel: I
-                riskClass: 1
-                entryDate: '2020-06-09'
-                egressDate: null
-                creatorUser: estebanquintero
-                editorUser: estebanquintero
       responses:
         '200':
           content:
@@ -515,12 +481,43 @@ paths:
                 example:
                   status: 400
                   message: 'No se encontro registro para pk: ''new'''
+      tags:
+        - Employee
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                uuid: 201131d1-ff11-4fd7-9c01-0e8a69c36226
+                dniType: CC
+                dni: '1022161626'
+                firstName: Emily
+                middleName: null
+                surname: Quintero
+                secondSurname: Martinez
+                picture: >-
+                  https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg
+                gender: F
+                cellPhone: '3127140334'
+                email: emily@gmail.com
+                academicLevel: 1
+                supplier: a366e7f9-4bfa-40d8-8d6f-be69846fb160
+                position: 1
+                arl: 1
+                province: '05'
+                city: '05001'
+                isActive: true
+                riskLevel: I
+                riskClass: 1
+                entryDate: '2020-06-09'
+                egressDate: null
+                creatorUser: estebanquintero
+                editorUser: estebanquintero
   /api/Gender:
     get:
-      tags:
-        - Gender
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -532,12 +529,12 @@ paths:
                     name: Femenino
                   - code: M
                     name: Masculino
+      tags:
+        - Gender
+      requestBody: null
   /api/Location:
     get:
-      tags:
-        - Location
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -549,12 +546,12 @@ paths:
                     name: RB-BARRANQUILLA (AANN)
                   - id: 2
                     name: RB-BOGOTÁ (ABCN)
+      tags:
+        - Location
+      requestBody: null
   /api/Position:
     get:
-      tags:
-        - Position
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -568,12 +565,12 @@ paths:
                   - id: 2
                     name: Supervisor
                     description: Supervisor de coordinadores
+      tags:
+        - Position
+      requestBody: null
   /api/Province:
     get:
-      tags:
-        - Province
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -587,12 +584,12 @@ paths:
                   - id: '08'
                     name: ATLANTICO
                     code: '605'
+      tags:
+        - Province
+      requestBody: null
   /api/Regional:
     get:
-      tags:
-        - Regional
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -604,12 +601,12 @@ paths:
                     name: REGIONAL BARRANQUILLA
                   - id: 2
                     name: REGIONAL BOGOTA
+      tags:
+        - Regional
+      requestBody: null
   /api/RiskClass:
     get:
-      tags:
-        - RiskClass
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -621,12 +618,12 @@ paths:
                     name: Riesgo público
                   - id: 2
                     name: Riesgo locativo
+      tags:
+        - RiskClass
+      requestBody: null
   /api/RiskLevel:
     get:
-      tags:
-        - RiskLevel
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -638,12 +635,12 @@ paths:
                     name: Riesgo minimo
                   - code: II
                     name: Riesgo bajo
+      tags:
+        - RiskLevel
+      requestBody: null
   /api/Service:
     get:
-      tags:
-        - Service
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -655,12 +652,12 @@ paths:
                     name: ALIMENTACIÓN/CASINO
                   - id: 2
                     name: ASEO Y LIMPIEZA
+      tags:
+        - Service
+      requestBody: null
   /api/Supplier:
     get:
-      tags:
-        - Supplier
       parameters: []
-      requestBody: null
       responses:
         '200':
           content:
@@ -696,31 +693,11 @@ paths:
                     isActive: true
                     creatorUser: estebanquintero
                     editorUser: estebanquintero
-    post:
       tags:
         - Supplier
+      requestBody: null
+    post:
       parameters: []
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                uuid: f4f06035-ad0b-4f71-94fa-bdf23e99803e
-                name: new supplier name
-                description: new supplier description
-                nit: new supplier nit
-                sapCode: new supplier sap
-                business: 1
-                company: 1
-                regional: 1
-                location: 1
-                companyType: 1
-                service: 1
-                isActive: true
-                creatorUser: new supplier creator user
-                editorUser: new supplier editor user
       responses:
         '200':
           content:
@@ -742,16 +719,36 @@ paths:
                   isActive: true
                   creatorUser: new supplier creator user
                   editorUser: new supplier editor user
-  /api/Supplier?uuid={uuid}:
-    get:
       tags:
         - Supplier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                uuid: f4f06035-ad0b-4f71-94fa-bdf23e99803e
+                name: new supplier name
+                description: new supplier description
+                nit: new supplier nit
+                sapCode: new supplier sap
+                business: 1
+                company: 1
+                regional: 1
+                location: 1
+                companyType: 1
+                service: 1
+                isActive: true
+                creatorUser: new supplier creator user
+                editorUser: new supplier editor user
+  /api/Supplier?uuid={uuid}:
+    get:
       parameters:
         - name: uuid
           in: path
           type: string
           required: false
-      requestBody: null
       responses:
         '200':
           content:
@@ -773,16 +770,16 @@ paths:
                     isActive: true
                     creatorUser: estebanquintero
                     editorUser: estebanquintero
-  /api/Supplier/{uuid}:
-    get:
       tags:
         - Supplier
+      requestBody: null
+  /api/Supplier/{uuid}:
+    get:
       parameters:
         - name: uuid
           in: path
           type: string
           required: true
-      requestBody: null
       responses:
         '200':
           content:
@@ -830,35 +827,15 @@ paths:
                 example:
                   status: 400
                   message: 'No se encontro registro para pk: ''new'''
-    put:
       tags:
         - Supplier
+      requestBody: null
+    put:
       parameters:
         - name: uuid
           in: path
           type: string
           required: true
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                uuid: 933dee19-6ecf-4e42-8b08-6fae32c3ec43
-                name: edit supplier name
-                description: edit supplier description
-                nit: edit supplier ni
-                sapCode: edit supplier sa
-                business: 1
-                company: 1
-                regional: 1
-                location: 1
-                companyType: 1
-                service: 1
-                isActive: true
-                creatorUser: edit supplier creator user
-                editorUser: edit supplier editor user
       responses:
         '200':
           content:
@@ -888,16 +865,36 @@ paths:
                 example:
                   status: 400
                   message: 'No se encontro registro para pk: ''new'''
+      tags:
+        - Supplier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              example:
+                uuid: 933dee19-6ecf-4e42-8b08-6fae32c3ec43
+                name: edit supplier name
+                description: edit supplier description
+                nit: edit supplier ni
+                sapCode: edit supplier sa
+                business: 1
+                company: 1
+                regional: 1
+                location: 1
+                companyType: 1
+                service: 1
+                isActive: true
+                creatorUser: edit supplier creator user
+                editorUser: edit supplier editor user
   /api/{modelName}:
     get:
-      tags:
-        - model
       parameters:
         - name: modelName
           in: path
           type: string
           required: true
-      requestBody: null
       responses:
         '404':
           content:
@@ -907,6 +904,9 @@ paths:
                 example:
                   status: 404
                   message: No se encontro el modelo 'model'
+      tags:
+        - model
+      requestBody: null
 components:
   parameters: {}
   definitions: {}
@@ -1328,21 +1328,4 @@ components:
           required: true
           description: Nombre de usuario que edito el proveedor.
           example: new supplier editor user
-  tags:
-    - AcademicLevel
-    - Arl
-    - Business
-    - City
-    - Company
-    - CompanyType
-    - DniType
-    - Employee
-    - Gender
-    - Location
-    - Position
-    - Province
-    - Regional
-    - RiskClass
-    - RiskLevel
-    - Service
-    - Supplier
+  tags: []

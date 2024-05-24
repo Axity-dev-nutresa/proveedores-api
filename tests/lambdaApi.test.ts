@@ -10,6 +10,7 @@ import {addModel, saveSwagger} from './swagger'
 const PATH_MODELS = './src/database/models'
 const PATH_EXP = './tests/examples/examples.json'
 const CONTENT_TYPE = 'content-type'
+const HEADER = {[CONTENT_TYPE]: 'application/json; charset=utf-8'}
 const relatedModels = ['City', 'Supplier', 'Employee']
 const filesModel = fs.readdirSync(PATH_MODELS)
 const lambda = agent(handler)
@@ -21,9 +22,9 @@ const testModel = (modelName: string) => {
       const config = {
         method: 'GET',
         path: `/api/${modelName}`,
-        modelName,
+        tag: modelName,
         params: {},
-        querys: {},
+        queries: {},
         headers: {},
         body: null
       }
@@ -40,9 +41,9 @@ const testModel = (modelName: string) => {
         const config = {
           method: 'GET',
           path: `/api/${modelName}`,
-          modelName,
+          tag: modelName,
           params: {},
-          querys: {supplier},
+          queries: {supplier},
           headers: {},
           body: null
         }
@@ -61,9 +62,9 @@ const testModel = (modelName: string) => {
         const config = {
           method: 'GET',
           path: `/api/${modelName}`,
-          modelName,
+          tag: modelName,
           params: {},
-          querys: {uuid},
+          queries: {uuid},
           headers: {},
           body: null
         }
@@ -82,9 +83,9 @@ const testModel = (modelName: string) => {
         const config = {
           method: 'GET',
           path: `/api/${modelName}`,
-          modelName,
+          tag: modelName,
           params: {},
-          querys: {province},
+          queries: {province},
           headers: {},
           body: null
         }
@@ -103,9 +104,9 @@ const testModel = (modelName: string) => {
         const config = {
           method: 'GET',
           path: `/api/${modelName}/:uuid`,
-          modelName,
+          tag: modelName,
           params: {uuid: searchElement.uuid},
-          querys: {},
+          queries: {},
           headers: {},
           body: null
         }
@@ -123,9 +124,9 @@ const testModel = (modelName: string) => {
         const config = {
           method: 'GET',
           path: `/api/${modelName}/:uuid`,
-          modelName,
+          tag: modelName,
           params: {uuid: 'new'},
-          querys: {},
+          queries: {},
           headers: {},
           body: null
         }
@@ -141,10 +142,10 @@ const testModel = (modelName: string) => {
         const config = {
           method: 'POST',
           path: `/api/${modelName}`,
-          modelName,
+          tag: modelName,
           params: {},
-          querys: {},
-          headers: {[CONTENT_TYPE]: 'application/json; charset=utf-8'},
+          queries: {},
+          headers: HEADER,
           body: newElement
         }
         const {statusCode, headers, data} = await lambda(config)
@@ -159,10 +160,10 @@ const testModel = (modelName: string) => {
         const config = {
           method: 'PUT',
           path: `/api/${modelName}/:uuid`,
-          modelName,
+          tag: modelName,
           params: {uuid: 'new'},
-          querys: {},
-          headers: {[CONTENT_TYPE]: 'application/json; charset=utf-8'},
+          queries: {},
+          headers: HEADER,
           body: {}
         }
         const {statusCode, headers, data} = await lambda(config)
@@ -177,10 +178,10 @@ const testModel = (modelName: string) => {
         const config = {
           method: 'PUT',
           path: `/api/${modelName}/:uuid`,
-          modelName,
+          tag: modelName,
           params: {uuid: editElement.uuid},
-          querys: {},
-          headers: {[CONTENT_TYPE]: 'application/json; charset=utf-8'},
+          queries: {},
+          headers: HEADER,
           body: editElement
         }
         const {statusCode, headers, data} = await lambda(config)
@@ -253,9 +254,9 @@ describe('Tests for CRUD', () => {
       const config = {
         method: 'GET',
         path: `/api/:modelName`,
-        modelName,
+        tag: modelName,
         params: {modelName},
-        querys: {},
+        queries: {},
         headers: {},
         body: null
       }

@@ -3,9 +3,9 @@ import type {ModelStatic, Model as ModelSqz} from 'sequelize'
 export type LambdaConfig = {
   method: string
   path: string
-  modelName: string
+  tag: string
   params: {[key: string]: string}
-  querys: {[key: string]: string}
+  queries: {[key: string]: string}
   headers: {[header: string]: string}
   body: any
 }

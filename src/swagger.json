@@ -1,17 +1,15 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "proveedores-api",
     "description": "Backend Proveedores",
     "version": "1.0.0",
+    "title": "proveedores-api",
     "servers": ["http://localhost:4000"]
   },
   "paths": {
     "/api/AcademicLevel": {
       "get": {
-        "tags": ["AcademicLevel"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -26,14 +24,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["AcademicLevel"],
+        "requestBody": null
       }
     },
     "/api/Arl": {
       "get": {
-        "tags": ["Arl"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -48,14 +46,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Arl"],
+        "requestBody": null
       }
     },
     "/api/Business": {
       "get": {
-        "tags": ["Business"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -70,14 +68,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Business"],
+        "requestBody": null
       }
     },
     "/api/City": {
       "get": {
-        "tags": ["City"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -92,16 +90,16 @@
               }
             }
           }
-        }
+        },
+        "tags": ["City"],
+        "requestBody": null
       }
     },
     "/api/City?province={province}": {
       "get": {
-        "tags": ["City"],
         "parameters": [
           {"name": "province", "in": "path", "type": "string", "required": false}
         ],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -116,14 +114,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["City"],
+        "requestBody": null
       }
     },
     "/api/Company": {
       "get": {
-        "tags": ["Company"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -138,14 +136,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Company"],
+        "requestBody": null
       }
     },
     "/api/CompanyType": {
       "get": {
-        "tags": ["CompanyType"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -160,14 +158,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["CompanyType"],
+        "requestBody": null
       }
     },
     "/api/DniType": {
       "get": {
-        "tags": ["DniType"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -192,14 +190,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["DniType"],
+        "requestBody": null
       }
     },
     "/api/Employee": {
       "get": {
-        "tags": ["Employee"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -270,47 +268,12 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Employee"],
+        "requestBody": null
       },
       "post": {
-        "tags": ["Employee"],
         "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "example": {
-                  "uuid": "300eb91e-9476-448b-b160-8122ba7ad4d5",
-                  "dniType": "CC",
-                  "dni": "1037750899",
-                  "firstName": "Juan",
-                  "middleName": "Carlos",
-                  "surname": "Quintero",
-                  "secondSurname": "Martinez",
-                  "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750899.png",
-                  "gender": "M",
-                  "cellPhone": "3127140399",
-                  "email": "juannes99@gmail.com",
-                  "academicLevel": 2,
-                  "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
-                  "position": 2,
-                  "arl": 2,
-                  "province": "05",
-                  "city": "05001",
-                  "isActive": true,
-                  "riskLevel": "II",
-                  "riskClass": 2,
-                  "entryDate": "2022-09-07",
-                  "egressDate": "2023-09-07",
-                  "creatorUser": "estebanquintero",
-                  "editorUser": "estebanquintero"
-                }
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "content": {
@@ -350,16 +313,51 @@
               }
             }
           }
+        },
+        "tags": ["Employee"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "uuid": "300eb91e-9476-448b-b160-8122ba7ad4d5",
+                  "dniType": "CC",
+                  "dni": "1037750899",
+                  "firstName": "Juan",
+                  "middleName": "Carlos",
+                  "surname": "Quintero",
+                  "secondSurname": "Martinez",
+                  "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750899.png",
+                  "gender": "M",
+                  "cellPhone": "3127140399",
+                  "email": "juannes99@gmail.com",
+                  "academicLevel": 2,
+                  "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                  "position": 2,
+                  "arl": 2,
+                  "province": "05",
+                  "city": "05001",
+                  "isActive": true,
+                  "riskLevel": "II",
+                  "riskClass": 2,
+                  "entryDate": "2022-09-07",
+                  "egressDate": "2023-09-07",
+                  "creatorUser": "estebanquintero",
+                  "editorUser": "estebanquintero"
+                }
+              }
+            }
+          }
         }
       }
     },
     "/api/Employee?supplier={supplier}": {
       "get": {
-        "tags": ["Employee"],
         "parameters": [
           {"name": "supplier", "in": "path", "type": "string", "required": false}
         ],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -401,16 +399,16 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Employee"],
+        "requestBody": null
       }
     },
     "/api/Employee/{uuid}": {
       "get": {
-        "tags": ["Employee"],
         "parameters": [
           {"name": "uuid", "in": "path", "type": "string", "required": true}
         ],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -491,49 +489,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Employee"],
+        "requestBody": null
       },
       "put": {
-        "tags": ["Employee"],
         "parameters": [
           {"name": "uuid", "in": "path", "type": "string", "required": true}
         ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "example": {
-                  "uuid": "201131d1-ff11-4fd7-9c01-0e8a69c36226",
-                  "dniType": "CC",
-                  "dni": "1022161626",
-                  "firstName": "Emily",
-                  "middleName": null,
-                  "surname": "Quintero",
-                  "secondSurname": "Martinez",
-                  "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg",
-                  "gender": "F",
-                  "cellPhone": "3127140334",
-                  "email": "emily@gmail.com",
-                  "academicLevel": 1,
-                  "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
-                  "position": 1,
-                  "arl": 1,
-                  "province": "05",
-                  "city": "05001",
-                  "isActive": true,
-                  "riskLevel": "I",
-                  "riskClass": 1,
-                  "entryDate": "2020-06-09",
-                  "egressDate": null,
-                  "creatorUser": "estebanquintero",
-                  "editorUser": "estebanquintero"
-                }
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "content": {
@@ -586,14 +549,49 @@
               }
             }
           }
+        },
+        "tags": ["Employee"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "uuid": "201131d1-ff11-4fd7-9c01-0e8a69c36226",
+                  "dniType": "CC",
+                  "dni": "1022161626",
+                  "firstName": "Emily",
+                  "middleName": null,
+                  "surname": "Quintero",
+                  "secondSurname": "Martinez",
+                  "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg",
+                  "gender": "F",
+                  "cellPhone": "3127140334",
+                  "email": "emily@gmail.com",
+                  "academicLevel": 1,
+                  "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
+                  "position": 1,
+                  "arl": 1,
+                  "province": "05",
+                  "city": "05001",
+                  "isActive": true,
+                  "riskLevel": "I",
+                  "riskClass": 1,
+                  "entryDate": "2020-06-09",
+                  "egressDate": null,
+                  "creatorUser": "estebanquintero",
+                  "editorUser": "estebanquintero"
+                }
+              }
+            }
+          }
         }
       }
     },
     "/api/Gender": {
       "get": {
-        "tags": ["Gender"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -608,14 +606,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Gender"],
+        "requestBody": null
       }
     },
     "/api/Location": {
       "get": {
-        "tags": ["Location"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -630,14 +628,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Location"],
+        "requestBody": null
       }
     },
     "/api/Position": {
       "get": {
-        "tags": ["Position"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -660,14 +658,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Position"],
+        "requestBody": null
       }
     },
     "/api/Province": {
       "get": {
-        "tags": ["Province"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -682,14 +680,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Province"],
+        "requestBody": null
       }
     },
     "/api/Regional": {
       "get": {
-        "tags": ["Regional"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -704,14 +702,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Regional"],
+        "requestBody": null
       }
     },
     "/api/RiskClass": {
       "get": {
-        "tags": ["RiskClass"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -726,14 +724,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["RiskClass"],
+        "requestBody": null
       }
     },
     "/api/RiskLevel": {
       "get": {
-        "tags": ["RiskLevel"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -748,14 +746,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["RiskLevel"],
+        "requestBody": null
       }
     },
     "/api/Service": {
       "get": {
-        "tags": ["Service"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -770,14 +768,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Service"],
+        "requestBody": null
       }
     },
     "/api/Supplier": {
       "get": {
-        "tags": ["Supplier"],
         "parameters": [],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -822,37 +820,12 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Supplier"],
+        "requestBody": null
       },
       "post": {
-        "tags": ["Supplier"],
         "parameters": [],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "example": {
-                  "uuid": "f4f06035-ad0b-4f71-94fa-bdf23e99803e",
-                  "name": "new supplier name",
-                  "description": "new supplier description",
-                  "nit": "new supplier nit",
-                  "sapCode": "new supplier sap",
-                  "business": 1,
-                  "company": 1,
-                  "regional": 1,
-                  "location": 1,
-                  "companyType": 1,
-                  "service": 1,
-                  "isActive": true,
-                  "creatorUser": "new supplier creator user",
-                  "editorUser": "new supplier editor user"
-                }
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "content": {
@@ -879,16 +852,41 @@
               }
             }
           }
+        },
+        "tags": ["Supplier"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "uuid": "f4f06035-ad0b-4f71-94fa-bdf23e99803e",
+                  "name": "new supplier name",
+                  "description": "new supplier description",
+                  "nit": "new supplier nit",
+                  "sapCode": "new supplier sap",
+                  "business": 1,
+                  "company": 1,
+                  "regional": 1,
+                  "location": 1,
+                  "companyType": 1,
+                  "service": 1,
+                  "isActive": true,
+                  "creatorUser": "new supplier creator user",
+                  "editorUser": "new supplier editor user"
+                }
+              }
+            }
+          }
         }
       }
     },
     "/api/Supplier?uuid={uuid}": {
       "get": {
-        "tags": ["Supplier"],
         "parameters": [
           {"name": "uuid", "in": "path", "type": "string", "required": false}
         ],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -917,16 +915,16 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Supplier"],
+        "requestBody": null
       }
     },
     "/api/Supplier/{uuid}": {
       "get": {
-        "tags": ["Supplier"],
         "parameters": [
           {"name": "uuid", "in": "path", "type": "string", "required": true}
         ],
-        "requestBody": null,
         "responses": {
           "200": {
             "content": {
@@ -972,39 +970,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Supplier"],
+        "requestBody": null
       },
       "put": {
-        "tags": ["Supplier"],
         "parameters": [
           {"name": "uuid", "in": "path", "type": "string", "required": true}
         ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "example": {
-                  "uuid": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
-                  "name": "edit supplier name",
-                  "description": "edit supplier description",
-                  "nit": "edit supplier ni",
-                  "sapCode": "edit supplier sa",
-                  "business": 1,
-                  "company": 1,
-                  "regional": 1,
-                  "location": 1,
-                  "companyType": 1,
-                  "service": 1,
-                  "isActive": true,
-                  "creatorUser": "edit supplier creator user",
-                  "editorUser": "edit supplier editor user"
-                }
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "content": {
@@ -1044,16 +1017,41 @@
               }
             }
           }
+        },
+        "tags": ["Supplier"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "example": {
+                  "uuid": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
+                  "name": "edit supplier name",
+                  "description": "edit supplier description",
+                  "nit": "edit supplier ni",
+                  "sapCode": "edit supplier sa",
+                  "business": 1,
+                  "company": 1,
+                  "regional": 1,
+                  "location": 1,
+                  "companyType": 1,
+                  "service": 1,
+                  "isActive": true,
+                  "creatorUser": "edit supplier creator user",
+                  "editorUser": "edit supplier editor user"
+                }
+              }
+            }
+          }
         }
       }
     },
     "/api/{modelName}": {
       "get": {
-        "tags": ["model"],
         "parameters": [
           {"name": "modelName", "in": "path", "type": "string", "required": true}
         ],
-        "requestBody": null,
         "responses": {
           "404": {
             "content": {
@@ -1068,7 +1066,9 @@
               }
             }
           }
-        }
+        },
+        "tags": ["model"],
+        "requestBody": null
       }
     }
   },
@@ -1600,24 +1600,6 @@
         }
       }
     },
-    "tags": [
-      "AcademicLevel",
-      "Arl",
-      "Business",
-      "City",
-      "Company",
-      "CompanyType",
-      "DniType",
-      "Employee",
-      "Gender",
-      "Location",
-      "Position",
-      "Province",
-      "Regional",
-      "RiskClass",
-      "RiskLevel",
-      "Service",
-      "Supplier"
-    ]
+    "tags": []
   }
 }

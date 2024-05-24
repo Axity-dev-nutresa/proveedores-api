@@ -17,9 +17,9 @@ export interface Parameters {
 const swaggerObject: any = {
   openapi: '3.0.0',
   info: {
-    title: name,
     description,
     version,
+    title: name,
     servers: [`http://localhost:4000`]
   },
   paths: {},
@@ -34,7 +34,7 @@ const swaggerObject: any = {
 export const addModel = (model: ModelStatic<Model<any, any>>, example: any) => {
   const schema = makeSchema(model, example.new)
   swaggerObject.components.schemas[model.tableName] = schema
-  swaggerObject.components.tags.push(model.name)
+  //swaggerObject.components.tags.push(model.name)
 }
 
 export const addRoute = (action: LambdaConfig, res: LambdaResult) => {
@@ -44,10 +44,10 @@ export const addRoute = (action: LambdaConfig, res: LambdaResult) => {
   const responses = swaggerObject.paths[url]?.[method]?.responses ?? {}
   responses[res.statusCode] = {content: makeContent(res.data)}
   swaggerObject.paths[url][method] = {
-    tags: [action.modelName],
     parameters,
-    requestBody: action.body ? {required: true, content: makeContent(action.body)} : null,
-    responses
+    responses: {...responses},
+    tags: [action.tag],
+    requestBody: action.body ? {required: true, content: makeContent(action.body)} : null
   }
 }
 
@@ -77,7 +77,7 @@ const getParameters = (action: LambdaConfig) => {
     [action.path, [] as Parameters[]]
   )
 
-  const [url, parameters] = Object.entries(action.querys).reduce(
+  const [url, parameters] = Object.entries(action.queries).reduce(
     ([path, parameter], [key, value]) => {
       path += `${!path.includes('?') ? '?' : '&'}${key}={${key}}`
       parameter.push({

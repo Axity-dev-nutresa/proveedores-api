@@ -3,28 +3,30 @@ import type {LambdaConfig, LambdaResult} from './types'
 import type {APIGatewayProxyHandler} from 'aws-lambda'
 
 let lambda = <APIGatewayProxyHandler | null>null
+const CONTENT_TYPE = 'content-type'
 
 const spy = async (action: LambdaConfig): Promise<LambdaResult> => {
-  const {body, headers, params, querys, path, method} = action
+  const {body, headers, params, queries, path, method} = action
+  const isB64Encoded = headers?.[CONTENT_TYPE]?.includes('multipart/form-data') ?? false
   if (!lambda) throw Error('An agent has not been called')
   const url = Object.entries(params).reduce(
     (acc, [key, value]) => acc.replace(`:${key}`, value),
     path
   )
 
-  const queryString = Object.entries(querys).reduce(
+  const queryString = Object.entries(queries).reduce(
     (acc, [key, value]) => `${acc}${!acc ? '' : '&'}${key}=${value}`,
     ''
   )
 
   const res = await lambda(
     {
-      body: body ? JSON.stringify(body) : null,
+      headers,
+      body: body ? (isB64Encoded ? body : JSON.stringify(body)) : null,
+      isBase64Encoded: isB64Encoded,
       cookies: [],
-      headers: headers,
-      isBase64Encoded: false,
       pathParameters: {default: url},
-      queryStringParameters: querys,
+      queryStringParameters: queries,
       rawPath: url,
       rawQueryString: queryString,
       routeKey: '$default',
@@ -38,7 +40,7 @@ const spy = async (action: LambdaConfig): Promise<LambdaResult> => {
       requestContext: {
         accountId: 'offlineContext_accountId',
         apiId: 'offlineContext_apiId',
-        authorizer: {lambda: {}, jwt: [Object]},
+        authorizer: {lambda: {}},
         domainName: 'offlineContext_domainName',
         domainPrefix: 'offlineContext_domainPrefix',
         requestId: 'offlineContext_resourceId',
@@ -71,7 +73,7 @@ const spy = async (action: LambdaConfig): Promise<LambdaResult> => {
           userArn: null
         },
         http: {
-          method: method,
+          method,
           path: url,
           protocol: 'HTTP/1.1',
           sourceIp: '::1',
@@ -88,16 +90,16 @@ const spy = async (action: LambdaConfig): Promise<LambdaResult> => {
       awsRequestId: '',
       logGroupName: '',
       logStreamName: '',
-      getRemainingTimeInMillis: function (): number {
+      getRemainingTimeInMillis(): number {
         throw new Error('Function not implemented. getRemainingTimeInMillis')
       },
-      done: function (): void {
+      done(): void {
         throw new Error('Function not implemented. done')
       },
-      fail: function (): void {
+      fail(): void {
         throw new Error('Function not implemented. fail')
       },
-      succeed: function (): void {
+      succeed(): void {
         throw new Error('Function not implemented. succeed')
       }
     },
@@ -109,8 +111,8 @@ const spy = async (action: LambdaConfig): Promise<LambdaResult> => {
   if (!res) {
     return {
       statusCode: 500,
-      data: {},
-      body: 'Error executing lambda',
+      data: {message: 'Error executing lambda'},
+      body: '{"message":"Error executing lambda"}',
       headers: {}
     }
   }
