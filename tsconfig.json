@@ -17,6 +17,7 @@
     "paths": {
       "@src/*": ["src/*"],
       "@db": ["src/database"],
+      "@db/*": ["src/database/*"],
       "@config/*": ["src/config/*"],
       "@appTypes/*": ["src/declarations/types/*"],
       "@declarations/*": ["src/declarations/*"],
