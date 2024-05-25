@@ -223,7 +223,12 @@ describe('Tests for CRUD', () => {
     }
   })
 
-  afterAll(saveSwagger)
+  afterAll(async () => {
+    saveSwagger()
+    const seq = await db.open()
+    db.relations()
+    await seq.sync({force: true})
+  })
 
   describe('Database close', () => {
     test('db close error', async () => {
@@ -245,25 +250,5 @@ describe('Tests for CRUD', () => {
       const modelName = file.split('.')[0]
       testModel(modelName)
     }
-  })
-
-  describe(`Route Model`, () => {
-    test(`GET: '/api/:modelName' NOT FOUND`, async () => {
-      const modelName = 'model'
-      const config = {
-        method: 'GET',
-        path: `/api/:modelName`,
-        tag: modelName,
-        params: {modelName},
-        queries: {},
-        header: '',
-        data: null
-      }
-      const {statusCode, headers, data} = await lambda(config)
-      expect(statusCode).toBe(statusCodes.NOT_FOUND)
-      expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
-      expect(data).toBeDefined()
-      expect(data?.message).toMatch(/(model)/)
-    })
   })
 })

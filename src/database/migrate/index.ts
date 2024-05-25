@@ -1,8 +1,9 @@
 import db from '@db'
 import masterData from '@db/migrate/masterData.json'
+import envVars from '@src/config/envVars'
 
 export const migrate = async () => {
-  console.log('migrating...')
+  console.log(`db ${envVars.dbName} migrating...`)
   const sequelize = await db.open()
   console.log(Object.keys(sequelize.models).length)
   db.relations()

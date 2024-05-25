@@ -1,8 +1,8 @@
 import envVars from '@config/envVars'
 import mysql2 from 'mysql2'
 import {Sequelize} from 'sequelize'
-import {defineModels} from './defineModels'
-import {relations} from './relations'
+import {defineModels} from '@db/defineModels'
+import {relations} from '@db/relations'
 
 let sequelize: Sequelize | null = null
 

@@ -1,4 +1,5 @@
 import statusCodes from '@config/statusCodes'
+import 'express-async-errors'
 
 /**
  * Error with status code and message
