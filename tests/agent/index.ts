@@ -1,13 +1,13 @@
-import {addRoute} from './swagger'
-import type {LambdaConfig, LambdaResult} from './types'
+import {addRoute} from '../swagger'
+import type {Action, LambdaResult} from '../types'
 import type {APIGatewayProxyHandler} from 'aws-lambda'
+import {getBodyAndHeaders} from './makeBody'
 
 let lambda = <APIGatewayProxyHandler | null>null
-const CONTENT_TYPE = 'content-type'
 
-const spy = async (action: LambdaConfig): Promise<LambdaResult> => {
-  const {body, headers, params, queries, path, method} = action
-  const isB64Encoded = headers?.[CONTENT_TYPE]?.includes('multipart/form-data') ?? false
+const spy = async (action: Action): Promise<LambdaResult> => {
+  const {data, header, params, queries, path, method} = action
+  const {isBase64Encoded, headers, body} = await getBodyAndHeaders(data, header)
   if (!lambda) throw Error('An agent has not been called')
   const url = Object.entries(params).reduce(
     (acc, [key, value]) => acc.replace(`:${key}`, value),
@@ -22,8 +22,8 @@ const spy = async (action: LambdaConfig): Promise<LambdaResult> => {
   const res = await lambda(
     {
       headers,
-      body: body ? (isB64Encoded ? body : JSON.stringify(body)) : null,
-      isBase64Encoded: isB64Encoded,
+      body,
+      isBase64Encoded,
       cookies: [],
       pathParameters: {default: url},
       queryStringParameters: queries,

@@ -1,9 +1,11 @@
 import statusCodes from '@config/statusCodes'
 import {handler} from '@src/services'
+import fs from 'fs'
 import agent from './agent'
+import {saveSwagger} from './swagger'
+import envVars from '@src/config/envVars'
 
 const CONTENT_TYPE = 'content-type'
-const URL_MK = 'https://proveedores-api.s3.us-east-1.amazonaws.com/tests/image.png'
 const lambda = agent(handler)
 
 jest.mock('@aws-sdk/client-s3', () => {
@@ -14,26 +16,28 @@ jest.mock('@aws-sdk/client-s3', () => {
 
 jest.mock('@aws-sdk/lib-storage', () => {
   return {
-    Upload: jest.fn().mockImplementation(() => {
+    Upload: jest.fn().mockImplementation(({params: {Bucket, Key}}) => {
       return {
-        done: jest.fn().mockResolvedValue({Location: URL_MK})
+        done: jest.fn().mockResolvedValue({
+          Location: `https://${Bucket}.s3.us-east-1.amazonaws.com/${Key}`
+        })
       }
     })
   }
 })
 
-describe('Service fileS3  NOT FOUND', () => {
-  //afterAll(saveSwagger)
+describe('Service fileS3', () => {
+  afterAll(saveSwagger)
 
   test(`POST: '/service/fileS3' NOT FOUND`, async () => {
     const config = {
-      tag: '',
+      tag: 'FileS3',
       method: 'POST',
       path: '/service/fileS3',
       params: {},
       queries: {},
-      headers: {},
-      body: null
+      header: '',
+      data: null
     }
     const {statusCode, headers, data} = await lambda(config)
     expect(statusCode).toBe(statusCodes.BAD_REQUEST)
@@ -42,23 +46,24 @@ describe('Service fileS3  NOT FOUND', () => {
     expect(data?.error).toMatch(/(The file was not found.)/)
   })
 
-  test(`POST: '/service/fileS3' `, async () => {
+  test(`POST: '/service/fileS3'`, async () => {
+    const file = fs.createReadStream('./tests/examples/image.png')
+    const filePath = 'tests/image'
     const config = {
-      tag: 'Services',
+      tag: 'FileS3',
       method: 'POST',
       path: '/service/fileS3',
       params: {},
       queries: {},
-      headers: {
-        ['content-type']:
-          'multipart/form-data; boundary=----WebKitFormBoundaryeUvi5ecv64kGABPT'
-      },
-      body: 'LS0tLS0tV2ViS2l0Rm9ybUJvdW5kYXJ5ZVV2aTVlY3Y2NGtHQUJQVA0KQ29udGVudC1EaXNwb3NpdGlvbjogZm9ybS1kYXRhOyBuYW1lPSJmaWxlIjsgZmlsZW5hbWU9ImltYWdlLnBuZyINCkNvbnRlbnQtVHlwZTogaW1hZ2UvcG5nDQoNColQTkcNChoKAAAADUlIRFIAAAADAAAAAwgGAAAAVii1vwAAAAFzUkdCAK7OHOkAAAAEZ0FNQQAAsY8L/GEFAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAMklEQVQYVwEnANj/Adnj3v8NCgsACAYIAALO29QA3+jkAPP29AADJDwwgO7z8QAKBggASDUP1/lFQKUAAAAASUVORK5CYIINCi0tLS0tLVdlYktpdEZvcm1Cb3VuZGFyeWVVdmk1ZWN2NjRrR0FCUFQNCkNvbnRlbnQtRGlzcG9zaXRpb246IGZvcm0tZGF0YTsgbmFtZT0iZmlsZVBhdGgiDQoNCnRlc3RzL2ltYWdlDQotLS0tLS1XZWJLaXRGb3JtQm91bmRhcnllVXZpNWVjdjY0a0dBQlBULS0NCg=='
+      header: 'multipart/form-data',
+      data: {file, filePath}
     }
     const {statusCode, headers, data} = await lambda(config)
     expect(statusCode).toBe(statusCodes.OK)
     expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
     expect(data).toBeDefined()
-    expect(data.urlS3).toBe(URL_MK)
+    expect(data?.urlS3).toBe(
+      `https://${envVars.awsS3.bucket}.s3.us-east-1.amazonaws.com/${filePath}.png`
+    )
   })
 })

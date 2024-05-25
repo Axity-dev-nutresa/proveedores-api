@@ -10,7 +10,6 @@ import {addModel, saveSwagger} from './swagger'
 const PATH_MODELS = './src/database/models'
 const PATH_EXP = './tests/examples/examples.json'
 const CONTENT_TYPE = 'content-type'
-const HEADER = {[CONTENT_TYPE]: 'application/json; charset=utf-8'}
 const relatedModels = ['City', 'Supplier', 'Employee']
 const filesModel = fs.readdirSync(PATH_MODELS)
 const lambda = agent(handler)
@@ -25,8 +24,8 @@ const testModel = (modelName: string) => {
         tag: modelName,
         params: {},
         queries: {},
-        headers: {},
-        body: null
+        header: '',
+        data: null
       }
       const {statusCode, headers, data} = await lambda(config)
       expect(statusCode).toBe(statusCodes.OK)
@@ -44,8 +43,8 @@ const testModel = (modelName: string) => {
           tag: modelName,
           params: {},
           queries: {supplier},
-          headers: {},
-          body: null
+          header: '',
+          data: null
         }
         const {statusCode, headers, data} = await lambda(config)
         expect(statusCode).toBe(statusCodes.OK)
@@ -65,8 +64,8 @@ const testModel = (modelName: string) => {
           tag: modelName,
           params: {},
           queries: {uuid},
-          headers: {},
-          body: null
+          header: '',
+          data: null
         }
         const {statusCode, headers, data} = await lambda(config)
         expect(statusCode).toBe(statusCodes.OK)
@@ -86,8 +85,8 @@ const testModel = (modelName: string) => {
           tag: modelName,
           params: {},
           queries: {province},
-          headers: {},
-          body: null
+          header: '',
+          data: null
         }
         const {statusCode, headers, data} = await lambda(config)
         expect(statusCode).toBe(statusCodes.OK)
@@ -107,8 +106,8 @@ const testModel = (modelName: string) => {
           tag: modelName,
           params: {uuid: searchElement.uuid},
           queries: {},
-          headers: {},
-          body: null
+          header: '',
+          data: null
         }
         const {statusCode, headers, data} = await lambda(config)
         expect(statusCode).toBe(statusCodes.OK)
@@ -127,8 +126,8 @@ const testModel = (modelName: string) => {
           tag: modelName,
           params: {uuid: 'new'},
           queries: {},
-          headers: {},
-          body: null
+          header: '',
+          data: null
         }
         const {statusCode, headers, data} = await lambda(config)
         expect(statusCode).toBe(statusCodes.BAD_REQUEST)
@@ -145,8 +144,8 @@ const testModel = (modelName: string) => {
           tag: modelName,
           params: {},
           queries: {},
-          headers: HEADER,
-          body: newElement
+          header: 'application/json',
+          data: newElement
         }
         const {statusCode, headers, data} = await lambda(config)
         expect(statusCode).toBe(statusCodes.OK)
@@ -163,8 +162,8 @@ const testModel = (modelName: string) => {
           tag: modelName,
           params: {uuid: 'new'},
           queries: {},
-          headers: HEADER,
-          body: {}
+          header: '',
+          data: null
         }
         const {statusCode, headers, data} = await lambda(config)
         expect(statusCode).toBe(statusCodes.BAD_REQUEST)
@@ -181,8 +180,8 @@ const testModel = (modelName: string) => {
           tag: modelName,
           params: {uuid: editElement.uuid},
           queries: {},
-          headers: HEADER,
-          body: editElement
+          header: 'application/json',
+          data: editElement
         }
         const {statusCode, headers, data} = await lambda(config)
         expect(statusCode).toBe(statusCodes.OK)
@@ -208,7 +207,7 @@ describe('Tests for CRUD', () => {
           examples?.[modelName],
           masterData?.[modelName as keyof typeof masterData]
         )
-        addModel(Model, examples[modelName])
+        addModel(Model, examples[modelName].list[0])
         bk[modelName] = await Model.findAll()
         if (!relatedModels.includes(modelName)) {
           await Model.bulkCreate(examples[modelName].list)
@@ -257,8 +256,8 @@ describe('Tests for CRUD', () => {
         tag: modelName,
         params: {modelName},
         queries: {},
-        headers: {},
-        body: null
+        header: '',
+        data: null
       }
       const {statusCode, headers, data} = await lambda(config)
       expect(statusCode).toBe(statusCodes.NOT_FOUND)

@@ -10,6 +10,8 @@
     "/api/AcademicLevel": {
       "get": {
         "parameters": [],
+        "tags": ["AcademicLevel"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -24,14 +26,14 @@
               }
             }
           }
-        },
-        "tags": ["AcademicLevel"],
-        "requestBody": null
+        }
       }
     },
     "/api/Arl": {
       "get": {
         "parameters": [],
+        "tags": ["Arl"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -46,14 +48,14 @@
               }
             }
           }
-        },
-        "tags": ["Arl"],
-        "requestBody": null
+        }
       }
     },
     "/api/Business": {
       "get": {
         "parameters": [],
+        "tags": ["Business"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -68,14 +70,14 @@
               }
             }
           }
-        },
-        "tags": ["Business"],
-        "requestBody": null
+        }
       }
     },
     "/api/City": {
       "get": {
         "parameters": [],
+        "tags": ["City"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -90,9 +92,7 @@
               }
             }
           }
-        },
-        "tags": ["City"],
-        "requestBody": null
+        }
       }
     },
     "/api/City?province={province}": {
@@ -100,6 +100,8 @@
         "parameters": [
           {"name": "province", "in": "path", "type": "string", "required": false}
         ],
+        "tags": ["City"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -114,14 +116,14 @@
               }
             }
           }
-        },
-        "tags": ["City"],
-        "requestBody": null
+        }
       }
     },
     "/api/Company": {
       "get": {
         "parameters": [],
+        "tags": ["Company"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -136,14 +138,14 @@
               }
             }
           }
-        },
-        "tags": ["Company"],
-        "requestBody": null
+        }
       }
     },
     "/api/CompanyType": {
       "get": {
         "parameters": [],
+        "tags": ["CompanyType"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -158,14 +160,14 @@
               }
             }
           }
-        },
-        "tags": ["CompanyType"],
-        "requestBody": null
+        }
       }
     },
     "/api/DniType": {
       "get": {
         "parameters": [],
+        "tags": ["DniType"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -190,14 +192,14 @@
               }
             }
           }
-        },
-        "tags": ["DniType"],
-        "requestBody": null
+        }
       }
     },
     "/api/Employee": {
       "get": {
         "parameters": [],
+        "tags": ["Employee"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -268,12 +270,56 @@
               }
             }
           }
-        },
-        "tags": ["Employee"],
-        "requestBody": null
+        }
       },
       "post": {
         "parameters": [],
+        "tags": ["Employee"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "uuid": {
+                    "type": "string",
+                    "example": "300eb91e-9476-448b-b160-8122ba7ad4d5"
+                  },
+                  "dniType": {"type": "string", "example": "CC"},
+                  "dni": {"type": "string", "example": "1037750899"},
+                  "firstName": {"type": "string", "example": "Juan"},
+                  "middleName": {"type": "string", "example": "Carlos"},
+                  "surname": {"type": "string", "example": "Quintero"},
+                  "secondSurname": {"type": "string", "example": "Martinez"},
+                  "picture": {
+                    "type": "string",
+                    "example": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750899.png"
+                  },
+                  "gender": {"type": "string", "example": "M"},
+                  "cellPhone": {"type": "string", "example": "3127140399"},
+                  "email": {"type": "string", "example": "juannes99@gmail.com"},
+                  "academicLevel": {"type": "number", "example": 2},
+                  "supplier": {
+                    "type": "string",
+                    "example": "a366e7f9-4bfa-40d8-8d6f-be69846fb160"
+                  },
+                  "position": {"type": "number", "example": 2},
+                  "arl": {"type": "number", "example": 2},
+                  "province": {"type": "string", "example": "05"},
+                  "city": {"type": "string", "example": "05001"},
+                  "isActive": {"type": "boolean", "example": true},
+                  "riskLevel": {"type": "string", "example": "II"},
+                  "riskClass": {"type": "number", "example": 2},
+                  "entryDate": {"type": "string", "example": "2022-09-07"},
+                  "egressDate": {"type": "string", "example": "2023-09-07"},
+                  "creatorUser": {"type": "string", "example": "estebanquintero"},
+                  "editorUser": {"type": "string", "example": "estebanquintero"}
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "content": {
@@ -313,43 +359,6 @@
               }
             }
           }
-        },
-        "tags": ["Employee"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "example": {
-                  "uuid": "300eb91e-9476-448b-b160-8122ba7ad4d5",
-                  "dniType": "CC",
-                  "dni": "1037750899",
-                  "firstName": "Juan",
-                  "middleName": "Carlos",
-                  "surname": "Quintero",
-                  "secondSurname": "Martinez",
-                  "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750899.png",
-                  "gender": "M",
-                  "cellPhone": "3127140399",
-                  "email": "juannes99@gmail.com",
-                  "academicLevel": 2,
-                  "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
-                  "position": 2,
-                  "arl": 2,
-                  "province": "05",
-                  "city": "05001",
-                  "isActive": true,
-                  "riskLevel": "II",
-                  "riskClass": 2,
-                  "entryDate": "2022-09-07",
-                  "egressDate": "2023-09-07",
-                  "creatorUser": "estebanquintero",
-                  "editorUser": "estebanquintero"
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -358,6 +367,8 @@
         "parameters": [
           {"name": "supplier", "in": "path", "type": "string", "required": false}
         ],
+        "tags": ["Employee"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -399,9 +410,7 @@
               }
             }
           }
-        },
-        "tags": ["Employee"],
-        "requestBody": null
+        }
       }
     },
     "/api/Employee/{uuid}": {
@@ -409,6 +418,8 @@
         "parameters": [
           {"name": "uuid", "in": "path", "type": "string", "required": true}
         ],
+        "tags": ["Employee"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -489,14 +500,59 @@
               }
             }
           }
-        },
-        "tags": ["Employee"],
-        "requestBody": null
+        }
       },
       "put": {
         "parameters": [
           {"name": "uuid", "in": "path", "type": "string", "required": true}
         ],
+        "tags": ["Employee"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "": null,
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "uuid": {
+                    "type": "string",
+                    "example": "201131d1-ff11-4fd7-9c01-0e8a69c36226"
+                  },
+                  "dniType": {"type": "string", "example": "CC"},
+                  "dni": {"type": "string", "example": "1022161626"},
+                  "firstName": {"type": "string", "example": "Emily"},
+                  "middleName": null,
+                  "surname": {"type": "string", "example": "Quintero"},
+                  "secondSurname": {"type": "string", "example": "Martinez"},
+                  "picture": {
+                    "type": "string",
+                    "example": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg"
+                  },
+                  "gender": {"type": "string", "example": "F"},
+                  "cellPhone": {"type": "string", "example": "3127140334"},
+                  "email": {"type": "string", "example": "emily@gmail.com"},
+                  "academicLevel": {"type": "number", "example": 1},
+                  "supplier": {
+                    "type": "string",
+                    "example": "a366e7f9-4bfa-40d8-8d6f-be69846fb160"
+                  },
+                  "position": {"type": "number", "example": 1},
+                  "arl": {"type": "number", "example": 1},
+                  "province": {"type": "string", "example": "05"},
+                  "city": {"type": "string", "example": "05001"},
+                  "isActive": {"type": "boolean", "example": true},
+                  "riskLevel": {"type": "string", "example": "I"},
+                  "riskClass": {"type": "number", "example": 1},
+                  "entryDate": {"type": "string", "example": "2020-06-09"},
+                  "egressDate": null,
+                  "creatorUser": {"type": "string", "example": "estebanquintero"},
+                  "editorUser": {"type": "string", "example": "estebanquintero"}
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "content": {
@@ -549,49 +605,14 @@
               }
             }
           }
-        },
-        "tags": ["Employee"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "example": {
-                  "uuid": "201131d1-ff11-4fd7-9c01-0e8a69c36226",
-                  "dniType": "CC",
-                  "dni": "1022161626",
-                  "firstName": "Emily",
-                  "middleName": null,
-                  "surname": "Quintero",
-                  "secondSurname": "Martinez",
-                  "picture": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg",
-                  "gender": "F",
-                  "cellPhone": "3127140334",
-                  "email": "emily@gmail.com",
-                  "academicLevel": 1,
-                  "supplier": "a366e7f9-4bfa-40d8-8d6f-be69846fb160",
-                  "position": 1,
-                  "arl": 1,
-                  "province": "05",
-                  "city": "05001",
-                  "isActive": true,
-                  "riskLevel": "I",
-                  "riskClass": 1,
-                  "entryDate": "2020-06-09",
-                  "egressDate": null,
-                  "creatorUser": "estebanquintero",
-                  "editorUser": "estebanquintero"
-                }
-              }
-            }
-          }
         }
       }
     },
     "/api/Gender": {
       "get": {
         "parameters": [],
+        "tags": ["Gender"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -606,14 +627,14 @@
               }
             }
           }
-        },
-        "tags": ["Gender"],
-        "requestBody": null
+        }
       }
     },
     "/api/Location": {
       "get": {
         "parameters": [],
+        "tags": ["Location"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -628,14 +649,14 @@
               }
             }
           }
-        },
-        "tags": ["Location"],
-        "requestBody": null
+        }
       }
     },
     "/api/Position": {
       "get": {
         "parameters": [],
+        "tags": ["Position"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -658,14 +679,14 @@
               }
             }
           }
-        },
-        "tags": ["Position"],
-        "requestBody": null
+        }
       }
     },
     "/api/Province": {
       "get": {
         "parameters": [],
+        "tags": ["Province"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -680,14 +701,14 @@
               }
             }
           }
-        },
-        "tags": ["Province"],
-        "requestBody": null
+        }
       }
     },
     "/api/Regional": {
       "get": {
         "parameters": [],
+        "tags": ["Regional"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -702,14 +723,14 @@
               }
             }
           }
-        },
-        "tags": ["Regional"],
-        "requestBody": null
+        }
       }
     },
     "/api/RiskClass": {
       "get": {
         "parameters": [],
+        "tags": ["RiskClass"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -724,14 +745,14 @@
               }
             }
           }
-        },
-        "tags": ["RiskClass"],
-        "requestBody": null
+        }
       }
     },
     "/api/RiskLevel": {
       "get": {
         "parameters": [],
+        "tags": ["RiskLevel"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -746,14 +767,14 @@
               }
             }
           }
-        },
-        "tags": ["RiskLevel"],
-        "requestBody": null
+        }
       }
     },
     "/api/Service": {
       "get": {
         "parameters": [],
+        "tags": ["Service"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -768,14 +789,14 @@
               }
             }
           }
-        },
-        "tags": ["Service"],
-        "requestBody": null
+        }
       }
     },
     "/api/Supplier": {
       "get": {
         "parameters": [],
+        "tags": ["Supplier"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -820,12 +841,46 @@
               }
             }
           }
-        },
-        "tags": ["Supplier"],
-        "requestBody": null
+        }
       },
       "post": {
         "parameters": [],
+        "tags": ["Supplier"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "uuid": {
+                    "type": "string",
+                    "example": "f4f06035-ad0b-4f71-94fa-bdf23e99803e"
+                  },
+                  "name": {"type": "string", "example": "new supplier name"},
+                  "description": {
+                    "type": "string",
+                    "example": "new supplier description"
+                  },
+                  "nit": {"type": "string", "example": "new supplier nit"},
+                  "sapCode": {"type": "string", "example": "new supplier sap"},
+                  "business": {"type": "number", "example": 1},
+                  "company": {"type": "number", "example": 1},
+                  "regional": {"type": "number", "example": 1},
+                  "location": {"type": "number", "example": 1},
+                  "companyType": {"type": "number", "example": 1},
+                  "service": {"type": "number", "example": 1},
+                  "isActive": {"type": "boolean", "example": true},
+                  "creatorUser": {
+                    "type": "string",
+                    "example": "new supplier creator user"
+                  },
+                  "editorUser": {"type": "string", "example": "new supplier editor user"}
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "content": {
@@ -852,33 +907,6 @@
               }
             }
           }
-        },
-        "tags": ["Supplier"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "example": {
-                  "uuid": "f4f06035-ad0b-4f71-94fa-bdf23e99803e",
-                  "name": "new supplier name",
-                  "description": "new supplier description",
-                  "nit": "new supplier nit",
-                  "sapCode": "new supplier sap",
-                  "business": 1,
-                  "company": 1,
-                  "regional": 1,
-                  "location": 1,
-                  "companyType": 1,
-                  "service": 1,
-                  "isActive": true,
-                  "creatorUser": "new supplier creator user",
-                  "editorUser": "new supplier editor user"
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -887,6 +915,8 @@
         "parameters": [
           {"name": "uuid", "in": "path", "type": "string", "required": false}
         ],
+        "tags": ["Supplier"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -915,9 +945,7 @@
               }
             }
           }
-        },
-        "tags": ["Supplier"],
-        "requestBody": null
+        }
       }
     },
     "/api/Supplier/{uuid}": {
@@ -925,6 +953,8 @@
         "parameters": [
           {"name": "uuid", "in": "path", "type": "string", "required": true}
         ],
+        "tags": ["Supplier"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "200": {
             "content": {
@@ -970,14 +1000,49 @@
               }
             }
           }
-        },
-        "tags": ["Supplier"],
-        "requestBody": null
+        }
       },
       "put": {
         "parameters": [
           {"name": "uuid", "in": "path", "type": "string", "required": true}
         ],
+        "tags": ["Supplier"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "": null,
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "uuid": {
+                    "type": "string",
+                    "example": "933dee19-6ecf-4e42-8b08-6fae32c3ec43"
+                  },
+                  "name": {"type": "string", "example": "edit supplier name"},
+                  "description": {
+                    "type": "string",
+                    "example": "edit supplier description"
+                  },
+                  "nit": {"type": "string", "example": "edit supplier ni"},
+                  "sapCode": {"type": "string", "example": "edit supplier sa"},
+                  "business": {"type": "number", "example": 1},
+                  "company": {"type": "number", "example": 1},
+                  "regional": {"type": "number", "example": 1},
+                  "location": {"type": "number", "example": 1},
+                  "companyType": {"type": "number", "example": 1},
+                  "service": {"type": "number", "example": 1},
+                  "isActive": {"type": "boolean", "example": true},
+                  "creatorUser": {
+                    "type": "string",
+                    "example": "edit supplier creator user"
+                  },
+                  "editorUser": {"type": "string", "example": "edit supplier editor user"}
+                }
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "content": {
@@ -1017,33 +1082,6 @@
               }
             }
           }
-        },
-        "tags": ["Supplier"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "example": {
-                  "uuid": "933dee19-6ecf-4e42-8b08-6fae32c3ec43",
-                  "name": "edit supplier name",
-                  "description": "edit supplier description",
-                  "nit": "edit supplier ni",
-                  "sapCode": "edit supplier sa",
-                  "business": 1,
-                  "company": 1,
-                  "regional": 1,
-                  "location": 1,
-                  "companyType": 1,
-                  "service": 1,
-                  "isActive": true,
-                  "creatorUser": "edit supplier creator user",
-                  "editorUser": "edit supplier editor user"
-                }
-              }
-            }
-          }
         }
       }
     },
@@ -1052,6 +1090,8 @@
         "parameters": [
           {"name": "modelName", "in": "path", "type": "string", "required": true}
         ],
+        "tags": ["model"],
+        "requestBody": {"required": true, "content": {"": null}},
         "responses": {
           "404": {
             "content": {
@@ -1066,9 +1106,52 @@
               }
             }
           }
+        }
+      }
+    },
+    "/service/fileS3": {
+      "post": {
+        "parameters": [],
+        "tags": ["FileS3"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {"type": "string", "format": "binary", "example": null},
+                  "filePath": {"type": "string", "example": "tests/image"}
+                }
+              }
+            },
+            "": null
+          }
         },
-        "tags": ["model"],
-        "requestBody": null
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "urlS3": "https://proveedores-api.s3.us-east-1.amazonaws.com/tests/image.png"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {"error": "The file was not found."}
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -1083,13 +1166,13 @@
             "type": "number",
             "required": true,
             "description": "Identificador único para el nivel académico.",
-            "example": 3
+            "example": 1
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Descripción del nivel académico.",
-            "example": "Técnico"
+            "example": "Primaria"
           }
         }
       },
@@ -1100,13 +1183,13 @@
             "type": "number",
             "required": true,
             "description": "Identificador único para la administradoras de riesgos laborales.",
-            "example": 3
+            "example": 1
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre de la administradoras de riesgos laborales.",
-            "example": "Seguros de Vida Aurora S.A"
+            "example": "ARL Positiva"
           }
         }
       },
@@ -1117,13 +1200,13 @@
             "type": "number",
             "required": true,
             "description": "Identificador único para el negocio.",
-            "example": 3
+            "example": 1
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre del negocio.",
-            "example": "CARNICO"
+            "example": "ALIMENTOS AL CONSUMIDOR"
           }
         }
       },
@@ -1134,13 +1217,13 @@
             "type": "string",
             "required": true,
             "description": "Código único para cada ciudad.",
-            "example": "05004"
+            "example": "05001"
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre de la ciudad.",
-            "example": "ABRIAQUÍ"
+            "example": "MEDELLÍN"
           },
           "province": {
             "type": "string",
@@ -1157,13 +1240,13 @@
             "type": "number",
             "required": true,
             "description": "Identificador único para la empresa.",
-            "example": 3
+            "example": 1
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre la empresa.",
-            "example": "GRUPO NUTRESA"
+            "example": "FUNDACION NUTRESA"
           }
         }
       },
@@ -1174,13 +1257,13 @@
             "type": "number",
             "required": true,
             "description": "Identificador único para el tipo de empresa.",
-            "example": 3
+            "example": 1
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre del tipo de empresa.",
-            "example": "2 company type name"
+            "example": "CONTRATISTA"
           }
         }
       },
@@ -1191,25 +1274,25 @@
             "type": "string",
             "required": true,
             "description": "Identificador unico para el tipo de documento.",
-            "example": "NIT"
+            "example": "CC"
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre del tipo de documento.",
-            "example": "Número de Identificación Tributaria"
+            "example": "Cédula de Ciudadanía"
           },
           "minLength": {
             "type": "number",
             "required": true,
             "description": "Mínimo de caracteres que permite cada tipo de documento.",
-            "example": 9
+            "example": 6
           },
           "maxLength": {
             "type": "number",
             "required": true,
             "description": "Máximo de caracteres que permite cada tipo de documento.",
-            "example": 9
+            "example": 10
           }
         }
       },
@@ -1220,7 +1303,7 @@
             "type": "string",
             "required": true,
             "description": "Identificador universal unico para el empleado.",
-            "example": "300eb91e-9476-448b-b160-8122ba7ad4d5"
+            "example": "0990f956-6acf-4447-8b0c-9fcfe5325779"
           },
           "dniType": {
             "type": "string",
@@ -1232,7 +1315,7 @@
             "type": "string",
             "required": true,
             "description": "Numero de documento del empleado.",
-            "example": "1037750899"
+            "example": "1037750844"
           },
           "firstName": {
             "type": "string",
@@ -1244,7 +1327,7 @@
             "type": "string",
             "required": false,
             "description": "Segundo nombre del empleado.",
-            "example": "Carlos"
+            "example": "Esteban"
           },
           "surname": {
             "type": "string",
@@ -1256,13 +1339,13 @@
             "type": "string",
             "required": true,
             "description": "Segundo nombre del empleado.",
-            "example": "Martinez"
+            "example": "Bedoya"
           },
           "picture": {
             "type": "string",
             "required": false,
             "description": "Foto de perfil del empleado.",
-            "example": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750899.png"
+            "example": "https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750844.jpg"
           },
           "gender": {
             "type": "string",
@@ -1274,19 +1357,19 @@
             "type": "string",
             "required": true,
             "description": "Numero de celular del empleado.",
-            "example": "3127140399"
+            "example": "3127140333"
           },
           "email": {
             "type": "string",
             "required": true,
             "description": "Correo electronico corporativo del empleado.",
-            "example": "juannes99@gmail.com"
+            "example": "juannes@gmail.com"
           },
           "academicLevel": {
             "type": "number",
             "required": true,
             "description": "Nivel academico del empleado",
-            "example": 2
+            "example": 1
           },
           "supplier": {
             "type": "string",
@@ -1298,13 +1381,13 @@
             "type": "number",
             "required": true,
             "description": "Id del cargo que desempeña el empleado.",
-            "example": 2
+            "example": 1
           },
           "arl": {
             "type": "number",
             "required": true,
             "description": "Id de la administradoras de riesgos laborales.",
-            "example": 2
+            "example": 1
           },
           "province": {
             "type": "string",
@@ -1328,25 +1411,25 @@
             "type": "string",
             "required": true,
             "description": "codigo del nivel de riesgo.",
-            "example": "II"
+            "example": "I"
           },
           "riskClass": {
             "type": "number",
             "required": true,
             "description": "Id de la clasificación de riesgo.",
-            "example": 2
+            "example": 1
           },
           "entryDate": {
             "type": "string",
             "required": true,
             "description": "Fecha de ingreso del empleado.",
-            "example": "2022-09-07"
+            "example": "2024-05-02"
           },
           "egressDate": {
-            "type": "string",
+            "type": "object",
             "required": false,
             "description": "Fecha de egreso del empleado.",
-            "example": "2023-09-07"
+            "example": null
           },
           "creatorUser": {
             "type": "string",
@@ -1358,7 +1441,7 @@
             "type": "string",
             "required": true,
             "description": "Nombre de usuario que edito el empleado.",
-            "example": "estebanquintero"
+            "example": "administrador"
           }
         }
       },
@@ -1369,13 +1452,13 @@
             "type": "string",
             "required": true,
             "description": "Código único para el género.",
-            "example": "O"
+            "example": "F"
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Descripción del género.",
-            "example": "Otro"
+            "example": "Femenino"
           }
         }
       },
@@ -1386,13 +1469,13 @@
             "type": "number",
             "required": true,
             "description": "Identificador único para la localidad.",
-            "example": 3
+            "example": 1
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre la localidad.",
-            "example": "RM-MEDELLILN (COLCAFE)"
+            "example": "RB-BARRANQUILLA (AANN)"
           }
         }
       },
@@ -1403,19 +1486,19 @@
             "type": "number",
             "required": true,
             "description": "Identificador único para cada cargo.",
-            "example": 3
+            "example": 1
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre del cargo.",
-            "example": "Supervisor Junior"
+            "example": "Client Manager"
           },
           "description": {
             "type": "string",
             "required": true,
             "description": "Nombre del cargo.",
-            "example": "Coordinadores"
+            "example": "Gerente de Proyecto"
           }
         }
       },
@@ -1426,19 +1509,19 @@
             "type": "string",
             "required": true,
             "description": "Identificador único para cada departamento.",
-            "example": "11"
+            "example": "05"
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre del departamento.",
-            "example": "BOGOTÁ, D.C."
+            "example": "ANTIOQUIA"
           },
           "code": {
             "type": "string",
             "required": true,
             "description": "Nombre del departamento.",
-            "example": "601"
+            "example": "604"
           }
         }
       },
@@ -1449,13 +1532,13 @@
             "type": "number",
             "required": true,
             "description": "Identificador único para la regional.",
-            "example": 3
+            "example": 1
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre la regional.",
-            "example": "REGIONAL CALI"
+            "example": "REGIONAL BARRANQUILLA"
           }
         }
       },
@@ -1466,13 +1549,13 @@
             "type": "number",
             "required": true,
             "description": "Identificador único para la administradoras de riesgos laborales.",
-            "example": 3
+            "example": 1
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre de la administradoras de riesgos laborales.",
-            "example": "2 risk class name"
+            "example": "Riesgo público"
           }
         }
       },
@@ -1483,13 +1566,13 @@
             "type": "string",
             "required": true,
             "description": "Identificador único para el nivel de riesgo.",
-            "example": "III"
+            "example": "I"
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre del nivel de riesgo.",
-            "example": "Riesgo medio"
+            "example": "Riesgo minimo"
           }
         }
       },
@@ -1500,13 +1583,13 @@
             "type": "number",
             "required": true,
             "description": "Identificador único para el servicio prestado.",
-            "example": 3
+            "example": 1
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre del servicio prestado.",
-            "example": "AUTOMATIZACION Y CONTROL"
+            "example": "ALIMENTACIÓN/CASINO"
           }
         }
       },
@@ -1517,31 +1600,31 @@
             "type": "string",
             "required": true,
             "description": "Identificador universal unico para la tabal proveedor.",
-            "example": "f4f06035-ad0b-4f71-94fa-bdf23e99803e"
+            "example": "a366e7f9-4bfa-40d8-8d6f-be69846fb160"
           },
           "name": {
             "type": "string",
             "required": true,
             "description": "Nombre del proveedor.",
-            "example": "new supplier name"
+            "example": "Axity"
           },
           "description": {
             "type": "string",
             "required": false,
             "description": "Descripcion del proveedor.",
-            "example": "new supplier description"
+            "example": "El hogar del mejor talento"
           },
           "nit": {
             "type": "string",
             "required": true,
             "description": "número de NIT del proveedor.",
-            "example": "new supplier nit"
+            "example": "343243423"
           },
           "sapCode": {
             "type": "string",
             "required": true,
             "description": "Codigo SAP del proveedor.",
-            "example": "new supplier sap"
+            "example": "3432423"
           },
           "business": {
             "type": "number",
@@ -1589,13 +1672,13 @@
             "type": "string",
             "required": true,
             "description": "Nombre de usuario que creo el proveedor.",
-            "example": "new supplier creator user"
+            "example": "estebanquintero"
           },
           "editorUser": {
             "type": "string",
             "required": true,
             "description": "Nombre de usuario que edito el proveedor.",
-            "example": "new supplier editor user"
+            "example": "estebanquintero"
           }
         }
       }

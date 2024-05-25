@@ -1,13 +1,16 @@
-import type {ModelStatic, Model as ModelSqz} from 'sequelize'
+import type {ReadStream} from 'fs'
+import type {Model as ModelSqz, ModelStatic} from 'sequelize'
 
-export type LambdaConfig = {
+export type Data = {[header: string]: ReadStream | string}
+
+export type Action = {
   method: string
   path: string
   tag: string
+  header: string
   params: {[key: string]: string}
   queries: {[key: string]: string}
-  headers: {[header: string]: string}
-  body: any
+  data: Data | null
 }
 
 export type LambdaResult = {

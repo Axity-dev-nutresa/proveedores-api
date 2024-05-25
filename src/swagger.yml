@@ -9,6 +9,12 @@ paths:
   /api/AcademicLevel:
     get:
       parameters: []
+      tags:
+        - AcademicLevel
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -20,12 +26,15 @@ paths:
                     name: Primaria
                   - id: 2
                     name: Secundaria
-      tags:
-        - AcademicLevel
-      requestBody: null
   /api/Arl:
     get:
       parameters: []
+      tags:
+        - Arl
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -37,12 +46,15 @@ paths:
                     name: ARL Positiva
                   - id: 2
                     name: Seguros Bolívar S.A
-      tags:
-        - Arl
-      requestBody: null
   /api/Business:
     get:
       parameters: []
+      tags:
+        - Business
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -54,12 +66,15 @@ paths:
                     name: ALIMENTOS AL CONSUMIDOR
                   - id: 2
                     name: CAFÉ
-      tags:
-        - Business
-      requestBody: null
   /api/City:
     get:
       parameters: []
+      tags:
+        - City
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -73,9 +88,6 @@ paths:
                   - id: '05002'
                     name: ABEJORRAL
                     province: '05'
-      tags:
-        - City
-      requestBody: null
   /api/City?province={province}:
     get:
       parameters:
@@ -83,6 +95,12 @@ paths:
           in: path
           type: string
           required: false
+      tags:
+        - City
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -96,12 +114,15 @@ paths:
                   - id: '05002'
                     name: ABEJORRAL
                     province: '05'
-      tags:
-        - City
-      requestBody: null
   /api/Company:
     get:
       parameters: []
+      tags:
+        - Company
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -113,12 +134,15 @@ paths:
                     name: FUNDACION NUTRESA
                   - id: 2
                     name: GESTION CARGO ZONAFRANCA
-      tags:
-        - Company
-      requestBody: null
   /api/CompanyType:
     get:
       parameters: []
+      tags:
+        - CompanyType
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -130,12 +154,15 @@ paths:
                     name: CONTRATISTA
                   - id: 2
                     name: EMPRESA DE SERVICIOS TEMPORALES
-      tags:
-        - CompanyType
-      requestBody: null
   /api/DniType:
     get:
       parameters: []
+      tags:
+        - DniType
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -151,12 +178,15 @@ paths:
                     name: Cédula de Extranjería
                     minLength: 4
                     maxLength: 10
-      tags:
-        - DniType
-      requestBody: null
   /api/Employee:
     get:
       parameters: []
+      tags:
+        - Employee
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -219,11 +249,90 @@ paths:
                     egressDate: '2024-05-09'
                     creatorUser: estebanquintero
                     editorUser: estebanquintero
-      tags:
-        - Employee
-      requestBody: null
     post:
       parameters: []
+      tags:
+        - Employee
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                uuid:
+                  type: string
+                  example: 300eb91e-9476-448b-b160-8122ba7ad4d5
+                dniType:
+                  type: string
+                  example: CC
+                dni:
+                  type: string
+                  example: '1037750899'
+                firstName:
+                  type: string
+                  example: Juan
+                middleName:
+                  type: string
+                  example: Carlos
+                surname:
+                  type: string
+                  example: Quintero
+                secondSurname:
+                  type: string
+                  example: Martinez
+                picture:
+                  type: string
+                  example: >-
+                    https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750899.png
+                gender:
+                  type: string
+                  example: M
+                cellPhone:
+                  type: string
+                  example: '3127140399'
+                email:
+                  type: string
+                  example: juannes99@gmail.com
+                academicLevel:
+                  type: number
+                  example: 2
+                supplier:
+                  type: string
+                  example: a366e7f9-4bfa-40d8-8d6f-be69846fb160
+                position:
+                  type: number
+                  example: 2
+                arl:
+                  type: number
+                  example: 2
+                province:
+                  type: string
+                  example: '05'
+                city:
+                  type: string
+                  example: '05001'
+                isActive:
+                  type: boolean
+                  example: true
+                riskLevel:
+                  type: string
+                  example: II
+                riskClass:
+                  type: number
+                  example: 2
+                entryDate:
+                  type: string
+                  example: '2022-09-07'
+                egressDate:
+                  type: string
+                  example: '2023-09-07'
+                creatorUser:
+                  type: string
+                  example: estebanquintero
+                editorUser:
+                  type: string
+                  example: estebanquintero
       responses:
         '200':
           content:
@@ -259,40 +368,6 @@ paths:
                   egressDate: '2023-09-07'
                   creatorUser: estebanquintero
                   editorUser: estebanquintero
-      tags:
-        - Employee
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                uuid: 300eb91e-9476-448b-b160-8122ba7ad4d5
-                dniType: CC
-                dni: '1037750899'
-                firstName: Juan
-                middleName: Carlos
-                surname: Quintero
-                secondSurname: Martinez
-                picture: >-
-                  https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750899.png
-                gender: M
-                cellPhone: '3127140399'
-                email: juannes99@gmail.com
-                academicLevel: 2
-                supplier: a366e7f9-4bfa-40d8-8d6f-be69846fb160
-                position: 2
-                arl: 2
-                province: '05'
-                city: '05001'
-                isActive: true
-                riskLevel: II
-                riskClass: 2
-                entryDate: '2022-09-07'
-                egressDate: '2023-09-07'
-                creatorUser: estebanquintero
-                editorUser: estebanquintero
   /api/Employee?supplier={supplier}:
     get:
       parameters:
@@ -300,6 +375,12 @@ paths:
           in: path
           type: string
           required: false
+      tags:
+        - Employee
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -334,9 +415,6 @@ paths:
                     egressDate: '2024-05-09'
                     creatorUser: estebanquintero
                     editorUser: estebanquintero
-      tags:
-        - Employee
-      requestBody: null
   /api/Employee/{uuid}:
     get:
       parameters:
@@ -344,6 +422,12 @@ paths:
           in: path
           type: string
           required: true
+      tags:
+        - Employee
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -429,15 +513,91 @@ paths:
                 example:
                   status: 400
                   message: 'No se encontro registro para pk: ''new'''
-      tags:
-        - Employee
-      requestBody: null
     put:
       parameters:
         - name: uuid
           in: path
           type: string
           required: true
+      tags:
+        - Employee
+      requestBody:
+        required: true
+        content:
+          '': null
+          application/json:
+            schema:
+              type: object
+              properties:
+                uuid:
+                  type: string
+                  example: 201131d1-ff11-4fd7-9c01-0e8a69c36226
+                dniType:
+                  type: string
+                  example: CC
+                dni:
+                  type: string
+                  example: '1022161626'
+                firstName:
+                  type: string
+                  example: Emily
+                middleName: null
+                surname:
+                  type: string
+                  example: Quintero
+                secondSurname:
+                  type: string
+                  example: Martinez
+                picture:
+                  type: string
+                  example: >-
+                    https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg
+                gender:
+                  type: string
+                  example: F
+                cellPhone:
+                  type: string
+                  example: '3127140334'
+                email:
+                  type: string
+                  example: emily@gmail.com
+                academicLevel:
+                  type: number
+                  example: 1
+                supplier:
+                  type: string
+                  example: a366e7f9-4bfa-40d8-8d6f-be69846fb160
+                position:
+                  type: number
+                  example: 1
+                arl:
+                  type: number
+                  example: 1
+                province:
+                  type: string
+                  example: '05'
+                city:
+                  type: string
+                  example: '05001'
+                isActive:
+                  type: boolean
+                  example: true
+                riskLevel:
+                  type: string
+                  example: I
+                riskClass:
+                  type: number
+                  example: 1
+                entryDate:
+                  type: string
+                  example: '2020-06-09'
+                egressDate: null
+                creatorUser:
+                  type: string
+                  example: estebanquintero
+                editorUser:
+                  type: string
+                  example: estebanquintero
       responses:
         '200':
           content:
@@ -481,43 +641,15 @@ paths:
                 example:
                   status: 400
                   message: 'No se encontro registro para pk: ''new'''
-      tags:
-        - Employee
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                uuid: 201131d1-ff11-4fd7-9c01-0e8a69c36226
-                dniType: CC
-                dni: '1022161626'
-                firstName: Emily
-                middleName: null
-                surname: Quintero
-                secondSurname: Martinez
-                picture: >-
-                  https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/TI1022161626.jpg
-                gender: F
-                cellPhone: '3127140334'
-                email: emily@gmail.com
-                academicLevel: 1
-                supplier: a366e7f9-4bfa-40d8-8d6f-be69846fb160
-                position: 1
-                arl: 1
-                province: '05'
-                city: '05001'
-                isActive: true
-                riskLevel: I
-                riskClass: 1
-                entryDate: '2020-06-09'
-                egressDate: null
-                creatorUser: estebanquintero
-                editorUser: estebanquintero
   /api/Gender:
     get:
       parameters: []
+      tags:
+        - Gender
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -529,12 +661,15 @@ paths:
                     name: Femenino
                   - code: M
                     name: Masculino
-      tags:
-        - Gender
-      requestBody: null
   /api/Location:
     get:
       parameters: []
+      tags:
+        - Location
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -546,12 +681,15 @@ paths:
                     name: RB-BARRANQUILLA (AANN)
                   - id: 2
                     name: RB-BOGOTÁ (ABCN)
-      tags:
-        - Location
-      requestBody: null
   /api/Position:
     get:
       parameters: []
+      tags:
+        - Position
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -565,12 +703,15 @@ paths:
                   - id: 2
                     name: Supervisor
                     description: Supervisor de coordinadores
-      tags:
-        - Position
-      requestBody: null
   /api/Province:
     get:
       parameters: []
+      tags:
+        - Province
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -584,12 +725,15 @@ paths:
                   - id: '08'
                     name: ATLANTICO
                     code: '605'
-      tags:
-        - Province
-      requestBody: null
   /api/Regional:
     get:
       parameters: []
+      tags:
+        - Regional
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -601,12 +745,15 @@ paths:
                     name: REGIONAL BARRANQUILLA
                   - id: 2
                     name: REGIONAL BOGOTA
-      tags:
-        - Regional
-      requestBody: null
   /api/RiskClass:
     get:
       parameters: []
+      tags:
+        - RiskClass
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -618,12 +765,15 @@ paths:
                     name: Riesgo público
                   - id: 2
                     name: Riesgo locativo
-      tags:
-        - RiskClass
-      requestBody: null
   /api/RiskLevel:
     get:
       parameters: []
+      tags:
+        - RiskLevel
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -635,12 +785,15 @@ paths:
                     name: Riesgo minimo
                   - code: II
                     name: Riesgo bajo
-      tags:
-        - RiskLevel
-      requestBody: null
   /api/Service:
     get:
       parameters: []
+      tags:
+        - Service
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -652,12 +805,15 @@ paths:
                     name: ALIMENTACIÓN/CASINO
                   - id: 2
                     name: ASEO Y LIMPIEZA
-      tags:
-        - Service
-      requestBody: null
   /api/Supplier:
     get:
       parameters: []
+      tags:
+        - Supplier
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -693,11 +849,59 @@ paths:
                     isActive: true
                     creatorUser: estebanquintero
                     editorUser: estebanquintero
-      tags:
-        - Supplier
-      requestBody: null
     post:
       parameters: []
+      tags:
+        - Supplier
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                uuid:
+                  type: string
+                  example: f4f06035-ad0b-4f71-94fa-bdf23e99803e
+                name:
+                  type: string
+                  example: new supplier name
+                description:
+                  type: string
+                  example: new supplier description
+                nit:
+                  type: string
+                  example: new supplier nit
+                sapCode:
+                  type: string
+                  example: new supplier sap
+                business:
+                  type: number
+                  example: 1
+                company:
+                  type: number
+                  example: 1
+                regional:
+                  type: number
+                  example: 1
+                location:
+                  type: number
+                  example: 1
+                companyType:
+                  type: number
+                  example: 1
+                service:
+                  type: number
+                  example: 1
+                isActive:
+                  type: boolean
+                  example: true
+                creatorUser:
+                  type: string
+                  example: new supplier creator user
+                editorUser:
+                  type: string
+                  example: new supplier editor user
       responses:
         '200':
           content:
@@ -719,29 +923,6 @@ paths:
                   isActive: true
                   creatorUser: new supplier creator user
                   editorUser: new supplier editor user
-      tags:
-        - Supplier
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                uuid: f4f06035-ad0b-4f71-94fa-bdf23e99803e
-                name: new supplier name
-                description: new supplier description
-                nit: new supplier nit
-                sapCode: new supplier sap
-                business: 1
-                company: 1
-                regional: 1
-                location: 1
-                companyType: 1
-                service: 1
-                isActive: true
-                creatorUser: new supplier creator user
-                editorUser: new supplier editor user
   /api/Supplier?uuid={uuid}:
     get:
       parameters:
@@ -749,6 +930,12 @@ paths:
           in: path
           type: string
           required: false
+      tags:
+        - Supplier
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -770,9 +957,6 @@ paths:
                     isActive: true
                     creatorUser: estebanquintero
                     editorUser: estebanquintero
-      tags:
-        - Supplier
-      requestBody: null
   /api/Supplier/{uuid}:
     get:
       parameters:
@@ -780,6 +964,12 @@ paths:
           in: path
           type: string
           required: true
+      tags:
+        - Supplier
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '200':
           content:
@@ -827,15 +1017,64 @@ paths:
                 example:
                   status: 400
                   message: 'No se encontro registro para pk: ''new'''
-      tags:
-        - Supplier
-      requestBody: null
     put:
       parameters:
         - name: uuid
           in: path
           type: string
           required: true
+      tags:
+        - Supplier
+      requestBody:
+        required: true
+        content:
+          '': null
+          application/json:
+            schema:
+              type: object
+              properties:
+                uuid:
+                  type: string
+                  example: 933dee19-6ecf-4e42-8b08-6fae32c3ec43
+                name:
+                  type: string
+                  example: edit supplier name
+                description:
+                  type: string
+                  example: edit supplier description
+                nit:
+                  type: string
+                  example: edit supplier ni
+                sapCode:
+                  type: string
+                  example: edit supplier sa
+                business:
+                  type: number
+                  example: 1
+                company:
+                  type: number
+                  example: 1
+                regional:
+                  type: number
+                  example: 1
+                location:
+                  type: number
+                  example: 1
+                companyType:
+                  type: number
+                  example: 1
+                service:
+                  type: number
+                  example: 1
+                isActive:
+                  type: boolean
+                  example: true
+                creatorUser:
+                  type: string
+                  example: edit supplier creator user
+                editorUser:
+                  type: string
+                  example: edit supplier editor user
       responses:
         '200':
           content:
@@ -865,29 +1104,6 @@ paths:
                 example:
                   status: 400
                   message: 'No se encontro registro para pk: ''new'''
-      tags:
-        - Supplier
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              type: object
-              example:
-                uuid: 933dee19-6ecf-4e42-8b08-6fae32c3ec43
-                name: edit supplier name
-                description: edit supplier description
-                nit: edit supplier ni
-                sapCode: edit supplier sa
-                business: 1
-                company: 1
-                regional: 1
-                location: 1
-                companyType: 1
-                service: 1
-                isActive: true
-                creatorUser: edit supplier creator user
-                editorUser: edit supplier editor user
   /api/{modelName}:
     get:
       parameters:
@@ -895,6 +1111,12 @@ paths:
           in: path
           type: string
           required: true
+      tags:
+        - model
+      requestBody:
+        required: true
+        content:
+          '': null
       responses:
         '404':
           content:
@@ -904,9 +1126,42 @@ paths:
                 example:
                   status: 404
                   message: No se encontro el modelo 'model'
+  /service/fileS3:
+    post:
+      parameters: []
       tags:
-        - model
-      requestBody: null
+        - FileS3
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  example: null
+                filePath:
+                  type: string
+                  example: tests/image
+          '': null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  urlS3: >-
+                    https://proveedores-api.s3.us-east-1.amazonaws.com/tests/image.png
+        '400':
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  error: The file was not found.
 components:
   parameters: {}
   definitions: {}
@@ -918,12 +1173,12 @@ components:
           type: number
           required: true
           description: Identificador único para el nivel académico.
-          example: 3
+          example: 1
         name:
           type: string
           required: true
           description: Descripción del nivel académico.
-          example: Técnico
+          example: Primaria
     arl:
       type: object
       properties:
@@ -931,12 +1186,12 @@ components:
           type: number
           required: true
           description: Identificador único para la administradoras de riesgos laborales.
-          example: 3
+          example: 1
         name:
           type: string
           required: true
           description: Nombre de la administradoras de riesgos laborales.
-          example: Seguros de Vida Aurora S.A
+          example: ARL Positiva
     business:
       type: object
       properties:
@@ -944,12 +1199,12 @@ components:
           type: number
           required: true
           description: Identificador único para el negocio.
-          example: 3
+          example: 1
         name:
           type: string
           required: true
           description: Nombre del negocio.
-          example: CARNICO
+          example: ALIMENTOS AL CONSUMIDOR
     city:
       type: object
       properties:
@@ -957,12 +1212,12 @@ components:
           type: string
           required: true
           description: Código único para cada ciudad.
-          example: '05004'
+          example: '05001'
         name:
           type: string
           required: true
           description: Nombre de la ciudad.
-          example: ABRIAQUÍ
+          example: MEDELLÍN
         province:
           type: string
           required: true
@@ -975,12 +1230,12 @@ components:
           type: number
           required: true
           description: Identificador único para la empresa.
-          example: 3
+          example: 1
         name:
           type: string
           required: true
           description: Nombre la empresa.
-          example: GRUPO NUTRESA
+          example: FUNDACION NUTRESA
     company_type:
       type: object
       properties:
@@ -988,12 +1243,12 @@ components:
           type: number
           required: true
           description: Identificador único para el tipo de empresa.
-          example: 3
+          example: 1
         name:
           type: string
           required: true
           description: Nombre del tipo de empresa.
-          example: 2 company type name
+          example: CONTRATISTA
     dni_type:
       type: object
       properties:
@@ -1001,22 +1256,22 @@ components:
           type: string
           required: true
           description: Identificador unico para el tipo de documento.
-          example: NIT
+          example: CC
         name:
           type: string
           required: true
           description: Nombre del tipo de documento.
-          example: Número de Identificación Tributaria
+          example: Cédula de Ciudadanía
         minLength:
           type: number
           required: true
           description: Mínimo de caracteres que permite cada tipo de documento.
-          example: 9
+          example: 6
         maxLength:
           type: number
           required: true
           description: Máximo de caracteres que permite cada tipo de documento.
-          example: 9
+          example: 10
     employee:
       type: object
       properties:
@@ -1024,7 +1279,7 @@ components:
           type: string
           required: true
           description: Identificador universal unico para el empleado.
-          example: 300eb91e-9476-448b-b160-8122ba7ad4d5
+          example: 0990f956-6acf-4447-8b0c-9fcfe5325779
         dniType:
           type: string
           required: true
@@ -1034,7 +1289,7 @@ components:
           type: string
           required: true
           description: Numero de documento del empleado.
-          example: '1037750899'
+          example: '1037750844'
         firstName:
           type: string
           required: true
@@ -1044,7 +1299,7 @@ components:
           type: string
           required: false
           description: Segundo nombre del empleado.
-          example: Carlos
+          example: Esteban
         surname:
           type: string
           required: true
@@ -1054,13 +1309,13 @@ components:
           type: string
           required: true
           description: Segundo nombre del empleado.
-          example: Martinez
+          example: Bedoya
         picture:
           type: string
           required: false
           description: Foto de perfil del empleado.
           example: >-
-            https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750899.png
+            https://proveedores-api.s3.us-east-1.amazonaws.com/profile_picture/CC1037750844.jpg
         gender:
           type: string
           required: true
@@ -1070,17 +1325,17 @@ components:
           type: string
           required: true
           description: Numero de celular del empleado.
-          example: '3127140399'
+          example: '3127140333'
         email:
           type: string
           required: true
           description: Correo electronico corporativo del empleado.
-          example: juannes99@gmail.com
+          example: juannes@gmail.com
         academicLevel:
           type: number
           required: true
           description: Nivel academico del empleado
-          example: 2
+          example: 1
         supplier:
           type: string
           required: true
@@ -1090,12 +1345,12 @@ components:
           type: number
           required: true
           description: Id del cargo que desempeña el empleado.
-          example: 2
+          example: 1
         arl:
           type: number
           required: true
           description: Id de la administradoras de riesgos laborales.
-          example: 2
+          example: 1
         province:
           type: string
           required: true
@@ -1115,22 +1370,22 @@ components:
           type: string
           required: true
           description: codigo del nivel de riesgo.
-          example: II
+          example: I
         riskClass:
           type: number
           required: true
           description: Id de la clasificación de riesgo.
-          example: 2
+          example: 1
         entryDate:
           type: string
           required: true
           description: Fecha de ingreso del empleado.
-          example: '2022-09-07'
+          example: '2024-05-02'
         egressDate:
-          type: string
+          type: object
           required: false
           description: Fecha de egreso del empleado.
-          example: '2023-09-07'
+          example: null
         creatorUser:
           type: string
           required: true
@@ -1140,7 +1395,7 @@ components:
           type: string
           required: true
           description: Nombre de usuario que edito el empleado.
-          example: estebanquintero
+          example: administrador
     gender:
       type: object
       properties:
@@ -1148,12 +1403,12 @@ components:
           type: string
           required: true
           description: Código único para el género.
-          example: O
+          example: F
         name:
           type: string
           required: true
           description: Descripción del género.
-          example: Otro
+          example: Femenino
     location:
       type: object
       properties:
@@ -1161,12 +1416,12 @@ components:
           type: number
           required: true
           description: Identificador único para la localidad.
-          example: 3
+          example: 1
         name:
           type: string
           required: true
           description: Nombre la localidad.
-          example: RM-MEDELLILN (COLCAFE)
+          example: RB-BARRANQUILLA (AANN)
     position:
       type: object
       properties:
@@ -1174,17 +1429,17 @@ components:
           type: number
           required: true
           description: Identificador único para cada cargo.
-          example: 3
+          example: 1
         name:
           type: string
           required: true
           description: Nombre del cargo.
-          example: Supervisor Junior
+          example: Client Manager
         description:
           type: string
           required: true
           description: Nombre del cargo.
-          example: Coordinadores
+          example: Gerente de Proyecto
     province:
       type: object
       properties:
@@ -1192,17 +1447,17 @@ components:
           type: string
           required: true
           description: Identificador único para cada departamento.
-          example: '11'
+          example: '05'
         name:
           type: string
           required: true
           description: Nombre del departamento.
-          example: BOGOTÁ, D.C.
+          example: ANTIOQUIA
         code:
           type: string
           required: true
           description: Nombre del departamento.
-          example: '601'
+          example: '604'
     regional:
       type: object
       properties:
@@ -1210,12 +1465,12 @@ components:
           type: number
           required: true
           description: Identificador único para la regional.
-          example: 3
+          example: 1
         name:
           type: string
           required: true
           description: Nombre la regional.
-          example: REGIONAL CALI
+          example: REGIONAL BARRANQUILLA
     risk_class:
       type: object
       properties:
@@ -1223,12 +1478,12 @@ components:
           type: number
           required: true
           description: Identificador único para la administradoras de riesgos laborales.
-          example: 3
+          example: 1
         name:
           type: string
           required: true
           description: Nombre de la administradoras de riesgos laborales.
-          example: 2 risk class name
+          example: Riesgo público
     risk_level:
       type: object
       properties:
@@ -1236,12 +1491,12 @@ components:
           type: string
           required: true
           description: Identificador único para el nivel de riesgo.
-          example: III
+          example: I
         name:
           type: string
           required: true
           description: Nombre del nivel de riesgo.
-          example: Riesgo medio
+          example: Riesgo minimo
     service:
       type: object
       properties:
@@ -1249,12 +1504,12 @@ components:
           type: number
           required: true
           description: Identificador único para el servicio prestado.
-          example: 3
+          example: 1
         name:
           type: string
           required: true
           description: Nombre del servicio prestado.
-          example: AUTOMATIZACION Y CONTROL
+          example: ALIMENTACIÓN/CASINO
     supplier:
       type: object
       properties:
@@ -1262,27 +1517,27 @@ components:
           type: string
           required: true
           description: Identificador universal unico para la tabal proveedor.
-          example: f4f06035-ad0b-4f71-94fa-bdf23e99803e
+          example: a366e7f9-4bfa-40d8-8d6f-be69846fb160
         name:
           type: string
           required: true
           description: Nombre del proveedor.
-          example: new supplier name
+          example: Axity
         description:
           type: string
           required: false
           description: Descripcion del proveedor.
-          example: new supplier description
+          example: El hogar del mejor talento
         nit:
           type: string
           required: true
           description: número de NIT del proveedor.
-          example: new supplier nit
+          example: '343243423'
         sapCode:
           type: string
           required: true
           description: Codigo SAP del proveedor.
-          example: new supplier sap
+          example: '3432423'
         business:
           type: number
           required: true
@@ -1322,10 +1577,10 @@ components:
           type: string
           required: true
           description: Nombre de usuario que creo el proveedor.
-          example: new supplier creator user
+          example: estebanquintero
         editorUser:
           type: string
           required: true
           description: Nombre de usuario que edito el proveedor.
-          example: new supplier editor user
+          example: estebanquintero
   tags: []
