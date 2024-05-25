@@ -1104,28 +1104,6 @@ paths:
                 example:
                   status: 400
                   message: 'No se encontro registro para pk: ''new'''
-  /api/{modelName}:
-    get:
-      parameters:
-        - name: modelName
-          in: path
-          type: string
-          required: true
-      tags:
-        - model
-      requestBody:
-        required: true
-        content:
-          '': null
-      responses:
-        '404':
-          content:
-            application/json:
-              schema:
-                type: object
-                example:
-                  status: 404
-                  message: No se encontro el modelo 'model'
   /service/fileS3:
     post:
       parameters: []
@@ -1134,6 +1112,7 @@ paths:
       requestBody:
         required: true
         content:
+          '': null
           multipart/form-data:
             schema:
               type: object
@@ -1145,7 +1124,6 @@ paths:
                 filePath:
                   type: string
                   example: tests/image
-          '': null
       responses:
         '200':
           content:
