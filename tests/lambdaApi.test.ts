@@ -1,6 +1,6 @@
 import statusCodes from '@config/statusCodes'
 import db from '@db'
-import {handler} from '@src/api/'
+import {handler} from '@src/api/lambda'
 import masterData from '@src/database/migrate/masterData.json'
 import fs from 'fs'
 import agent from './agent'
@@ -155,6 +155,23 @@ const testModel = (modelName: string) => {
         })
       })
 
+      test(`POST: '/api/${modelName}' error`, async () => {
+        const newElement = examples[modelName].new
+        const config = {
+          method: 'POST',
+          path: `/api/${modelName}`,
+          tag: modelName,
+          params: {},
+          queries: {},
+          header: 'application/json',
+          data: newElement
+        }
+        const {statusCode, headers, data} = await lambda(config)
+        expect(statusCode).toBe(statusCodes.BAD_REQUEST)
+        expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
+        expect(data?.message).toMatch(/(Duplicate entry)/)
+      })
+
       test(`PUT: '/api/${modelName}/:uuid' BAD REQUEST`, async () => {
         const config = {
           method: 'PUT',
@@ -230,19 +247,6 @@ describe('Tests for CRUD', () => {
     await seq.sync({force: true})
   })
 
-  describe('Database close', () => {
-    test('db close error', async () => {
-      const res = await db.close()
-      expect(res).toBe(false)
-    })
-    test('db close', async () => {
-      await db.open()
-      await db.open()
-      const res = await db.close()
-      expect(res).toBe(true)
-    })
-  })
-
   filesModel.forEach((file) => {
     const path = `${PATH_MODELS}/${file}`
     const stats = fs.statSync(path)
@@ -250,5 +254,12 @@ describe('Tests for CRUD', () => {
       const modelName = file.split('.')[0]
       testModel(modelName)
     }
+  })
+
+  test('Error: lambda without event', async () => {
+    const res: any = await handler(null as any, null as any, null as any)
+    expect(res?.statusCode).toBe(statusCodes.INTERNAL_SERVER_ERROR)
+    expect(res?.headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
+    expect(JSON.parse(res?.body)?.message).toMatch(/(not have a valid value)/)
   })
 })

@@ -6,7 +6,6 @@ import app from '@src/server'
 import serviceRoutes from '@src/services/routes'
 import swaggerJson from '@src/swagger.json'
 import {upload} from '@src/utils/multer'
-import 'express-async-errors'
 import swaggerUi from 'swagger-ui-express'
 
 app.use('/api', apiRoutes)
@@ -21,6 +20,6 @@ export const server = db
       console.log('Server listening on port: ', envVars.port)
     })
   })
-  .catch((error) => console.error(error))
+  .catch(console.error)
 
 export default app

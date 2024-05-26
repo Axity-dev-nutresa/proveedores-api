@@ -1,4 +1,4 @@
-import statusCodes from '@src/config/statusCodes'
+import {getResponseError} from '@src/declarations/functions'
 import {trapErrors} from '@src/declarations/middlewares'
 import server from '@src/server'
 import serviceRoutes from '@src/services/routes'
@@ -14,17 +14,6 @@ import serverless from 'serverless-http'
 server.use('/service', upload.single('file'), serviceRoutes)
 server.use(trapErrors)
 
-// export const handler: APIGatewayProxyHandler = serverless(server) as any
-
-const getResponseError = (error: any) => {
-  return {
-    isBase64Encoded: false,
-    statusCode: statusCodes.INTERNAL_SERVER_ERROR,
-    body: JSON.stringify({message: error.toString()}),
-    headers: {'content-type': 'application/json'}
-  }
-}
-
 export const handler: APIGatewayProxyHandler = async (
   event: APIGatewayEvent,
   context: Context
@@ -34,6 +23,6 @@ export const handler: APIGatewayProxyHandler = async (
     return (await serverless(server)(event, context)) as APIGatewayProxyResult
   } catch (error) {
     console.error(error)
-    return getResponseError(error)
+    return getResponseError(String(error))
   }
 }

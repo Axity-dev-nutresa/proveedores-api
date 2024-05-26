@@ -1,6 +1,6 @@
 import statusCodes from '@config/statusCodes'
 import {getModels} from '@db'
-import {resPkNotMach} from '@src/declarations/functions'
+import {PkNotMach} from '@src/declarations/errors'
 import type {Request, Response} from 'express'
 import {Router} from 'express'
 import {Op} from 'sequelize'
@@ -33,7 +33,7 @@ router.put('/:modelName/:uuid', async (req: Request, res: Response) => {
   const {uuid, modelName} = req.params
   const Model = getModels()[modelName]
   const model = await Model.findByPk(uuid)
-  if (!model) return resPkNotMach(res, uuid)
+  if (!model) throw new PkNotMach(uuid)
   const newModel = await model.update({...req.body})
   return res.status(statusCodes.OK).json(newModel)
 })

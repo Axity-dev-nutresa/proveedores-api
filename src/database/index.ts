@@ -21,9 +21,6 @@ export const open = async (): Promise<Sequelize> => {
       host: envVars.dbHost,
       dialect: 'mysql',
       dialectModule: mysql2,
-      dialectOptions: {
-        ssl: envVars.dbSsl
-      },
       pool: {
         min: 0,
         max: 9,

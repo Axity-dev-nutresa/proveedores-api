@@ -17,6 +17,24 @@ export class RouteError extends Error {
  */
 export class PkNotMach extends RouteError {
   constructor(id: string) {
-    super(statusCodes.BAD_REQUEST, `No se encontro registro para la pk: ${id}`)
+    super(statusCodes.BAD_REQUEST, `No record found for primaryKey: ${id}`)
+  }
+}
+
+/**
+ * Error with status code and message
+ */
+export class ModelNotFund extends RouteError {
+  constructor(modelName: string) {
+    super(statusCodes.NOT_FOUND, `Model '${modelName}' not found.`)
+  }
+}
+
+/**
+ * Error with status code and message
+ */
+export class PropertyInvalid extends RouteError {
+  constructor(modelName: string) {
+    super(statusCodes.BAD_REQUEST, `Invalid value for '${modelName}' property `)
   }
 }

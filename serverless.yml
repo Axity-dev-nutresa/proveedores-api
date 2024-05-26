@@ -8,13 +8,13 @@ provider:
     role: arn:aws:iam::664349461262:role/lambdaExecution
 functions:
   api:
-    handler: src/api/index.handler
+    handler: src/api/lambda.handler
     events:
       - httpApi:
           method: ANY
           path: '/api/{proxy+}'
   services:
-    handler: src/services/index.handler
+    handler: src/services/lambda.handler
     events:
       - httpApi:
           method: post

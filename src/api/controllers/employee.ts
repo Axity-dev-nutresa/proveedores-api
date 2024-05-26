@@ -1,6 +1,6 @@
 import statusCodes from '@config/statusCodes'
 import db from '@db'
-import {resPkNotMach} from '@src/declarations/functions'
+import {PkNotMach} from '@src/declarations/errors'
 import type {Request, Response} from 'express'
 
 export const employeeDetail = async (req: Request, res: Response) => {
@@ -20,6 +20,6 @@ export const employeeDetail = async (req: Request, res: Response) => {
       'RiskClass'
     ]
   })
-  if (!result) return resPkNotMach(res, uuid)
+  if (!result) throw new PkNotMach(uuid)
   return res.status(statusCodes.OK).json(result)
 }

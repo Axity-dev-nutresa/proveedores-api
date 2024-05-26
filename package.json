@@ -7,7 +7,7 @@
     "migrate": "ts-node --files -r tsconfig-paths/register -e \"require('@db/migrate').migrate()\"",
     "dev": "nodemon",
     "test": "jest --coverage",
-    "lambda": "serverless offline",
+    "lambda": "cross-env NODE_ENV=dev serverless offline",
     "format": "prettier --write \"*.{ts,json}\"  \"{src,tests}/**/*.{ts,json}\"  && git add .",
     "git": "git add . && cat > commit.txt && echo comment: && git commit -F commit.txt && rm -rf commit.txt && git push"
   },

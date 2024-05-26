@@ -358,6 +358,18 @@
                 }
               }
             }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "message": "Error: Duplicate entry '300eb91e-9476-448b-b160-8122ba7ad4d5' for key 'employee.PRIMARY'"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -492,10 +504,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "example": {
-                    "status": 400,
-                    "message": "No se encontro registro para pk: 'new'"
-                  }
+                  "example": {"message": "Error: No record found for primaryKey: new"}
                 }
               }
             }
@@ -597,10 +606,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "example": {
-                    "status": 400,
-                    "message": "No se encontro registro para pk: 'new'"
-                  }
+                  "example": {"message": "Error: No record found for primaryKey: new"}
                 }
               }
             }
@@ -906,6 +912,18 @@
                 }
               }
             }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "message": "Error: Duplicate entry 'f4f06035-ad0b-4f71-94fa-bdf23e99803e' for key 'supplier.PRIMARY'"
+                  }
+                }
+              }
+            }
           }
         }
       }
@@ -992,10 +1010,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "example": {
-                    "status": 400,
-                    "message": "No se encontro registro para pk: 'new'"
-                  }
+                  "example": {"message": "Error: No record found for primaryKey: new"}
                 }
               }
             }
@@ -1074,10 +1089,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "example": {
-                    "status": 400,
-                    "message": "No se encontro registro para pk: 'new'"
-                  }
+                  "example": {"message": "Error: No record found for primaryKey: new"}
                 }
               }
             }
@@ -1092,13 +1104,11 @@
         "requestBody": {
           "required": true,
           "content": {
-            "": null,
             "multipart/form-data": {
               "schema": {
                 "type": "object",
                 "properties": {
-                  "file": {"type": "string", "format": "binary", "example": null},
-                  "filePath": {"type": "string", "example": "tests/image"}
+                  "file": {"type": "string", "format": "binary", "example": null}
                 }
               }
             }
@@ -1122,7 +1132,7 @@
               "application/json": {
                 "schema": {
                   "type": "object",
-                  "example": {"error": "The file was not found."}
+                  "example": {"message": "Error: Invalid value for 'filePath' property "}
                 }
               }
             }
