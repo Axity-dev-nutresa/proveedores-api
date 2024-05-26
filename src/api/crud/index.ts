@@ -1,39 +1,52 @@
 import statusCodes from '@config/statusCodes'
-import {getModels} from '@db'
+import db from '@db'
+import {hasOne} from '@src/declarations/constants'
 import {PkNotMach} from '@src/declarations/errors'
 import type {Request, Response} from 'express'
 import {Router} from 'express'
-import {Op} from 'sequelize'
+import {Op, WhereOptions} from 'sequelize'
 
 export const router = Router()
 
-router.get('/:modelName/', async (req: Request, res: Response): Promise<any> => {
+router.get('/:modelName/', async (req: Request, res: Response) => {
   const {modelName} = req.params
-  const Model = getModels()[modelName]
+  const Model = db.getModels()[modelName]
   const columns = Object.keys(Model.getAttributes())
-  const queries = columns.reduce((acc, key) => {
+  const queries = columns.reduce((where, key) => {
     const value = req.query[key]
-    if (value) acc.push({[key]: value})
-    return acc
-  }, [] as any)
+    if (value) where.push({[key]: value})
+    return where
+  }, [] as WhereOptions[])
   const result = await Model.findAll({
     where: queries.length > 0 ? {[Op.and]: queries} : {}
   })
   return res.status(statusCodes.OK).json(result)
 })
 
+router.get('/:modelName/:pk', async (req: Request, res: Response) => {
+  const {modelName, pk} = req.params
+  const Model = db.getModels()[modelName]
+  const include = hasOne[modelName as keyof typeof hasOne] ?? []
+  db.relations(include.length > 0 ? modelName : undefined)
+  const result = await Model.findByPk(pk, {
+    include
+  })
+  if (!result) throw new PkNotMach(pk)
+  return res.status(statusCodes.OK).json(result)
+})
+
 router.post('/:modelName/', async (req: Request, res: Response) => {
   const {modelName} = req.params
-  const Model = getModels()[modelName]
+  const Model = db.getModels()[modelName]
   const result = await Model.create(req.body)
   return res.status(statusCodes.OK).json(result)
 })
 
-router.put('/:modelName/:uuid', async (req: Request, res: Response) => {
-  const {uuid, modelName} = req.params
-  const Model = getModels()[modelName]
-  const model = await Model.findByPk(uuid)
-  if (!model) throw new PkNotMach(uuid)
+router.put('/:modelName/:pk', async (req: Request, res: Response) => {
+  const {pk, modelName} = req.params
+  const Model = db.getModels()[modelName]
+  const model = await Model.findByPk(pk)
+  if (!model) throw new PkNotMach(pk)
   const newModel = await model.update({...req.body})
   return res.status(statusCodes.OK).json(newModel)
 })
