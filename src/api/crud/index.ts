@@ -1,6 +1,6 @@
 import statusCodes from '@config/statusCodes'
 import db from '@db'
-import {hasOne} from '@src/declarations/constants'
+import {oneToMany} from '@src/declarations/constants'
 import {PkNotMach} from '@src/declarations/errors'
 import type {Request, Response} from 'express'
 import {Router} from 'express'
@@ -26,7 +26,7 @@ router.get('/:modelName/', async (req: Request, res: Response) => {
 router.get('/:modelName/:pk', async (req: Request, res: Response) => {
   const {modelName, pk} = req.params
   const Model = db.getModels()[modelName]
-  const include = hasOne[modelName as keyof typeof hasOne] ?? []
+  const include = oneToMany[modelName as keyof typeof oneToMany] ?? []
   db.relations(include.length > 0 ? modelName : undefined)
   const result = await Model.findByPk(pk, {
     include
