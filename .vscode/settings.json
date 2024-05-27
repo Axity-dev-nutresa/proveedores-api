@@ -12,13 +12,11 @@
   "cSpell.words": [
     "DATEONLY",
     "DATETIME",
+    "TINYINT",
     "dotenv",
-    "esbuild",
-    "hstore",
+    "Nutresa",
     "openapi",
-    "Parens",
-    "Proveedores",
-    "TINYINT"
+    "Proveedores"
   ],
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"

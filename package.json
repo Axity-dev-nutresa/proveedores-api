@@ -1,17 +1,19 @@
 {
   "name": "proveedores-api",
   "version": "1.0.0",
-  "description": "Backend Proveedores",
+  "description": "Backend Proveedores Nutresa",
   "scripts": {
-    "start": "ts-node --files -r tsconfig-paths/register ./src",
-    "migrate": "ts-node --files -r tsconfig-paths/register -e \"require('@db/migrate').migrate()\"",
+    "start": "cross-env NODE_ENV=dev serverless offline",
     "dev": "nodemon",
     "test": "jest --coverage",
-    "lambda": "cross-env NODE_ENV=dev serverless offline",
-    "format": "prettier --write \"*.{ts,json}\"  \"{src,tests}/**/*.{ts,json}\"  && git add ."
+    "format": "prettier --write \"*.{ts,json}\"  \"{src,tests}/**/*.{ts,json}\"",
+    "migrate": "ts-node --files -r tsconfig-paths/register -e \"require('@db/migrate').migrate()\""
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Esteban Quintero",
+    "email": "juanesqb28@gmail.com"
+  },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.556.0",
     "@aws-sdk/lib-storage": "^3.556.0",
