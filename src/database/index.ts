@@ -9,6 +9,7 @@ let sequelize: Sequelize | null = null
 const purgeSequelize = (sqz: any): Sequelize => {
   // sqz is of type any so that getConnection can be removed
   sqz.connectionManager.initPools()
+  // eslint-disable-next-line no-prototype-builtins
   if (sqz.connectionManager.hasOwnProperty('getConnection')) {
     delete sqz.connectionManager.getConnection
   }

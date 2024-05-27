@@ -5,9 +5,12 @@
   "editor.formatOnSaveMode": "file",
   "files.autoSave": "onFocusChange",
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "sonarlint.connectedMode.project": {
     "connectionId": "axity-dev-nutresa",
-    "projectKey": "Axity-dev-nutresa_api-tablero-incidentes"
+    "projectKey": "Axity-dev-nutresa_proveedores-api"
   },
   "cSpell.words": [
     "DATEONLY",
@@ -18,7 +21,5 @@
     "openapi",
     "Proveedores"
   ],
-  "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "cSpell.enableFiletypes": ["!json", "!jsonc", "!jsonl", "!yaml", "!yml"]
 }

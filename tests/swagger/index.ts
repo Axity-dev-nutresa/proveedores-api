@@ -147,31 +147,3 @@ const makeBody = (data: Data | null) => {
     }
   }
 }
-
-// "parameters": [],
-// "tags": ["FileS3"],
-// "requestBody": {
-//   "required": true,
-//   "content": {
-//     "multipart/form-data": {
-//       "schema": {
-//         "type": "object",
-//         "properties": {
-//           "filePath": {
-//             "type": "string",
-//             "description": "Descripción del archivo"
-//           },
-//           "file": {
-//             "type": "string",
-//             "format": "binary",
-//             "description": "El archivo a subir"
-//           }
-//         },
-//         "example": {
-//           "filePath": "Este es un ejemplo de descripción",
-//           "file": null
-//         }
-//       }
-//     }
-//   }
-// },

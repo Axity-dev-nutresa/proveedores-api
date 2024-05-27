@@ -4,7 +4,7 @@ import type {Config} from '@jest/types'
 
 const jestConfig: Config.InitialOptions = {
   verbose: true,
-  testTimeout: 90000,
+  testTimeout: 9000,
   watch: false,
   watchAll: false,
   detectOpenHandles: true,
@@ -13,7 +13,16 @@ const jestConfig: Config.InitialOptions = {
   roots: ['<rootDir>/src/', '<rootDir>/tests/'],
   testEnvironment: 'node',
   testPathIgnorePatterns: ['node_modules/', 'coverage/', '.vscode/', '.serverless/'],
-  collectCoverageFrom: ['src/**/*.ts'],
+  collectCoverageFrom: ['src/**/*.{js,ts}'],
+  coverageThreshold: {
+    global: {
+      lines: 100,
+      statements: 100,
+      branches: 100,
+      functions: 100
+    }
+  },
+  setupFiles: ['./jest.setup.ts'],
   modulePaths: [compilerOptions.baseUrl],
   moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths)
 }

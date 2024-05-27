@@ -1,6 +1,6 @@
-import request from 'supertest'
-import app, {server} from '@src/index'
 import statusCodes from '@src/config/statusCodes'
+import app, {server} from '@src/index'
+import request from 'supertest'
 
 describe('GET /api/Employee', () => {
   beforeAll(async () => await server)

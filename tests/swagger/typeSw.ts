@@ -2,12 +2,6 @@ import type {ModelAttributeColumnOptions, Model} from 'sequelize'
 
 type Attribute = ModelAttributeColumnOptions<Model<any, any>>
 
-const getLength = (typeSq: string): number => {
-  const length = Number(typeSq.replace(/\D/gi, ''))
-  if (Number.isNaN(length)) return 0
-  return length
-}
-
 export const getTypeExp = (attribute: Attribute) => {
   const columType = attribute.type.toString({})
   if (columType === 'TINYINT(1)') return 'boolean'

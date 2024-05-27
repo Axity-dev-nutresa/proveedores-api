@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  description: Backend Proveedores
+  description: Backend Proveedores Nutresa
   version: 1.0.0
   title: proveedores-api
   servers:

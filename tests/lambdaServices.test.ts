@@ -1,9 +1,9 @@
 import statusCodes from '@config/statusCodes'
+import envVars from '@src/config/envVars'
 import {handler} from '@src/services/lambda'
 import fs from 'fs'
 import agent from './agent'
 import {saveSwagger} from './swagger'
-import envVars from '@src/config/envVars'
 
 const CONTENT_TYPE = 'content-type'
 const lambda = agent(handler)
