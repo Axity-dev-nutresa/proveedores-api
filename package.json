@@ -8,8 +8,7 @@
     "dev": "nodemon",
     "test": "jest --coverage",
     "lambda": "cross-env NODE_ENV=dev serverless offline",
-    "format": "prettier --write \"*.{ts,json}\"  \"{src,tests}/**/*.{ts,json}\"  && git add .",
-    "git": "git add . && cat > commit.txt && echo comment: && git commit -F commit.txt && rm -rf commit.txt && git push"
+    "format": "prettier --write \"*.{ts,json}\"  \"{src,tests}/**/*.{ts,json}\"  && git add ."
   },
   "keywords": [],
   "author": "",
