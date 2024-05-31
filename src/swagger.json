@@ -7,11 +7,54 @@
     "servers": ["http://localhost:4000"]
   },
   "paths": {
+    "/service/fileS3": {
+      "post": {
+        "parameters": [],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "file": {"type": "string", "format": "binary", "example": null},
+                  "filePath": {"type": "string", "example": "tests/image"}
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {
+                    "urlS3": "https://proveedores-api.s3.us-east-1.amazonaws.com/tests/image.png"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "example": {"message": "Error: Invalid value for 'filePath' property "}
+                }
+              }
+            }
+          }
+        },
+        "tags": ["FileS3"]
+      }
+    },
     "/api/AcademicLevel": {
       "get": {
         "parameters": [],
-        "tags": ["AcademicLevel"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -26,14 +69,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["AcademicLevel"]
       }
     },
     "/api/Arl": {
       "get": {
         "parameters": [],
-        "tags": ["Arl"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -48,14 +91,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Arl"]
       }
     },
     "/api/Business": {
       "get": {
         "parameters": [],
-        "tags": ["Business"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -70,14 +113,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Business"]
       }
     },
     "/api/City": {
       "get": {
         "parameters": [],
-        "tags": ["City"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -92,7 +135,8 @@
               }
             }
           }
-        }
+        },
+        "tags": ["City"]
       }
     },
     "/api/City?province={province}": {
@@ -100,8 +144,7 @@
         "parameters": [
           {"name": "province", "in": "path", "type": "string", "required": false}
         ],
-        "tags": ["City"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -116,14 +159,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["City"]
       }
     },
     "/api/Company": {
       "get": {
         "parameters": [],
-        "tags": ["Company"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -138,14 +181,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Company"]
       }
     },
     "/api/CompanyType": {
       "get": {
         "parameters": [],
-        "tags": ["CompanyType"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -160,14 +203,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["CompanyType"]
       }
     },
     "/api/DniType": {
       "get": {
         "parameters": [],
-        "tags": ["DniType"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -192,14 +235,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["DniType"]
       }
     },
     "/api/Employee": {
       "get": {
         "parameters": [],
-        "tags": ["Employee"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -270,11 +313,11 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Employee"]
       },
       "post": {
         "parameters": [],
-        "tags": ["Employee"],
         "requestBody": {
           "required": true,
           "content": {
@@ -365,13 +408,14 @@
                 "schema": {
                   "type": "object",
                   "example": {
-                    "message": "Error: Duplicate entry '300eb91e-9476-448b-b160-8122ba7ad4d5' for key 'employee.PRIMARY'"
+                    "message": "Error: Duplicate entry '0990f956-6acf-4447-8b0c-9fcfe5325779' for key 'employee.PRIMARY'"
                   }
                 }
               }
             }
           }
-        }
+        },
+        "tags": ["Employee"]
       }
     },
     "/api/Employee?supplier={supplier}": {
@@ -379,8 +423,7 @@
         "parameters": [
           {"name": "supplier", "in": "path", "type": "string", "required": false}
         ],
-        "tags": ["Employee"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -422,7 +465,8 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Employee"]
       }
     },
     "/api/Employee/{uuid}": {
@@ -430,8 +474,7 @@
         "parameters": [
           {"name": "uuid", "in": "path", "type": "string", "required": true}
         ],
-        "tags": ["Employee"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -509,17 +552,16 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Employee"]
       },
       "put": {
         "parameters": [
           {"name": "uuid", "in": "path", "type": "string", "required": true}
         ],
-        "tags": ["Employee"],
         "requestBody": {
           "required": true,
           "content": {
-            "": null,
             "application/json": {
               "schema": {
                 "type": "object",
@@ -611,14 +653,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Employee"]
       }
     },
     "/api/Gender": {
       "get": {
         "parameters": [],
-        "tags": ["Gender"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -633,14 +675,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Gender"]
       }
     },
     "/api/Location": {
       "get": {
         "parameters": [],
-        "tags": ["Location"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -655,14 +697,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Location"]
       }
     },
     "/api/Position": {
       "get": {
         "parameters": [],
-        "tags": ["Position"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -685,14 +727,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Position"]
       }
     },
     "/api/Province": {
       "get": {
         "parameters": [],
-        "tags": ["Province"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -707,14 +749,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Province"]
       }
     },
     "/api/Regional": {
       "get": {
         "parameters": [],
-        "tags": ["Regional"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -729,14 +771,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Regional"]
       }
     },
     "/api/RiskClass": {
       "get": {
         "parameters": [],
-        "tags": ["RiskClass"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -751,14 +793,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["RiskClass"]
       }
     },
     "/api/RiskLevel": {
       "get": {
         "parameters": [],
-        "tags": ["RiskLevel"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -773,14 +815,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["RiskLevel"]
       }
     },
     "/api/Service": {
       "get": {
         "parameters": [],
-        "tags": ["Service"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -795,14 +837,14 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Service"]
       }
     },
     "/api/Supplier": {
       "get": {
         "parameters": [],
-        "tags": ["Supplier"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -847,11 +889,11 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Supplier"]
       },
       "post": {
         "parameters": [],
-        "tags": ["Supplier"],
         "requestBody": {
           "required": true,
           "content": {
@@ -919,13 +961,14 @@
                 "schema": {
                   "type": "object",
                   "example": {
-                    "message": "Error: Duplicate entry 'f4f06035-ad0b-4f71-94fa-bdf23e99803e' for key 'supplier.PRIMARY'"
+                    "message": "Error: Duplicate entry 'a366e7f9-4bfa-40d8-8d6f-be69846fb160' for key 'supplier.PRIMARY'"
                   }
                 }
               }
             }
           }
-        }
+        },
+        "tags": ["Supplier"]
       }
     },
     "/api/Supplier?uuid={uuid}": {
@@ -933,8 +976,7 @@
         "parameters": [
           {"name": "uuid", "in": "path", "type": "string", "required": false}
         ],
-        "tags": ["Supplier"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -963,7 +1005,8 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Supplier"]
       }
     },
     "/api/Supplier/{uuid}": {
@@ -971,8 +1014,7 @@
         "parameters": [
           {"name": "uuid", "in": "path", "type": "string", "required": true}
         ],
-        "tags": ["Supplier"],
-        "requestBody": {"required": true, "content": {"": null}},
+        "requestBody": {"required": true, "content": {"application/json": null}},
         "responses": {
           "200": {
             "content": {
@@ -1015,17 +1057,16 @@
               }
             }
           }
-        }
+        },
+        "tags": ["Supplier"]
       },
       "put": {
         "parameters": [
           {"name": "uuid", "in": "path", "type": "string", "required": true}
         ],
-        "tags": ["Supplier"],
         "requestBody": {
           "required": true,
           "content": {
-            "": null,
             "application/json": {
               "schema": {
                 "type": "object",
@@ -1094,50 +1135,8 @@
               }
             }
           }
-        }
-      }
-    },
-    "/service/fileS3": {
-      "post": {
-        "parameters": [],
-        "tags": ["FileS3"],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "file": {"type": "string", "format": "binary", "example": null}
-                }
-              }
-            }
-          }
         },
-        "responses": {
-          "200": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "example": {
-                    "urlS3": "https://proveedores-api.s3.us-east-1.amazonaws.com/tests/image.png"
-                  }
-                }
-              }
-            }
-          },
-          "400": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "example": {"message": "Error: Invalid value for 'filePath' property "}
-                }
-              }
-            }
-          }
-        }
+        "tags": ["Supplier"]
       }
     }
   },

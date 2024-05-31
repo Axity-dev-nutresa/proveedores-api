@@ -3,7 +3,7 @@ import app, {server} from '@src/index'
 import request from 'supertest'
 
 describe('GET /api/Employee', () => {
-  beforeAll(async () => await server)
+  beforeAll(async () => server)
   afterAll(async () => (await server)?.close())
   test('should respond with a array', async () => {
     const res = await request(app).get('/api/Employee')

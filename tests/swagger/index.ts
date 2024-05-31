@@ -1,5 +1,4 @@
-import {ReadStream} from 'fs'
-import fs from 'fs'
+import fs, {ReadStream} from 'fs'
 import yaml from 'js-yaml'
 import {description, name, version} from 'package.json'
 import type {Model, ModelStatic} from 'sequelize'
@@ -47,12 +46,12 @@ export const addRoute = (action: Action, res: LambdaResult) => {
     required: true,
     content: {}
   }
-  requestBody.content[action.header] = makeBody(action.data)
+  requestBody.content[action.header || 'application/json'] = makeBody(action.data)
   swaggerObject.paths[url][method] = {
     parameters,
-    tags: [action.tag],
     requestBody,
-    responses
+    responses,
+    tags: [action.tag]
   }
 }
 

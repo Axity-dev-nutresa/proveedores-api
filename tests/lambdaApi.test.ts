@@ -136,6 +136,23 @@ const testModel = (modelName: string) => {
         expect(data?.message).toMatch(/(new)/)
       })
 
+      test(`POST: '/api/${modelName}' error`, async () => {
+        const newElement = examples[modelName].list[0]
+        const config = {
+          method: 'POST',
+          path: `/api/${modelName}`,
+          tag: modelName,
+          params: {},
+          queries: {},
+          header: 'application/json',
+          data: newElement
+        }
+        const {statusCode, headers, data} = await lambda(config)
+        expect(statusCode).toBe(statusCodes.BAD_REQUEST)
+        expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
+        expect(data?.message).toMatch(/(Duplicate entry)/)
+      })
+
       test(`POST: '/api/${modelName}'`, async () => {
         const newElement = examples[modelName].new
         const config = {
@@ -153,23 +170,6 @@ const testModel = (modelName: string) => {
         Object.keys(newElement).forEach((key) => {
           expect(data?.[key]).toEqual(newElement[key])
         })
-      })
-
-      test(`POST: '/api/${modelName}' error`, async () => {
-        const newElement = examples[modelName].new
-        const config = {
-          method: 'POST',
-          path: `/api/${modelName}`,
-          tag: modelName,
-          params: {},
-          queries: {},
-          header: 'application/json',
-          data: newElement
-        }
-        const {statusCode, headers, data} = await lambda(config)
-        expect(statusCode).toBe(statusCodes.BAD_REQUEST)
-        expect(headers?.[CONTENT_TYPE]).toMatch(/application\/json/)
-        expect(data?.message).toMatch(/(Duplicate entry)/)
       })
 
       test(`PUT: '/api/${modelName}/:uuid' BAD REQUEST`, async () => {
